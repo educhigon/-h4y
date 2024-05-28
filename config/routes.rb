@@ -1,13 +1,16 @@
 Rails.application.routes.draw do
   devise_for :users
+  
   root to: "posts#index"
-  resources :posts, except: [:edit, :update] do
+  resources :posts, only: [:index] do
+    resources :profile, only: [:new, :edit]
     resources :favorites, only: [:index, :create]
     resources :reviews, only: :create
   end
   resources :favorites, only: :destroy
   resources :reviews, only: :destroy
   end
+
 
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 
