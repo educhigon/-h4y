@@ -23,7 +23,14 @@ class ProfileController < ApplicationController
     @profile = Profile.find(params[:id])
   end
 
+
   def update
+    @profile = Profile.find(params[:id])
+    if @profile.update(profile_params)
+      redirect_to profile_path(@profile)
+    else
+      render :new, status: 422
+    end
   end
 
   private
@@ -31,8 +38,5 @@ class ProfileController < ApplicationController
   def profile_params
     params.require(:profile).permit(:name, :bio, :profile_picture)
   end
-
-
-
 
 end
