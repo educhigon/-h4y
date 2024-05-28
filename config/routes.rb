@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
   devise_for :users
-  
+
   root to: "posts#index"
   resources :posts, only: [:index, :show, :new, :create] do
     resources :profile, only: [:new, :edit]
