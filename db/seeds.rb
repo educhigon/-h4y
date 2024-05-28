@@ -5,42 +5,51 @@ Profile.destroy_all
 Review.destroy_all
 User.destroy_all
 
-p "Creating users"
+# p "Creating users"
 a = User.create!(email: "bobusa@gmail.com", password: "password")
 b = User.create!(email: "lucas@lewagon.com", password: "password")
 c = User.create!(email: "emma@test.com", password: "123456")
 d = User.create!(email: "iratxe@lewagon.com", password: "password")
 
-p "Creating posts"
-q = Post.create!(title: "Apples good", content: "An apple a day keeps the doctor away", user: b)
-w = Post.create!(title: "Just move LOL", content: "🚶‍♀️", user: c)
-e = Post.create!(title: "Coffee bad :(", content: "Long text etc Long text etc Long text etc Long text etc Long text etc Long text etc Long text etc Long text etc Long text etc Long text etc Long text etc Long text etc Long text etc Long text etc Long text etc Long text etc Long text etc Long text etc Long text etc Long text etc Long text etc Long text etc Long text etc Long text etc Long text etc Long text etc Long text etc Long text etc Long text etc ", user: a)
-r = Post.create!(title: "Potato good", content: "Potatos are like apples", user: b)
+# p "Creating posts"
+test_post = Post.create!(title: "Apples good", content: "An apple a day keeps the doctor away", user: b)
+Post.create!(title: "Just move LOL", content: "🚶‍♀️🚶‍♀️🚶‍♀️🚶‍♀️🚶‍♀️🚶‍♀️🚶‍♀️🚶‍♀️🚶‍♀️🚶‍♀️", user: c)
+Post.create!(title: "Coffee bad :(", content: "Long text etc Long text etc Long text etc Long text etc Long text etc Long text etc Long text etc Long text etc Long text etc Long text etc Long text etc Long text etc Long text etc Long text etc Long text etc Long text etc Long text etc Long text etc Long text etc Long text etc Long text etc Long text etc Long text etc Long text etc Long text etc Long text etc Long text etc Long text etc Long text etc ", user: a)
+Post.create!(title: "Potato good", content: "Potatos are like apples", user: b)
 
-posts = [q, w, e, r]
+# p "Creating Comments"
+Comment.create!(content: "Good stuff :) !", user: b, post: test_post)
+Comment.create!(content: "I just throw apples at homeless children 😎", user: c, post: test_post)
+Comment.create!(content: "WEAK POST! I could do better", user: d, post: test_post)
 
-p "Creating Comments"
-Comment.create!(content: "g ood stuff :)!", user: User.all.sample, post: posts.sample)
-Comment.create!(content: "I just throw apples at homeless children 😎", user: User.all.sample, post: q)
+# p "Creating Reviews"
+rating = [1..5].sample
+20.times do
+  Review.create!(rating: rating, post: Post.all.sample, user: User.all.sample)
+end
 
-p "Creating Reviews"
-Review.create!(rating: 3, post: q, user: User.all.sample )
-Review.create!(rating: 4, post: q, user: User.all.sample )
-Review.create!(rating: 1, post: r, user: User.all.sample )
+# p "Creating Favorites"
+20.times do
+  Favorite.create!(post: Post.all.sample, user: User.all.sample)
+end
 
-p "Creating Favorite"
-Favorite.create!(post: q, user: User.all.sample )
-Favorite.create!(post: w, user: User.all.sample )
-Favorite.create!(post: q, user: User.all.sample )
+# p "Creating Profiles"
+User.all.each do |user|
+  Profile.create!(user: user, name: user.email.split('@')[0], bio: ('a'..'z').to_a.sample(50).join)
+end
 
-p "Creating Profile"
-Profile.create!(user: a, name: "Bob", bio: "qweqweasdasd")
-Profile.create!(user: b, name: "Lucas", bio: "yxcxycyxcasdasd")
+# p "Database contains:"
+# p "Users: #{User.count}"
+# p "Posts: #{Post.count}"
+# p "Comments: #{Comment.count}"
+# p "Reviews: #{Review.count}"
+# p "Favorites: #{Favorite.count}"
+# p "Profiles: #{Profile.count}"
 
 p "Database contains:"
-p "Users: #{User.count}"
-p "Posts: #{Post.count}"
-p "Comments: #{Comment.count}"
-p "Reviews: #{Review.count}"
-p "Favorites: #{Favorite.count}"
-p "Profiles: #{Profile.count}"
+p "Users: #{'🍌' * User.count}"
+p "Posts: #{'🍌' * Post.count}"
+p "Comments: #{'🍌' * Comment.count}"
+p "Reviews: #{'🍌' * Review.count}"
+p "Favorites: #{'🍌' * Favorite.count}"
+p "Profiles: #{'🍌' * Profile.count}"
