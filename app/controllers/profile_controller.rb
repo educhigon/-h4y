@@ -1,7 +1,8 @@
 class ProfileController < ApplicationController
 
   def show
-    @profile = Profile.new
+    # @profile = Profile.new
+    @profile = Profile.where(user_id: current_user.id).first
   end
 
   def new
