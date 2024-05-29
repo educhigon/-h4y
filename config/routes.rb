@@ -7,6 +7,7 @@ Rails.application.routes.draw do
     resources :reviews, only: :create
     resources :comments, only: :create
   end
+  resources :profiles, only: [:show, :new, :edit]
   resources :favorites, only: :destroy
   resources :reviews, only: :destroy
   resources :profiles, only: [:show, :new, :edit, :update]
