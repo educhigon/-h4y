@@ -1,0 +1,36 @@
+
+<%= link_to post_path(post) do %>
+  <div class="card">
+    <div class="card-header flex-row">
+      <div class="card-profile flex-row">
+        <div class="profile-pic">
+          <img>
+        </div>
+        <p> <%= post.user.profile.name.capitalize %> </p>
+      </div>
+      <div class="date">
+        <p>Date</p>
+      </div>
+    </div>
+    <div class="post-gallery">
+      <br>
+    </div>
+    <div class="action-buttons flex-row">
+      <div class="actions">
+         C  Sh  Sa
+      </div>
+      <div class="reviews">
+        like
+         <%= post.reviews.where(rating: 1).count %>
+        dislike
+        <%= post.reviews.where(rating: 0).count %>
+      </div>
+    </div>
+    <div class="post-content">
+      <strong><%= post.title %></strong>
+      <p>tags</p>
+      <%= post.content[..100] %>...
+    </div>
+
+  </div>
+<% end %>
