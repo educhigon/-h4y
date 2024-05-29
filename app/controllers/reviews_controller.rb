@@ -28,7 +28,10 @@ class ReviewsController < ApplicationController
         # redirect_to redirect_to post_path(post), notice: "like :)"
       # some stimulus stuff to toggle green
     end
-    redirect_to post_path(post), notice: "click_like done"
+    @previous_url = request.referrer
+    go_here = @previous_url.include?("posts/") ? post_path(post) : posts_path
+    # raise
+    redirect_to go_here, notice: "LIKE action done"
   end
 
   def click_dislike
@@ -47,7 +50,13 @@ class ReviewsController < ApplicationController
         # redirect_to redirect_to post_path(post), notice: "like :)"
       # some stimulus stuff to toggle green
     end
-    redirect_to post_path(post), notice: "click_like done"
+    # if click from index redirect index
+    # if click show redirect show
+    # redirect_to post_path(post), notice: "click_like done"
+    @previous_url = request.referrer
+    go_here = @previous_url.include?("posts/") ? post_path(post) : posts_path
+    # raise
+    redirect_to go_here, notice: "DISLIKE action done"
   end
 
   def destroy
