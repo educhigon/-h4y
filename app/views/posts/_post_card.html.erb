@@ -1,0 +1,42 @@
+
+<%= link_to post_path(post) do %>
+  <div class="card">
+    <div class="card-header flex-row">
+      <div class="card-profile flex-row">
+        <div class="profile-pic">
+          <img>
+        </div>
+        <p> <%= post.user.profile.name.capitalize %> </p>
+      </div>
+      <div class="date">
+        <p>Date</p>
+      </div>
+    </div>
+    <div class="post-gallery">
+      <br>
+    </div>
+    <div class="action-buttons flex-row">
+      <div class="actions flex-row">
+         <div> <%= svg_icon('Note', class: 'custom-class') %> </div>
+         <div> <%= svg_icon('Share', class: 'custom-class') %> </div>
+         <div> <%= svg_icon('Saved-post', class: 'custom-class') %> </div>
+      </div>
+      <div class="reviews flex-row">
+        <div> <%= svg_icon('Like', class: 'custom-class') %> </div>
+        <div class="like"> <%= post.reviews.where(rating: 1).count %> </div>
+        <div> <%= svg_icon('dislike', class: 'custom-class') %> </div>
+        <div class="dislike"> <%= post.reviews.where(rating: 0).count %> </div>
+      </div>
+    </div>
+    <div class="post-content">
+      <strong><%= post.title %></strong>
+      <div class="tags flex-row">
+        <p>!tag1</p>
+        <p>!tag2</p>
+        <p>!tag3</p>
+      </div>
+      <%= post.content[..100] %>...
+    </div>
+
+  </div>
+<% end %>

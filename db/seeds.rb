@@ -13,7 +13,7 @@ d = User.create!(email: "iratxe@lewagon.com", password: "password")
 
 # p "Creating posts"
 test_post = Post.create!(title: "Apples good", content: "An apple a day keeps the doctor away", user: b)
-Post.create!(title: "Just move LOL", content: "🚶‍♀️🚶‍♀️🚶‍♀️🚶‍♀️🚶‍♀️🚶‍♀️🚶‍♀️🚶‍♀️🚶‍♀️🚶‍♀️🚶‍♀️🚶‍♀️🚶‍♀️🚶‍♀️🚶‍♀️🚶‍♀️🚶‍♀️🚶‍♀️🚶‍♀️🚶‍♀️🚶‍♀️🚶‍♀️🚶‍♀️🚶‍♀️🚶‍♀️🚶‍♀️🚶‍♀️🚶‍♀️🚶‍♀️🚶‍♀️gehen", user: c)
+Post.create!(title: "Just move LOL", content: "🚶‍♀️🚶‍♀️🚶‍♀️🚶‍♀️🚶‍♀️🚶‍♀️🚶‍♀️🚶‍♀️🚶‍♀️🚶‍♀️🚶‍♀️🚶‍♀️🚶‍♀️🚶‍♀️🚶‍♀️🚶‍♀️🚶‍♀️🚶‍♀️🚶‍♀️🚶‍♀️🚶‍♀️🚶‍♀️🚶‍♀️🚶‍♀️🚶‍♀️🚶‍♀️🚶‍♀️🚶‍♀️🚶‍♀️🚶‍♀️", user: c)
 Post.create!(title: "Coffee bad :(", content: "Long text etc Long text etc Long text etc Long text etc Long text etc Long text etc Long text etc Long text etc Long text etc Long text etc Long text etc Long text etc Long text etc Long text etc Long text etc Long text etc Long text etc Long text etc Long text etc Long text etc Long text etc Long text etc Long text etc Long text etc Long text etc Long text etc Long text etc Long text etc Long text etc ", user: a)
 Post.create!(title: "Potato good", content: "Potatos are like apples", user: b)
 
@@ -28,9 +28,10 @@ posts.each do |post|
   end
 end
 
+# review and favorite generation will break once validation is in place
 # p "Creating Reviews"
-xx = User.all.count * Post.all.count + 10
-rating = [0, 1]
+xx = User.all.count * Post.all.count
+rating = [-1, 1]
 xx.times do
   Review.create!(rating: rating.sample, post: Post.all.sample, user: User.all.sample)
 end

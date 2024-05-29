@@ -1,0 +1,57 @@
+.card {
+  border-radius: 15px;
+  padding: 0px 10px;
+  margin-bottom: 20px;
+  width: 361;
+  box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
+}
+
+.card-header {
+  padding: 10px;
+  p {
+    margin: 0px;
+  }
+}
+
+.card-profile {
+
+  .profile-pic {
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    border-color: green;
+    border-width: thick;
+    margin-right: 10px;
+  }
+}
+
+
+.post-content {
+  padding: 10px 0 20px 0;
+  strong {
+    margin-bottom: 5px;
+  }
+}
+
+.flex-row {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.like {
+  padding: 0px 5px;
+  color: $Brand-800
+}
+.dislike {
+  padding: 0px 5px;
+  color: $Error
+}
+
+.tags {
+  color:$Sec-800;
+  justify-content:flex-start;
+  p {
+    margin-right: 5px;
+  }
+}
