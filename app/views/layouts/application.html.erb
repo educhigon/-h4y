@@ -11,9 +11,11 @@
   </head>
 
   <body>
-    <%= render "shared/navbar" %>
-    <%= render "shared/flashes" %>
-    <h2><%= link_to "Home", posts_path %></h2>
-    <%= yield %>
+    <div class="page-container">
+    <div class="navbar-container"><%= render "shared/navbar" %></div>
+    <div class="flashes-container"><%= render "shared/flashes" %></div>
+    <div class="content-container"><%= yield %></div>
+    <div class="footer-container"><%= render "shared/footer" %></div>
+    </div>
   </body>
 </html>

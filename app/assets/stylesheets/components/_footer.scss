@@ -1,0 +1,29 @@
+.page-container {
+  display: grid;
+  min-height: 100vh;
+  grid-template-rows: auto 1fr auto;
+ }
+
+ .footer {
+  background-color: #2f5e47;
+  padding: 10px 0;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  border-radius: 40px;
+  height: 56px;
+  margin: 0px 16px 12px 16px;
+
+}
+
+.footer-icon {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.icon {
+  width: 24px;
+  height: 24px;
+}
+
