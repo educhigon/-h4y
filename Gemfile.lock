@@ -150,6 +150,9 @@ GEM
       actionpack (>= 6.0.0)
       activesupport (>= 6.0.0)
       railties (>= 6.0.0)
+    inline_svg (1.9.0)
+      activesupport (>= 3.0)
+      nokogiri (>= 1.6)
     io-console (0.7.2)
     irb (1.13.1)
       rdoc (>= 4.0.0)
@@ -327,6 +330,7 @@ DEPENDENCIES
   error_highlight (>= 0.4.0)
   font-awesome-sass (~> 6.1)
   importmap-rails
+  inline_svg
   jbuilder
   pg (~> 1.1)
   pg_search
