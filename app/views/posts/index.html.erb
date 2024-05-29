@@ -1,16 +1,19 @@
-<ul>
-<% @posts.each do |post| %>
-<li>
-<%= post.user.email %>
-<br>
-<%= post.title %>
-<br>
-<%= post.content %>
-</li>
-<% end %>
-</ul>
+<div class="container">
+  <% @posts.each do |post| %>
+    <%= link_to post_path(post) do %>
+      <div class="card">
+          <%= post.user.profile.name.capitalize %>
+          <strong><%= post.title %></strong>
+          <%= post.content %>
+          <br>
+          <p>likes: <%= post.reviews.where(rating: 1).count %>
+          dislikes: <%= post.reviews.where(rating: 0).count %></p>
+      </div>
+    <% end %>
+  <% end %>
 
+  <h5>
+  <%= link_to "new Post", new_post_path %>
+  </h5>
 
-<h5>
-<%= link_to "new Post", new_post_path %>
-</h5>
+</div>
