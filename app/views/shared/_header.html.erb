@@ -1,0 +1,33 @@
+<div class="header flex-row">
+  <div class="left">
+    <% if request.env['PATH_INFO'] == "/" %>
+      <div class="card-profile">
+        <div class="profile-pic">
+          <img>
+        </div>
+        <p> <%= current_user.profile.name.capitalize %> </p>
+      </div>
+    <% else %>
+      <div class="arrow">
+         <div> <%= svg_icon('Arrow - Left', class: 'custom-class') %> </div>
+      </div>
+    <% end %>
+  </div>
+
+  <% if  ["/posts/saved", "/posts/my_posts", "/posts/search", "/messages"].include?(request.env['PATH_INFO']) %>
+    <div class="middle">
+      <p>Page Name</p>
+    </div>
+  <% end %>
+
+  <div class="right flex-row">
+    <% if request.env['PATH_INFO'] == "/messages" %>
+      <%= svg_icon('Search', class: 'custom-class') %>
+    <% elsif request.env['PATH_INFO'] == "/search" %>
+      <%= svg_icon('Message - 5', class: 'custom-class') %>
+    <% else %>
+      <%= svg_icon('Search', class: 'custom-class') %>
+      <%= svg_icon('Message - 5', class: 'custom-class') %>
+    <% end %>
+  </div>
+</div>
