@@ -1,6 +1,6 @@
 
 <%= link_to post_path(post) do %>
-  <div class="card">
+  <div class="post-card">
     <div class="card-header flex-row">
       <div class="card-profile flex-row">
         <div class="profile-pic">
@@ -17,9 +17,9 @@
     </div>
     <div class="action-buttons flex-row">
       <div class="actions flex-row">
-         <div> <%= svg_icon('Note', class: 'custom-class') %> </div>
-         <div> <%= svg_icon('Share', class: 'custom-class') %> </div>
-         <div> <%= svg_icon('Saved-post', class: 'custom-class') %> </div>
+          <%= svg_icon('Note', class: 'custom-class') %>
+          <%= svg_icon('Share', class: 'custom-class') %>
+          <%= svg_icon('Saved-post', class: 'custom-class') %>
       </div>
       <div class="reviews flex-row">
         <div> <%= svg_icon('Like', class: 'custom-class') %> </div>

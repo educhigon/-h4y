@@ -1,22 +1,5 @@
 <div class="container">
-  <h2><%= @post.title %> --- <%= @post.user.profile.name.capitalize %></h2>
-  <p><%= @post.content %></p>
-
-
-  <div>
-    <%  likes = @post.reviews.where(rating: 1).count%>
-    <%  dislikes = @post.reviews.where(rating: -1).count%>
-    <p style="<%= 'color: green;' if @post.reviews.where(user_id: current_user.id).where(rating: 1).first %>">
-    likes: <%= likes %>
-    </p>
-    <p style="<%= 'color: red;' if @post.reviews.where(user_id: current_user.id).where(rating: -1).first %>">
-    dislikes: <%= dislikes %>
-    </p>
-  </div>
-
-<%= link_to "Like Button", click_like_path(@post) %>
-<%= link_to "Dislike Button", click_dislike_path(@post) %>
-
+    <%= render "post_card", post: @post %>
 
   <h5>comments:</h5>
   <% @post.comments.each do |comment| %>
