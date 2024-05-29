@@ -27,11 +27,31 @@
 
 
 .post-content {
-  padding-bottom: 20px;
+  padding: 10px 0 20px 0;
+  strong {
+    margin-bottom: 5px;
+  }
 }
 
 .flex-row {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
+}
+
+.like {
+  padding: 0px 5px;
+  color: $Brand-800
+}
+.dislike {
+  padding: 0px 5px;
+  color: $Error
+}
+
+.tags {
+  color:$Sec-800;
+  justify-content:flex-start;
+  p {
+    margin-right: 5px;
+  }
 }
