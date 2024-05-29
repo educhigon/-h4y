@@ -5,10 +5,15 @@ Rails.application.routes.draw do
   resources :posts, only: [:index, :show, :new, :create] do
     resources :favorites, only: [:index, :create]
     resources :reviews, only: :create
+    resources :comments, only: :create
   end
   resources :profiles, only: [:show, :new, :edit]
   resources :favorites, only: :destroy
   resources :reviews, only: :destroy
+  resources :profiles, only: [:show, :new, :edit, :update]
+
+  get "click_like/:id", to: "reviews#click_like", as: :click_like
+  get "click_dislike/:id", to: "reviews#click_dislike", as: :click_dislike
 
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 
