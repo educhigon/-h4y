@@ -1,0 +1,75 @@
+.page-container {
+  display: grid;
+  min-height: 100vh;
+  grid-template-rows: auto 1fr auto;
+ }
+
+ .footer {
+  background-color: #2f5e47;
+  padding: 10px 0;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  border-radius: 40px;
+  height: 56px;
+  margin: 0px 16px 12px 16px;
+
+}
+
+.footer-icon {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.icon {
+  width: 24px;
+  height: 24px;
+}
+
+.message-footer {
+  background-color: #fff5f0;
+  padding: 10px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 30px;
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+.message-input-container {
+  display: flex;
+  align-items: center;
+  background-color: #2f5e47;
+  border-radius: 30px;
+  padding: 5px 10px;
+}
+
+.message-input {
+  border: none;
+  background: none;
+  color: #6c757d;
+  padding: 10px;
+  border-radius: 20px;
+  outline: none;
+  width: calc(100% - 40px);
+}
+
+.message-input::placeholder {
+  color: #bdbdbd;
+}
+
+.send-button {
+  background: none;
+  border: none;
+  cursor: pointer;
+}
+
+.send-button .icon {
+  fill: #f7c89e;
+  width: 24px;
+  height: 24px;
+}

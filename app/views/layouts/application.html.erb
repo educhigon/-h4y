@@ -11,8 +11,17 @@
   </head>
 
   <body>
-    <%= render "shared/header" %>
-    <%= render "shared/flashes" %>
-    <%= yield %>
+    <div class="page-container">
+    <div class="navbar-container"><%= render "shared/navbar" %></div>
+    <div class="flashes-container"><%= render "shared/flashes" %></div>
+    <div class="content-container"><%= yield %></div>
+    <div class="footer-container">
+        <% if controller_name == 'messages' || controller_name == 'comments' %>
+        <%= render 'shared/message_footer' %>
+        <% else %>
+        <%= render 'shared/footer' %>
+        <% end %>
+    </div>
+    </div>
   </body>
 </html>
