@@ -1,38 +1,34 @@
-
-<div class="card">
-  <div class="card-header flex-row">
-    <%= link_to post_path(post), class: "card-profile flex-row" do %>
-      <div class="profile-pic">
-        <%= image_tag "https://i.pinimg.com/564x/6a/ba/8b/6aba8b5c288c728568945c53625eba87.jpg", class: "avatar" %>
-      </div>
-      <p> <%= post.user.profile.name.capitalize %> </p>
-    <% end %>
-    <div class="date">
-      <p>Date</p>
-    </div>
-  </div>
-  <%= link_to post_path(post), class: "post-gallery" do %>
-    <%= image_tag "https://i.pinimg.com/564x/6a/ba/8b/6aba8b5c288c728568945c53625eba87.jpg", style: "width: 95%; height: 95%," %>
-  <% end %>
-
-  <div class="action-buttons flex-row">
-    <div class="actions flex-row">
-      <%= link_to post_path(post) do %>
-        <%= svg_icon('Note', class: 'custom-class') %>
+  <div class="post-card">
+    <div class="card-header flex-row">
+      <%= link_to post_path(post), class: "card-profile flex-row" do %> 
+        <div class="profile-pic">
+          <%= image_tag "https://i.pinimg.com/564x/6a/ba/8b/6aba8b5c288c728568945c53625eba87.jpg", class: "avatar" %>
+        </div>
+        <p> <%= post.user.profile.name.capitalize %> </p>
       <% end %>
-      <!-- these two missing -->
-      <div> <%= svg_icon('Share', class: 'custom-class') %> </div>
-      <div> <%= svg_icon('Saved-post', class: 'custom-class') %> </div>
+      <div class="date">
+        <p>Date</p>
+      </div>
     </div>
+    <%= link_to post_path(post), class: "post-gallery" do %>
+      <%= image_tag "https://i.pinimg.com/564x/6a/ba/8b/6aba8b5c288c728568945c53625eba87.jpg", style: "width: 95%; height: 95%," %>
+    <% end %>
 
-
-    <div class="reviews flex-row">
-      <%= link_to svg_icon('Like', class: 'custom-class'), click_like_path(post) %>
-      <div class="like"> <%= post.reviews.where(rating: 1).count %> </div>
-      <%= link_to svg_icon('dislike', class: 'custom-class'), click_dislike_path(post) %>
-      <div class="dislike"> <%= post.reviews.where(rating: -1).count %> </div>
+    <div class="action-buttons flex-row">
+      <div class="actions flex-row">
+        <%= link_to post_path(post) do %>
+          <%= svg_icon('Note', class: 'custom-class') %>
+        <% end %>
+        <%= svg_icon('Share', class: 'custom-class') %>
+        <%= svg_icon('Saved-post', class: 'custom-class') %>
+      </div>
+      <div class="reviews flex-row">
+        <%= link_to svg_icon('Like', class: 'custom-class'), click_like_path(post) %>
+        <div class="like"> <%= post.reviews.where(rating: 1).count %> </div>
+        <%= link_to svg_icon('dislike', class: 'custom-class'), click_dislike_path(post) %>
+        <div class="dislike"> <%= post.reviews.where(rating: -1).count %> </div>
+      </div>
     </div>
-  </div>
 
 
   <%= link_to post_path(post), class: "post-content" do %>
