@@ -4,6 +4,18 @@ class PostsController < ApplicationController
     @posts = Post.all
   end
 
+  def my_posts
+    @posts = Post.where(user_id: current_user)
+  end
+
+  def my_favorites
+    @posts = []
+    favorite = Favorite.where(user_id: current_user)
+    favorite.each do |fav|
+      @posts << fav.post
+    end
+  end
+
   def show
     @post = Post.find(params[:id])
     @comment = Comment.new
