@@ -53,7 +53,6 @@ gem "sassc-rails"
 gem "cloudinary"
 gem "pg_search"
 gem 'inline_svg'
-gem 'social-share-button'
 
 group :development, :test do
   gem "dotenv-rails"
