@@ -1,11 +1,21 @@
 <div class="container">
-  <h2><%= @post.title %></h2>
+  <h2><%= @post.title %> --- <%= @post.user.profile.name.capitalize %></h2>
   <p><%= @post.content %></p>
 
+
   <div>
-    <p>likes: <%= @post.reviews.where(rating: 1).count %>
-    dislikes: <%= @post.reviews.where(rating: 0).count %></p>
+    <%  likes = @post.reviews.where(rating: 1).count%>
+    <%  dislikes = @post.reviews.where(rating: -1).count%>
+    <p style="<%= 'color: green;' if @post.reviews.where(user_id: current_user.id).where(rating: 1).first %>">
+    likes: <%= likes %>
+    </p>
+    <p style="<%= 'color: red;' if @post.reviews.where(user_id: current_user.id).where(rating: -1).first %>">
+    dislikes: <%= dislikes %>
+    </p>
   </div>
+
+<%= link_to "Like Button", click_like_path(@post) %>
+<%= link_to "Dislike Button", click_dislike_path(@post) %>
 
 
   <h5>comments:</h5>
@@ -17,7 +27,15 @@
     </div>
   <% end %>
 
+  <h4>new comment</h4>
+  <%= simple_form_for([@post, @comment]) do |f| %>
+    <%= f.input :content %>
+    <%= f.submit class: "btn btn-secondary" %>
+  <% end %>
+
 </div>
+
+
 
 
 <% # i like this - so toggle something green,

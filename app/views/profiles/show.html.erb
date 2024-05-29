@@ -1,14 +1,20 @@
-<div>
-  <h1>Welcome <%= current_user %> to your profile!</h1>
+
+<div class="profile-image"> <!-- ?? -->
 </div>
 
-<div class="profile-image">
-</div>
+<h3><%= @profile.name %></h3>
+
+  <p><%= @profile.bio %></p>
 
 
 
-<div>
-  <%= @profile %>
-  <%= @profile.name %>
-  <%= @profile.bio %>
-</div>
+
+
+<% if @profile.user.id == current_user.id %>
+  <%= render "form", profile: @profile %>
+<% end %>
+
+
+<!-- to make edit appear fully appear on top of each field same spot as on
+the normal profile show the show needs to be built with the form in mind, every
+element like profile.name needs to be replacable by the form input field -->
