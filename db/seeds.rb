@@ -13,23 +13,30 @@ d = User.create!(email: "iratxe@lewagon.com", password: "password")
 
 # p "Creating posts"
 test_post = Post.create!(title: "Apples good", content: "An apple a day keeps the doctor away", user: b)
-Post.create!(title: "Just move LOL", content: "🚶‍♀️🚶‍♀️🚶‍♀️🚶‍♀️🚶‍♀️🚶‍♀️🚶‍♀️🚶‍♀️🚶‍♀️🚶‍♀️", user: c)
+Post.create!(title: "Just move LOL", content: "🚶‍♀️🚶‍♀️🚶‍♀️🚶‍♀️🚶‍♀️🚶‍♀️🚶‍♀️🚶‍♀️🚶‍♀️🚶‍♀️🚶‍♀️🚶‍♀️🚶‍♀️🚶‍♀️🚶‍♀️🚶‍♀️🚶‍♀️🚶‍♀️🚶‍♀️🚶‍♀️🚶‍♀️🚶‍♀️🚶‍♀️🚶‍♀️🚶‍♀️🚶‍♀️🚶‍♀️🚶‍♀️🚶‍♀️🚶‍♀️gehen", user: c)
 Post.create!(title: "Coffee bad :(", content: "Long text etc Long text etc Long text etc Long text etc Long text etc Long text etc Long text etc Long text etc Long text etc Long text etc Long text etc Long text etc Long text etc Long text etc Long text etc Long text etc Long text etc Long text etc Long text etc Long text etc Long text etc Long text etc Long text etc Long text etc Long text etc Long text etc Long text etc Long text etc Long text etc ", user: a)
 Post.create!(title: "Potato good", content: "Potatos are like apples", user: b)
 
 # p "Creating Comments"
-Comment.create!(content: "Good stuff :) !", user: b, post: test_post)
-Comment.create!(content: "I just throw apples at homeless children 😎", user: c, post: test_post)
+Comment.create!(content: "Good stuff :) !", user: a, post: test_post)
 Comment.create!(content: "WEAK POST! I could do better", user: d, post: test_post)
+Comment.create!(content: "I just throw apples at homeless children 😎", user: c, post: test_post)
+posts = Post.all.to_a - [test_post]
+posts.each do |post|
+  5.times do
+    Comment.create!(content: ('a'..'z').to_a.sample(26).join, user: User.all.sample, post: post)
+  end
+end
 
 # p "Creating Reviews"
-rating = [1..5].sample
-20.times do
-  Review.create!(rating: rating, post: Post.all.sample, user: User.all.sample)
+xx = User.all.count * Post.all.count + 10
+rating = [0, 1]
+xx.times do
+  Review.create!(rating: rating.sample, post: Post.all.sample, user: User.all.sample)
 end
 
 # p "Creating Favorites"
-20.times do
+xx.times do
   Favorite.create!(post: Post.all.sample, user: User.all.sample)
 end
 
