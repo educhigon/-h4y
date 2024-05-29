@@ -1,8 +1,8 @@
-class ProfileController < ApplicationController
+class ProfilesController < ApplicationController
 
   def show
     # @profile = Profile.new
-    @profile = Profile.where(user_id: current_user.id).first
+    @profile = Profile.find(params[:id])
   end
 
   def new
@@ -16,14 +16,13 @@ class ProfileController < ApplicationController
     if @profile.save
       redirect_to profile_path(@profile)
     else
-      render :new, status: :unprocessable_entity
+      render :new, status: 422
     end
   end
 
   def edit
     @profile = Profile.find(params[:id])
   end
-
 
   def update
     @profile = Profile.find(params[:id])
@@ -39,5 +38,4 @@ class ProfileController < ApplicationController
   def profile_params
     params.require(:profile).permit(:name, :bio, :profile_picture)
   end
-
 end
