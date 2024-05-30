@@ -1,33 +1,45 @@
 <div class="header flex-row">
   <div class="left">
     <% if request.env['PATH_INFO'] == "/" %>
-      <div class="card-profile">
+
+
+      <%= link_to profile_path(current_user.profile.id), class: "card-profile", style: "display: flex" do %>
         <div class="profile-pic">
-          <img>
+          <%= image_tag "https://i.pinimg.com/564x/6a/ba/8b/6aba8b5c288c728568945c53625eba87.jpg", class: "avatar" %>
         </div>
         <p> <%= current_user.profile.name.capitalize %> </p>
-      </div>
+      <% end %>
     <% else %>
       <div class="arrow">
-         <div> <%= svg_icon('Arrow - Left', class: 'custom-class') %> </div>
+        <%= link_to request.referrer do %>
+          <%= svg_icon('Arrow - Left', class: 'custom-class') %>
+        <% end %>
       </div>
     <% end %>
   </div>
-
-  <% if  ["/posts/saved", "/posts/my_posts", "/posts/search", "/messages"].include?(request.env['PATH_INFO']) %>
+  <!-- careful with how the urls are named -->
+  <% if  ["/my_favorites", "/my_posts", "/posts/search", "/messages"].include?(request.env['PATH_INFO']) %>
     <div class="middle">
-      <p>Page Name</p>
+      <p><%= request.env['PATH_INFO'][1..-1].upcase %></p>
     </div>
   <% end %>
 
   <div class="right flex-row">
     <% if request.env['PATH_INFO'] == "/messages" %>
-      <%= svg_icon('Search', class: 'custom-class') %>
+      <%= link_to "#" do %>
+        <%= svg_icon('Search', class: 'custom-class') %>
+      <% end %>
     <% elsif request.env['PATH_INFO'] == "/search" %>
-      <%= svg_icon('Message - 5', class: 'custom-class') %>
+      <%= link_to "#" do %>
+        <%= svg_icon('Message - 5', class: 'custom-class') %>
+      <% end %>
     <% else %>
-      <%= svg_icon('Search', class: 'custom-class') %>
-      <%= svg_icon('Message - 5', class: 'custom-class') %>
+      <%= link_to "#" do %>
+        <%= svg_icon('Search', class: 'custom-class') %>
+      <% end %>
+      <%= link_to "#" do %>
+        <%= svg_icon('Message - 5', class: 'custom-class') %>
+      <% end %>
     <% end %>
   </div>
 </div>

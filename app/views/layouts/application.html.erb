@@ -12,7 +12,7 @@
 
   <body>
     <div class="page-container">
-    <div class="navbar-container"><%= render "shared/header" %></div>
+    <div class="navbar-container"><%= render "shared/header", route_prefix: @route_prefix %></div>
     <div class="flashes-container"><%= render "shared/flashes" %></div>
     <div class="content-container"><%= yield %></div>
     <div class="footer-container">
