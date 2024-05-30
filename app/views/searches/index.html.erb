@@ -1,9 +1,7 @@
 <!-- app/views/search/index.html.erb -->
 <div class="search-page">
-  <div class="header">
-    <a href="#" class="back-button">&#8592;</a>
+  <div class="header-search">
     <h1>Search</h1>
-    <a href="#" class="menu-button">&#9776;</a>
   </div>
   <div class="search-container">
     <%= form_with url: searches_path, method: :get, local: true, class: 'search-form' do %>
