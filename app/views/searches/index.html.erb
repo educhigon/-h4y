@@ -19,13 +19,8 @@
   </div>
 
   <div class="results-container">
-    <% case params[:type]
-    when 'tags'
-      render partial: 'tag_results', locals: { results: @tag_results }
-    when 'profiles'
-      render partial: 'profile_results', locals: { results: @profile_results }
-    else
-      render partial: 'post_results', locals: { results: @post_results }
-    end %>
+    <%= render partial: 'tag_results', locals: { results: @tag_results } %>
+    <%= render partial: 'profile_results', locals: { results: @profile_results } %>
+    <%= render partial: 'post_results', locals: { results: @post_results } %>
   </div>
 </div>

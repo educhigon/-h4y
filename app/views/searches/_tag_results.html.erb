@@ -1,4 +1,4 @@
-<% results.each do |tag| %>
+<% results&.each do |tag| %>
   <div class="result-item">
     <h3><%= link_to tag.name, tag_path(tag) %></h3>
   </div>

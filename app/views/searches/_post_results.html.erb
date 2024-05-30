@@ -1,4 +1,4 @@
-<% results.each do |post| %>
+<% results&.each do |post| %>
   <div class="result-item">
     <h3><%= link_to post.title, post_path(post) %></h3>
     <p><%= truncate(post.content, length: 100) %></p>

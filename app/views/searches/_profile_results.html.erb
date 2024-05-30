@@ -1,6 +1,5 @@
-<% results.each do |profile| %>
+<% results&.each do |profile| %>
   <div class="result-item">
-    <img src="<%= profile.avatar_url %>" class="profile-image">
     <div class="profile-info">
       <h3><%= link_to profile.name, profile_path(profile) %></h3>
       <p><%= truncate(profile.bio, length: 100) %></p>
