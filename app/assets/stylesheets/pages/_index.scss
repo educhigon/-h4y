@@ -1,5 +1,10 @@
 // Import page-specific CSS files here.
 @import "home";
+@import "sign_in";
+@import "sign_up";
+body {
+  background-color: $Back-color;
+}
 
 body {
   background-color: $Back-color;
