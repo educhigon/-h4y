@@ -11,6 +11,8 @@ Rails.application.routes.draw do
   resources :favorites, only: :destroy
   resources :reviews, only: :destroy
   resources :profiles, only: [:show, :new, :edit, :update]
+  resources :searches, only: [:index]
+
 
   get "click_like/:id", to: "reviews#click_like", as: :click_like
   get "click_dislike/:id", to: "reviews#click_dislike", as: :click_dislike

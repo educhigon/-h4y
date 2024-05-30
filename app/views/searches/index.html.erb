@@ -1,0 +1,33 @@
+<!-- app/views/search/index.html.erb -->
+<div class="search-page">
+  <div class="header">
+    <a href="#" class="back-button">&#8592;</a>
+    <h1>Search</h1>
+    <a href="#" class="menu-button">&#9776;</a>
+  </div>
+  <div class="search-container">
+    <%= form_with url: searches_path, method: :get, local: true, class: 'search-form' do %>
+      <div class="input-container">
+        <%= text_field_tag :query, params[:query], placeholder: 'Input search', class: 'search-input' %>
+        <%= submit_tag '', class: 'search-button' %>
+      </div>
+    <% end %>
+  </div>
+
+  <div class="tabs">
+    <a href="#" class="tab <%= 'active' if params[:type] == 'posts' %>" data-type="posts">Posts</a>
+    <a href="#" class="tab <%= 'active' if params[:type] == 'tags' %>" data-type="tags">Tags</a>
+    <a href="#" class="tab <%= 'active' if params[:type] == 'profiles' %>" data-type="profiles">Persons</a>
+  </div>
+
+  <div class="results-container">
+    <% case params[:type]
+    when 'tags'
+      render partial: 'tag_results', locals: { results: @tag_results }
+    when 'profiles'
+      render partial: 'profile_results', locals: { results: @profile_results }
+    else
+      render partial: 'post_results', locals: { results: @post_results }
+    end %>
+  </div>
+</div>
