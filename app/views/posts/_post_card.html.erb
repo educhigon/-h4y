@@ -5,9 +5,7 @@
         <p>Date</p>
       </div>
     </div>
-
     <%= render "post_main_image", post: post %>
-
     <div class="action-buttons flex-row">
       <div class="actions flex-row">
         <%= link_to post_path(post, anchor: "anchor") do %>
@@ -19,7 +17,6 @@
         <%= link_to "#" do %>
           <%= svg_icon('Saved-post', class: 'custom-class') %>
         <% end %>
-
       </div>
       <div class="reviews flex-row">
         <%= link_to svg_icon('Like', class: 'custom-class'), click_like_path(post) %>
@@ -28,6 +25,5 @@
         <div class="dislike"> <%= post.reviews.where(rating: -1).count %> </div>
       </div>
     </div>
-
   <%= render "post_text", post: post %>
 </div>
