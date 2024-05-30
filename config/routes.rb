@@ -3,7 +3,7 @@ Rails.application.routes.draw do
 
   root to: "posts#index"
   resources :posts, only: [:index, :show, :new, :create] do
-    resources :favorites, only: [:index, :create]
+    resources :favorites, only: [:create]
     resources :reviews, only: :create
     resources :comments, only: :create
   end
@@ -14,6 +14,9 @@ Rails.application.routes.draw do
   resources :searches, only: [:index]
 
 
+
+  get "my_posts", to: "posts#my_posts"
+  get "my_favorites", to: "posts#my_favorites"
   get "click_like/:id", to: "reviews#click_like", as: :click_like
   get "click_dislike/:id", to: "reviews#click_dislike", as: :click_dislike
 

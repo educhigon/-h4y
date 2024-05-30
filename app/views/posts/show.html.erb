@@ -12,7 +12,7 @@
 
   <h4>new comment</h4>
   <%= simple_form_for([@post, @comment]) do |f| %>
-    <%= f.input :content %>
+    <%= f.input :content, input_html: { id: 'anchor' } %>
     <%= f.submit class: "btn btn-secondary" %>
   <% end %>
 
