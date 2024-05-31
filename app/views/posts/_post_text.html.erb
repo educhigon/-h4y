@@ -3,7 +3,7 @@
     <strong><%= post.title %></strong>
     <div class="tags flex-row">
       <% post.tags.each do |tag| %>
-        <p>!<%= tag.name %></p>
+        <%= link_to "!#{tag.name}", tag_path(tag), class: 'tag-link' %>
       <% end %>
     </div>
     <% if request.env['PATH_INFO'] == "/posts" %>
@@ -17,7 +17,7 @@
     <strong><%= post.title %></strong>
     <div class="tags flex-row">
       <% post.tags.each do |tag| %>
-        <p>!<%= tag.name %></p>
+        <%= link_to "!#{tag.name}", tag_path(tag), class: 'tag-link' %>
       <% end %>
     </div>
     <% if request.env['PATH_INFO'] == "/posts" %>
