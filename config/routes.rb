@@ -7,6 +7,7 @@ Rails.application.routes.draw do
     resources :reviews, only: :create
     resources :comments, only: :create
   end
+
   resources :profiles, only: [:show, :new, :edit]
   resources :favorites, only: :destroy
   resources :health_data, only: [:create, :show, :new, :edit, :update]
@@ -14,8 +15,6 @@ Rails.application.routes.draw do
   resources :profiles, only: [:show, :new, :edit, :update]
   resources :searches, only: [:index]
   resources :tags, only: [:show]
-
-
 
   get "my_posts", to: "posts#my_posts"
   get "friend_posts/:id", to: "posts#friend_posts" , as: :friend_posts

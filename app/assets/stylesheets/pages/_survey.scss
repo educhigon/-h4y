@@ -1,0 +1,43 @@
+.body-survey {
+  background-color: $Back-color;
+}
+
+.form-input-survey {
+  background-color: #FFFFFF;
+  width: 800px;
+  height: 40px;
+  border: 1px;
+  padding: 10xp;
+  border-color: #CB8853;
+}
+
+.form-check-input:checked {
+  background-color: green !important;
+}
+
+.input-boxes {
+  border-color: Sec-500;
+  background-color: #FFFFFF;
+}
+
+.button {
+  Width: 42px;
+  Height: 24px;
+  background-color: #CB8853
+}
+
+.layout-button {
+  width: Hug 346px;
+  height: Hug 678px;
+  gap: 16px;
+  opacity: 0px;
+}
+
+.btn-btn-secondary {
+  width: 32px;
+height: 32px;
+gap: 0px;
+border: 5px 0px 0px 0px;
+opacity: 0px;
+background-color: #00653B;
+}
