@@ -1,0 +1,36 @@
+<h1>Survey</h1>
+ <div class="form-inputs">
+    <%= f.input :email,
+                required: true,
+                autofocus: true,
+                input_html: { autocomplete: "Occupation" }%>
+    <%= f.input :,
+                required: true,
+                input_html: { autocomplete: "Gender" } %>
+    <%= f.input :password_confirmation,
+                required: true,
+                input_html: { autocomplete: "Country" } %>
+  </div>
+    <form action="submit-survey.php" method="post">
+        <div class="form-group">
+            <label for="occupation">Occupation:</label>
+            <input type="text" id="occupation" occupation="occupation" required>
+        </div>
+        <div class="form-group">
+            <label for="gender">Gender:</label>
+            <input type="gender" id="gender" name="gender" required>
+        </div>
+        <div class="form-group">
+            <label for="country">Country:</label>
+            <input type="country" id="country" name="country" required>
+        </div>
+        <div class="form-group">
+            <label for="gender">Gender:</label>
+             <option value="prefer_not_to_say">Prefer not to say</option>
+            </select>
+        </div>
+        <div class="form-group">
+            <label for="feedback">Feedback:</label>
+            <textarea id="feedback" name="feedback" rows="4" required></textarea>
+        </div>
+        <button type="submit">Submit</button>
