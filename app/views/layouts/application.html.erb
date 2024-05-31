@@ -11,24 +11,6 @@
   </head>
 
   <body>
-<<<<<<< HEAD
-    <div class="page-container">
-      <% unless controller_name = "devise" %>
-        <div class="navbar-container"><%= render "shared/header" %></div>
-        <div class="flashes-container"><%= render "shared/flashes" %></div>
-      <% end %>
-      <div class="content-container"><%= yield %></div>
-      <% unless controller_name = "devise" %>
-        <div class="footer-container">
-            <% if controller_name == 'messages' || controller_name == 'comments' %>
-            <%= render 'shared/message_footer' %>
-            <% else %>
-            <%= render 'shared/footer' %>
-            <% end %>
-        </div>
-      <% end %>
-    </div>
-=======
     <%= render "shared/header", route_prefix: @route_prefix %>
     <%= render "shared/flashes" %></div>
     <%= yield %>
@@ -37,6 +19,5 @@
     <% else %>
     <%= render 'shared/footer' %>
     <% end %>
->>>>>>> master
   </body>
 </html>

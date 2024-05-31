@@ -1,17 +1,21 @@
-<%= simple_form_for(health) do |f| %>
-  <%=f.input :occupation %>
-  <%=f.input :gender %>
-  <%=f.input :country, :as => :text%>
-  <%=f.input :sleeping_hours %>
-  <%=f.input :age %>
-  <%=f.input :weight %>
-  <%=f.input :height %>
-  <%=f.input :bmi %>
-  <%=f.input :sun_exposure %>
-  <%=f.input :self_employed %>
-  <%=f.input :smoker %>
-  <%=f.input :alcohol_consumer %>
-  <%=f.input :active %>
-  <%=f.input :dairy_intake %>
-  <%= f.submit class: "btn btn-secondary" %>
-<% end %>
+<div class="container">
+  <%= simple_form_for(health) do |f| %>
+    <%= f.input :occupation, input_html: {class: "text-dark input-boxes"} %>
+    <%= f.input :gender, input_html: {class: "text-dark input-boxes"} %>
+    <%= f.input :country, as: :string, input_html: {class: "text-dark input-boxes"} %>
+    <%= f.input :sleeping_hours, input_html: {class: "text-dark input-boxes"} %>
+    <%= f.input :age, input_html: {class: "text-dark input-boxes"} %>
+    <%= f.input :weight, input_html: {class: "text-dark input-boxes"} %>
+    <%= f.input :height, input_html: {class: "text-dark input-boxes"} %>
+    <%= f.input :bmi, input_html: {class: "text-dark input-boxes"} %>
+    <%= f.input :sun_exposure, input_html: {class: "text-dark input-boxes"} %>
+    <div class="form-switch">
+      <%= f.input :self_employed, as: :boolean, input_html: {class: "form-switch", role: "switch"} %>
+    </div>
+    <%= f.input :smoker %>
+    <%= f.input :alcohol_consumer %>
+    <%= f.input :active %>
+    <%= f.input :dairy_intake %>
+    <%= f.submit class: "btn btn-secondary" %>
+  <% end %>
+</div>
