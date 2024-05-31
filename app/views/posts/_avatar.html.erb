@@ -1,0 +1,7 @@
+<div class="avatar">
+  <% if post.user.profile[:profile_picture].present? %>
+    <%=  cl_image_tag(post.user.profile.profile_picture.key, transformation: { width: 40, crop: :fill , border: "3px_solid_rgb:00390b", radius: 50} ) %>
+  <% else %>
+    <%= image_tag "H4you.png", :class => "avatar"%>
+  <% end %>
+</div>

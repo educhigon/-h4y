@@ -1,9 +1,7 @@
   <div class="post-card">
     <div class="card-header flex-row">
-      <%= link_to post_path(post), class: "card-profile flex-row" do %> 
-        <div class="profile-pic">
-          <%= image_tag "https://i.pinimg.com/564x/6a/ba/8b/6aba8b5c288c728568945c53625eba87.jpg", class: "avatar" %>
-        </div>
+      <%= link_to post_path(post), class: "card-profile flex-row" do %>
+        <%= render "avatar", post: post %>
         <p> <%= post.user.profile.name.capitalize %> </p>
       <% end %>
       <div class="date">
@@ -11,7 +9,7 @@
       </div>
     </div>
     <%= link_to post_path(post), class: "post-gallery" do %>
-      <%= image_tag "https://i.pinimg.com/564x/6a/ba/8b/6aba8b5c288c728568945c53625eba87.jpg", style: "width: 95%; height: 95%," %>
+      <%= render "post_image", post: post %>
     <% end %>
 
     <div class="action-buttons flex-row">

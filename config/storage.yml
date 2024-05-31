@@ -3,8 +3,8 @@ test:
   root: <%= Rails.root.join("tmp/storage") %>
 
 cloudinary:
-service: Cloudinary
-folder: <%= Rails.env %>
+  service: Cloudinary
+  folder: <%= Rails.env %>
 
 # local:
 #   service: Disk
