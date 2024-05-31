@@ -10,7 +10,11 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
+<<<<<<< HEAD
 ActiveRecord::Schema[7.1].define(version: 2024_05_30_105210) do
+=======
+ActiveRecord::Schema[7.1].define(version: 2024_05_31_102055) do
+>>>>>>> master
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -61,6 +65,27 @@ ActiveRecord::Schema[7.1].define(version: 2024_05_30_105210) do
     t.index ["user_id"], name: "index_favorites_on_user_id"
   end
 
+  create_table "health_data", force: :cascade do |t|
+    t.string "occupation"
+    t.string "gender"
+    t.string "country"
+    t.integer "sleeping_hours"
+    t.integer "age"
+    t.integer "weight"
+    t.integer "height"
+    t.integer "bmi"
+    t.integer "sun_exposure"
+    t.boolean "self_employed"
+    t.boolean "smoker"
+    t.boolean "alcohol_consumer"
+    t.boolean "active"
+    t.boolean "dairy_intake"
+    t.bigint "user_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["user_id"], name: "index_health_data_on_user_id"
+  end
+
   create_table "pg_search_documents", force: :cascade do |t|
     t.text "content"
     t.string "searchable_type"
@@ -101,6 +126,22 @@ ActiveRecord::Schema[7.1].define(version: 2024_05_30_105210) do
     t.index ["user_id"], name: "index_reviews_on_user_id"
   end
 
+  create_table "taggings", force: :cascade do |t|
+    t.string "taggable_type"
+    t.bigint "taggable_id"
+    t.bigint "tag_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["tag_id"], name: "index_taggings_on_tag_id"
+    t.index ["taggable_type", "taggable_id"], name: "index_taggings_on_taggable"
+  end
+
+  create_table "tags", force: :cascade do |t|
+    t.string "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   create_table "users", force: :cascade do |t|
     t.string "email", default: "", null: false
     t.string "encrypted_password", default: "", null: false
@@ -119,6 +160,7 @@ ActiveRecord::Schema[7.1].define(version: 2024_05_30_105210) do
   add_foreign_key "comments", "users"
   add_foreign_key "favorites", "posts"
   add_foreign_key "favorites", "users"
+  add_foreign_key "health_data", "users"
   add_foreign_key "posts", "users"
   add_foreign_key "profiles", "users"
   add_foreign_key "reviews", "posts"

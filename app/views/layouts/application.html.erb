@@ -11,17 +11,13 @@
   </head>
 
   <body>
-    <div class="page-container">
-    <div class="navbar-container"><%= render "shared/header" %></div>
-    <div class="flashes-container"><%= render "shared/flashes" %></div>
-    <div class="content-container"><%= yield %></div>
-    <div class="footer-container">
-        <% if controller_name == 'messages' || controller_name == 'comments' %>
-        <%= render 'shared/message_footer' %>
-        <% else %>
-        <%= render 'shared/footer' %>
-        <% end %>
-    </div>
-    </div>
+    <%= render "shared/header", route_prefix: @route_prefix %>
+    <%= render "shared/flashes" %></div>
+    <%= yield %>
+    <% if controller_name == 'messages' || controller_name == 'comments' %>
+    <%= render 'shared/message_footer' %>
+    <% else %>
+    <%= render 'shared/footer' %>
+    <% end %>
   </body>
 </html>

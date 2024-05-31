@@ -9,8 +9,12 @@ Rails.application.routes.draw do
   end
   resources :profiles, only: [:show, :new, :edit]
   resources :favorites, only: :destroy
+  resources :health_data, only: [:create, :show, :new, :edit, :update]
   resources :reviews, only: :destroy
   resources :profiles, only: [:show, :new, :edit, :update]
+  resources :searches, only: [:index]
+  resources :tags, only: [:show]
+
 
 
   get "my_posts", to: "posts#my_posts"

@@ -1,0 +1,29 @@
+<div class="search-page">
+  <div class="header-search">
+    <h1>Search</h1>
+  </div>
+  <div class="search-container">
+    <%= form_with url: searches_path, method: :get, local: true, class: 'search-form' do %>
+      <div class="input-container">
+        <%= text_field_tag :query, params[:query], placeholder: 'Input search', class: 'search-input' %>
+        <%= submit_tag '', class: 'search-button' %>
+      </div>
+    <% end %>
+  </div>
+
+  <div class="tabs">
+    <%= link_to 'Posts', searches_path(query: params[:query], type: 'posts'), class: "tab #{'active' if params[:type] == 'posts'}" %>
+    <%= link_to 'Tags', searches_path(query: params[:query], type: 'tags'), class: "tab #{'active' if params[:type] == 'tags'}" %>
+    <%= link_to 'Persons', searches_path(query: params[:query], type: 'profiles'), class: "tab #{'active' if params[:type] == 'profiles'}" %>
+  </div>
+
+  <div class="results-container">
+    <% if params[:type] == 'tags' %>
+      <%= render partial: 'tag_results', locals: { results: @tag_results } %>
+    <% elsif params[:type] == 'profiles' %>
+      <%= render partial: 'profile_results', locals: { results: @profile_results } %>
+    <% else %>
+      <%= render partial: 'post_results', locals: { results: @post_results } %>
+    <% end %>
+  </div>
+</div>
