@@ -30,11 +30,11 @@
         <%= svg_icon('Search', class: 'custom-class') %>
       <% end %>
     <% elsif request.env['PATH_INFO'] == "/search" %>
-      <%= link_to "#" do %>
+      <%= link_to searches_path do %>
         <%= svg_icon('Message - 5', class: 'custom-class') %>
       <% end %>
     <% else %>
-      <%= link_to "#" do %>
+      <%= link_to searches_path do %>
         <%= svg_icon('Search', class: 'custom-class') %>
       <% end %>
       <%= link_to "#" do %>

@@ -9,5 +9,8 @@ class User < ApplicationRecord
   has_many :favorites, dependent: :destroy
   has_many :posts, dependent: :destroy
   has_one :profile, dependent: :destroy
+  has_one :health_datum, dependent: :destroy
+  has_many :taggings, as: :taggable
+  has_many :tags, through: :taggings
 
 end

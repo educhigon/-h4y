@@ -1,5 +1,10 @@
 <%= simple_form_for(post) do |f| %>
   <%= f.input :title %>
   <%= f.input :content %>
+  <%= f.association :tags, as: :check_boxes, collection: Tag.all %>
+  <div class="form-group">
+    <%= f.label :new_tags, "New Tags (comma-separated)" %>
+    <%= text_field_tag :new_tags, nil, class: 'form-control' %>
+  </div>
   <%= f.submit class: "btn btn-secondary" %>
 <% end %>

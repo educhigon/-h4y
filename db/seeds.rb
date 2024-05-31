@@ -44,6 +44,23 @@ end
 # p "Creating Profiles"
 User.all.each do |user|
   Profile.create!(user: user, name: user.email.split('@')[0], bio: ('a'..'z').to_a.sample(50).join)
+  HealthDatum.create!(
+    occupation: "Houseman",
+    gender: "Male",
+    country: "Germany",
+    sleeping_hours: 1,
+    age: 30,
+    weight: 70,
+    height: 1.9,
+    bmi: 24,
+    sun_exposure: 1,
+    self_employed: false,
+    smoker: true,
+    alcohol_consumer: true,
+    active: true,
+    dairy_intake: 1,
+    user: user
+  )
 end
 
 # p "Database contains:"

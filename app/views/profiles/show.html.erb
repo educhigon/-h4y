@@ -1,18 +1,13 @@
-
-<div class="profile-image"> <!-- ?? -->
+<div class="container">
+<div class="text-center">
+<%= svg_icon('avatar', class: 'avatar-profile') %> <!-- ?? -->
+ <h3 class="mt-3"><%= @profile.name %></h3>
+ <p><%= @profile.bio %></p>
 </div>
 
-<h3><%= @profile.name %></h3>
+<%= button_to "edit test", edit_profile_path(@profile), method: :get , class:"pri-btn"%>
 
-  <p><%= @profile.bio %></p>
-
-
-
-<% if @profile.user.id == current_user.id %>
-  <%= render "form", profile: @profile %>
-<% end %>
-
-
-<!-- to make edit appear fully appear on top of each field same spot as on
-the normal profile show the show needs to be built with the form in mind, every
-element like profile.name needs to be replacable by the form input field -->
+<div class="divider mt-4"></div>
+<P class="mt-2 p-2">Text about this survey Lorem Ipsum is simply dummy text of the printing and typesetting industry.</P>
+<%= button_to "Fill Survey Form", "#", method: :get , class:"sec-btn"%>
+</div>
