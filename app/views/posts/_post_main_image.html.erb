@@ -1,12 +1,10 @@
-<% image = "https://i.pinimg.com/564x/6a/ba/8b/6aba8b5c288c728568945c53625eba87.jpg" %>
-
 <% unless request.env['PATH_INFO'].match(%r{^/posts/\d+$}) %>
   <%= link_to post_path(post), class: "post-gallery" do %>
-    <%= image_tag image, style: "width: 100%; height: 100%," %>
-  <p>  <%= post.user.profile.name.capitalize %>  </p>
+    <%= render "post_image", post: post %>
+    <p>  <%= post.user.profile.name.capitalize %>  </p>
   <% end %>
 <% else %>
     <div class="post-gallery">
-      <%= image_tag image, style: "width: 100%; height: 100%," %>
+      <%= render "post_image", post: post %>
     </div>
 <% end %>

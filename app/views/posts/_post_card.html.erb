@@ -1,11 +1,20 @@
   <div class="post-card">
     <div class="card-header flex-row">
-      <%= render "post_header", post: post %>
+
+      <%= link_to post_path(post), class: "card-profile flex-row" do %>
+        <%= render "post_header", post: post %>
+        <p> <%= post.user.profile.name.capitalize %> </p>
+      <% end %>
+
       <div class="date">
         <p>Date</p>
       </div>
     </div>
-    <%= render "post_main_image", post: post %>
+
+    <%= link_to post_path(post), class: "post-gallery" do %>
+      <%= render "post_main_image", post: post %>
+    <% end %>
+
     <div class="action-buttons flex-row">
       <div class="actions flex-row">
         <%= link_to post_path(post, anchor: "anchor") do %>

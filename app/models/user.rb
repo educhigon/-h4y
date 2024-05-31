@@ -13,4 +13,8 @@ class User < ApplicationRecord
   has_many :taggings, as: :taggable
   has_many :tags, through: :taggings
 
+  has_one :health_datum, dependent: :destroy
+  has_many :taggings, as: :taggable
+  has_many :tags, through: :taggings
+
 end

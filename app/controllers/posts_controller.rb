@@ -28,6 +28,8 @@ class PostsController < ApplicationController
   def create
     @post = Post.new(post_params)
     @post.user = current_user
+
+
     if @post.save
       create_new_tags(@post)
       redirect_to post_path(@post), notice: 'Post was successfully created.'
@@ -39,7 +41,7 @@ class PostsController < ApplicationController
   private
 
   def post_params
-    params.require(:post).permit(:title, :content, tag_ids: [])
+    params.require(:post).permit(:title, :content, tag_ids: [], :photos => [])
   end
 
   def create_new_tags(taggable)
