@@ -53,6 +53,8 @@ gem "sassc-rails"
 gem "cloudinary", "2.0.2"
 gem "pg_search"
 gem 'inline_svg'
+gem "ruby-openai"
+
 
 group :development, :test do
   gem "dotenv-rails"
