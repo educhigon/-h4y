@@ -1,1 +1,11 @@
-    <%= render "input_data", profile: @profile %>
+    <!-- <%= render "input_data", profile: @profile %> -->
+<div class="container">
+<div class="text-center">
+<%= svg_icon('avatar', class: 'avatar-profile') %> <!-- ?? -->
+<h4><%= link_to "Change Picture", my_posts_path, class: 'text-link mb-5' %></h4>
+  <!--<p><%= @profile.bio %></p>-->
+</div>
+<% if @profile.user.id == current_user.id %>
+  <%= render "form", profile: @profile %>
+<% end %>
+</div>
