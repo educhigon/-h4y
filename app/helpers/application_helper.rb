@@ -13,4 +13,9 @@ module ApplicationHelper
       "(SVG not found)"
     end
   end
+
+  def display_tags(post)
+    post.tags.map { |tag| content_tag(:p, "!#{tag.name}") }.join.html_safe
+  end
+
 end

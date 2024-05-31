@@ -29,7 +29,8 @@ class PostsController < ApplicationController
     @post = Post.new(post_params)
     @post.user = current_user
     if @post.save
-      redirect_to post_path(@post), notice: "post created"
+      create_new_tags(@post)
+      redirect_to post_path(@post), notice: 'Post was successfully created.'
     else
       render :new, notice: "no bueno"
     end
@@ -38,6 +39,15 @@ class PostsController < ApplicationController
   private
 
   def post_params
-    params.require(:post).permit(:title, :content)
+    params.require(:post).permit(:title, :content, tag_ids: [])
+  end
+
+  def create_new_tags(taggable)
+    if params[:post][:new_tags].present?
+      params[:post][:new_tags].split(',').each do |tag_name|
+        tag = Tag.find_or_create_by(name: tag_name.strip)
+        taggable.tags << tag unless taggable.tags.include?(tag)
+      end
+    end
   end
 end
