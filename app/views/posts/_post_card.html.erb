@@ -2,7 +2,7 @@
     <div class="card-header flex-row">
 
       <%= link_to post_path(post), class: "card-profile flex-row" do %>
-        <%= render "avatar", post: post %>
+        <%= render "post_header", post: post %>
         <p> <%= post.user.profile.name.capitalize %> </p>
       <% end %>
 
@@ -12,7 +12,7 @@
     </div>
 
     <%= link_to post_path(post), class: "post-gallery" do %>
-      <%= render "post_image", post: post %>
+      <%= render "post_main_image", post: post %>
     <% end %>
 
     <div class="action-buttons flex-row">

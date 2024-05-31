@@ -1,8 +1,6 @@
-<% image = "https://i.pinimg.com/564x/6a/ba/8b/6aba8b5c288c728568945c53625eba87.jpg" %>
-
 <%= link_to profile_path(post.user.profile.id), class: "card-profile flex-row" do %>
   <div class="profile-pic">
-    <%= image_tag image, class: "avatar" %>
+    <%= render "avatar", post: post %>
   </div>
   <p>  <%= post.user.profile.name.capitalize %>  </p>
 <% end %>
