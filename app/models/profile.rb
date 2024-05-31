@@ -1,7 +1,6 @@
 class Profile < ApplicationRecord
   belongs_to :user
   has_one_attached :profile_picture
-
   has_many :taggings, as: :taggable
   has_many :tags, through: :taggings
 
@@ -11,5 +10,4 @@ class Profile < ApplicationRecord
   using: {
     tsearch: { prefix: true }
   }
-
 end

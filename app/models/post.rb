@@ -15,5 +15,4 @@ class Post < ApplicationRecord
   using: {
     tsearch: { prefix: true }
   }
-
 end

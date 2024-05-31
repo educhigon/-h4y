@@ -41,10 +41,7 @@ class PostsController < ApplicationController
   private
 
   def post_params
-<<<<<<< HEAD
-    params.require(:post).permit(:title, :content, :photos => [])
-=======
-    params.require(:post).permit(:title, :content, tag_ids: [])
+    params.require(:post).permit(:title, :content, tag_ids: [], :photos => [])
   end
 
   def create_new_tags(taggable)
@@ -54,6 +51,5 @@ class PostsController < ApplicationController
         taggable.tags << tag unless taggable.tags.include?(tag)
       end
     end
->>>>>>> master
   end
 end
