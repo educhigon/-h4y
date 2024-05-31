@@ -11,6 +11,7 @@
   </head>
 
   <body>
+<<<<<<< HEAD
     <div class="page-container">
       <% unless controller_name = "devise" %>
         <div class="navbar-container"><%= render "shared/header" %></div>
@@ -27,5 +28,15 @@
         </div>
       <% end %>
     </div>
+=======
+    <%= render "shared/header", route_prefix: @route_prefix %>
+    <%= render "shared/flashes" %></div>
+    <%= yield %>
+    <% if controller_name == 'messages' || controller_name == 'comments' %>
+    <%= render 'shared/message_footer' %>
+    <% else %>
+    <%= render 'shared/footer' %>
+    <% end %>
+>>>>>>> master
   </body>
 </html>

@@ -5,7 +5,7 @@
 }
 
 .content {
-  padding-bottom: 70px; /* Adjust based on the footer height to avoid overlap */
+  padding-bottom: 70px;
 }
 
 .footer {
@@ -17,10 +17,10 @@
   border-radius: 40px;
   height: 56px;
   margin: 0 16px 12px 16px;
-  position: fixed; /* Fixed position */
-  bottom: 0; /* Stick to the bottom */
-  width: calc(100% - 32px); /* Full width minus margins */
-  z-index: 1000; /* Ensure it stays on top of other content */
+  position: fixed;
+  bottom: 0;
+  width: calc(100% - 32px);
+  z-index: 1000;
 }
 
 .footer-icon {
@@ -41,10 +41,10 @@
   justify-content: center;
   align-items: center;
   border-radius: 40px;
-  position: fixed; /* Fixed position */
-  bottom: 0; /* Stick to the bottom */
-  width: calc(100% - 32px); /* Full width minus margins */
-  z-index: 1000; /* Ensure it stays on top of other content */
+  position: fixed;
+  bottom: 0;
+  width: calc(100% - 32px);
+  z-index: 1000; 
   box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
 }
 
