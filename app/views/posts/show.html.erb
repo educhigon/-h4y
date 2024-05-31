@@ -4,7 +4,10 @@
   <h5>comments:</h5>
   <% @post.comments.each do |comment| %>
     <div class="card">
-      <h5><%= comment.user.profile.name.capitalize %></h5>
+      <%= link_to friend_posts_path(comment.user), class: "post-content" do %>
+        <h5><%= comment.user.profile.name.capitalize %></h5>
+      <% end %>
+
       <p><%= comment.content %></p>
 
     </div>

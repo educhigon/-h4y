@@ -8,6 +8,10 @@ class PostsController < ApplicationController
     @posts = Post.where(user_id: current_user)
   end
 
+  def friend_posts
+    @posts = Post.where(user_id: params[:id])
+  end
+
   def my_favorites
     @posts = []
     favorite = Favorite.where(user_id: current_user)

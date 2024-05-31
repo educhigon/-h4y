@@ -18,6 +18,7 @@ Rails.application.routes.draw do
 
 
   get "my_posts", to: "posts#my_posts"
+  get "friend_posts/:id", to: "posts#friend_posts" , as: :friend_posts
   get "my_favorites", to: "posts#my_favorites"
   get "click_like/:id", to: "reviews#click_like", as: :click_like
   get "click_dislike/:id", to: "reviews#click_dislike", as: :click_dislike
