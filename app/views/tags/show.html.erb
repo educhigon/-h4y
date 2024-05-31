@@ -1,0 +1,13 @@
+<div class="tag-show-page">
+  <h1>Posts tagged with <%= @tag.name %></h1>
+
+  <% if @posts.any? %>
+    <div class="posts">
+      <% @posts.each do |post| %>
+        <%= render partial: 'posts/post_text', locals: { post: post } %>
+      <% end %>
+    </div>
+  <% else %>
+    <p>No posts found for this tag.</p>
+  <% end %>
+</div>

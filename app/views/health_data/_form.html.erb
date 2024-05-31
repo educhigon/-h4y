@@ -1,0 +1,17 @@
+<%= simple_form_for(health) do |f| %>
+  <%=f.input :occupation %>
+  <%=f.input :gender %>
+  <%=f.input :country, :as => :text%>
+  <%=f.input :sleeping_hours %>
+  <%=f.input :age %>
+  <%=f.input :weight %>
+  <%=f.input :height %>
+  <%=f.input :bmi %>
+  <%=f.input :sun_exposure %>
+  <%=f.input :self_employed %>
+  <%=f.input :smoker %>
+  <%=f.input :alcohol_consumer %>
+  <%=f.input :active %>
+  <%=f.input :dairy_intake %>
+  <%= f.submit class: "btn btn-secondary" %>
+<% end %>

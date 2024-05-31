@@ -7,7 +7,6 @@
   color: #00653B;
   background-color: #EDC47C;
 }
-
 .content-container {
   margin-bottom: 250px;
 }
@@ -26,3 +25,26 @@
   margin-bottom: 250px;
 }
 
+
+.pri-btn {
+  font-weight: 400;
+  font-style: normal;
+  height: 48px;
+  width: fill;
+  border-radius: 50px;
+  color: white;
+  background-color: $Brand-color;
+  text-decoration: none;
+}
+
+.sec-btn{
+  font-weight: 400;
+  font-style: normal;
+  height: 48px;
+  width: fill;
+  border-radius: 50px;
+  border: 2px solid $Brand-color;
+  color: $Brand-color;
+  background-color: transparent;
+  text-decoration: none;
+}
