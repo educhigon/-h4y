@@ -12,6 +12,7 @@ Rails.application.routes.draw do
   resources :reviews, only: :destroy
   resources :profiles, only: [:show, :new, :edit, :update]
   resources :searches, only: [:index]
+  resources :tags, only: [:show]
 
 
 
