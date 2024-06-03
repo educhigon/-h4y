@@ -1,7 +1,7 @@
 <%= simple_form_for(post) do |f| %>
   <%= f.input :title %>
   <%= f.input :content %>
-  <%= f.input :photos, input_html: { multiple: true } %>
+  <%= f.input :photos, as: :file, input_html: { multiple: true } %>
 
   <%= f.association :tags, as: :check_boxes, collection: Tag.all %>
   <div class="form-group">
