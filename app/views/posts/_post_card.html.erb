@@ -15,9 +15,7 @@
       </div>
     </div>
 
-    <%= link_to post_path(post), class: "post-gallery" do %>
-      <%= render "post_main_image", post: post %>
-    <% end %>
+      <%= render "post_main_image", post: post, index: index %>
 
     <div class="action-buttons flex-row">
       <div class="actions flex-row">

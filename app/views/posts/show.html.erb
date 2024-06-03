@@ -1,5 +1,5 @@
 <div class="container">
-    <%= render "post_card", post: @post %>
+    <%= render "post_card", post: @post, index: 1 %>
 
   <% @post.comments.each do |comment| %>
     <%= render "comments", comment: comment %>
@@ -12,10 +12,3 @@
   <% end %>
 
 </div>
-
-
-
-
-<% # i like this - so toggle something green,
-#liek/disliek div now clickable
-# click like div make review; if exist cliick dislike change rating vlaue %>

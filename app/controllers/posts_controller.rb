@@ -4,6 +4,7 @@ class PostsController < ApplicationController
     @posts = Post.all
   end
 
+
   def my_posts
     @posts = Post.where(user_id: current_user)
   end
@@ -43,7 +44,7 @@ class PostsController < ApplicationController
   private
 
   def post_params
-    params.require(:post).permit(:title, :content, tag_ids: [], :photos => [])
+    params.require(:post).permit(:title, :content, tag_ids: [], photos: [])
   end
 
   def create_new_tags(taggable)

@@ -1,4 +1,4 @@
-<div class="container">
+<div class="container" style="margin-bottom: 200px;">
   <%= simple_form_for(health) do |f| %>
     <%= f.input :occupation, input_html: {class: "text-dark input-boxes"} %>
     <%= f.input :gender, input_html: {class: "text-dark input-boxes"} %>
@@ -10,12 +10,62 @@
     <%= f.input :bmi, input_html: {class: "text-dark input-boxes"} %>
     <%= f.input :sun_exposure, input_html: {class: "text-dark input-boxes"} %>
     <div class="form-switch">
-      <%= f.input :self_employed, as: :boolean, input_html: {class: "form-switch", role: "switch"} %>
+      <div class=" d-flex justify-content-end">
+        <%= f.label :self_employed, class: "label-survey mb-3"  %>
+        <%= f.input :self_employed, as: :boolean, label: false, input_html: {class: "form-switch", role: "switch"} %>
+      </div>
     </div>
-    <%= f.input :smoker %>
-    <%= f.input :alcohol_consumer %>
-    <%= f.input :active %>
-    <%= f.input :dairy_intake %>
-    <%= f.button :submit, "Save your data", class: "sec-btn" %>
-  <% end %>
+    <div class="form-switch">
+      <div class=" d-flex justify-content-end">
+      <%= f.label :smoker, class: "label-survey mb-3"  %>
+      <%= f.input :smoker, as: :boolean, label: false, input_html: {class: "form-switch", role: "switch"} %>
+    </div>
+    </div>
+    <div class="form-switch">
+    <div class=" d-flex justify-content-end">
+      <%= f.label :alcohol_consumer, class: "label-survey mb-3"  %>
+      <%= f.input :alcohol_consumer, as: :boolean, label: false, input_html: {class: "form-switch", role: "switch"} %>
+    </div>
+    </div>
+    <div class="form-switch">
+    <div class=" d-flex justify-content-end">
+      <%= f.label :active, class: "label-survey mb-3"  %>
+      <%= f.input :active, as: :boolean, label: false, input_html: {class: "form-switch", role: "switch"} %>
+    </div>
+    </div>
+    <div class="form-switch">
+    <div class=" d-flex justify-content-end">
+      <%= f.label :dairy_intake, class: "label-survey mb-3"  %>
+      <%= f.input :dairy_intake, as: :boolean, label: false, input_html: {class: "form-switch", role: "switch"} %>
+    </div>
+    </div>
+    <div class="button">
+    <%= f.submit class: "btn survey-btn" %>
+    </div>
+    <div class="range-container">
+    <label for="customRange3" class="form-label">Blood Pressure</label>
+    <input type="range" class="form-range" min="0" max="5" step="0.5" id="customRange3">
+    <div class="range-labels">
+      <span class="range-label low">Low</span>
+      <span class="range-label normal">Normal</span>
+      <span class="range-label high">High</span>
+    </div>
+      </div>
+  <div class="activity-container">
+  <div class="label-activity">
+    <label class="form-label">Activity:</label>
+  </div>
+    <div class="form-radio-group d-flex justify-content-around">
+      <div class="label-active">
+      <input type="radio" id="activ" name="activity" value="option1">
+      <label for="activ">Active</label>
+      </div>
+      <div class="label-sedentary">
+      <input type="radio" id="sedentary" name="activity" value="option2">
+      <label for="sedentary">Sedentary</label>
+      </div>
+    </div>
+    </div>
 </div>
+</div>
+<% end %>
