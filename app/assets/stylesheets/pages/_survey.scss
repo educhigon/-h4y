@@ -35,3 +35,100 @@ background-color: #00653B;
   width: 100%;
   padding-left: 12px;
 }
+
+.range-container {
+  width: 330px;
+  margin: 20px auto;
+  text-align: center;
+}
+
+.form-label {
+  display: block;
+  margin-bottom: 10px;
+  font-size: 16px;
+  font-weight: bold;
+}
+
+.form-range {
+  width: 100%;
+  margin-bottom: 10px;
+  appearance: none;
+  height: 10px;
+  background: #CB8853;
+  border-radius: 5px;
+  outline: none;
+  transition: background 0.3s;
+}
+
+.form-range::-webkit-slider-thumb {
+  appearance: none;
+  width: 20px;
+  height: 20px;
+  background: #00653B;
+  border-radius: 50%;
+  cursor: pointer;
+  transition: background 0.3s;
+}
+
+.form-range::-moz-range-thumb {
+  width: 20px;
+  height: 20px;
+  background: #00653b;
+  border-radius: 50%;
+  cursor: pointer;
+  transition: background 0.3s;
+}
+
+.form-range::-ms-thumb {
+  width: 20px;
+  height: 20px;
+  background: #00653b;
+  border-radius: 50%;
+  cursor: pointer;
+  transition: background 0.3s;
+}
+
+.range-labels{
+  display: flex;
+  justify-content: space-between;
+  margin-top: 5px;
+}
+
+.range-labels {
+  font-size: 14px;
+  color: #0a0a0a;
+}
+
+body {
+  background-color: #f5f5f5;
+  padding: 20px;
+}
+
+.activity-container {
+  width: 100%; // Adjust width as needed
+  margin: 20px auto;
+  display: flex;
+  align-items: center;
+}
+
+.label-activity {
+  margin-right: 20px; // Space between the label and radio buttons
+  font-size: 16px;
+  font-weight: bold;
+}
+
+.form-radio-group {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  width: 100%; // Take the remaining width
+}
+
+.label-active, .label-sedentary {
+  display: flex;
+  align-items: center;
+}
+
+.label-active label, .label-sedentary label {
+  margin-left: 5px; // Space between the radio button and its label
+}
