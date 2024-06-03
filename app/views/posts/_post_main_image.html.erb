@@ -1,9 +1,9 @@
 <% unless request.env['PATH_INFO'].match(%r{^/posts/\d+$}) %>
-  <%= link_to post_path(post), class: "post-gallery" do %>
-    <%= render "post_image", post: post %>
-  <% end %>
+  <div class="post-gallery">
+    <%= render "post_image", post: post, index: index %>
+  </div>
 <% else %>
     <div class="post-gallery">
-      <%= render "post_image", post: post %>
+      <%= render "post_image", post: post, index: index %>
     </div>
 <% end %>

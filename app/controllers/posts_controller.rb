@@ -45,7 +45,7 @@ class PostsController < ApplicationController
   private
 
   def post_params
-    params.require(:post).permit(:title, :content, tag_ids: [], :photos => [])
+    params.require(:post).permit(:title, :content, tag_ids: [], photos: [])
   end
 
   def create_new_tags(taggable)
