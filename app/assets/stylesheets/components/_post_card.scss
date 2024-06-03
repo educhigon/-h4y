@@ -27,7 +27,8 @@
     width: 40px;
     height: 40px;
     border-radius: 50%;
-    border: 5px solid #555;
+    padding: 2px;
+    border: 3px solid $Brand-color;
     margin-right: 10px;
   }
 }
@@ -40,8 +41,6 @@
 .action-buttons {
   margin: 15px 0px 15px 0px;
 }
-
-
 
 .post-content {
   padding-top: 8px;

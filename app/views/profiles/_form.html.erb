@@ -1,11 +1,13 @@
 <%= simple_form_for(profile) do |f| %>
   <%= f.input :name %>
   <%= f.input :bio, as: :text, input_html: { rows: 4 }%>
+  <%= f.input :profile_picture, as: :file %>
+  <!--
   <%= f.association :tags, as: :check_boxes, collection: Tag.all %>
   <div class="form-group">
     <%= f.label :new_tags, "New Tags (comma-separated)" %>
     <%= text_field_tag :new_tags, nil, class: 'form-control' %>
   </div>
+  -->
   <%= f.submit class: "btn btn-secondary pri-btn mt-3" %>
 <% end %>
-
