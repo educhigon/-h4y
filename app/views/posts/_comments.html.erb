@@ -1,0 +1,13 @@
+    <div class="comments d-flex justify-content-start">
+      <div class="profile-pic">
+        <%= render "avatar", post: comment %>
+      </div>
+
+      <div class="ballon">
+        <%= link_to friend_posts_path(comment.user), class: "post-content" do %>
+          <h5><%= comment.user.profile.name.capitalize %></h5>
+        <% end %>
+        <p><%= comment.content %></p>
+      </div>
+
+    </div>

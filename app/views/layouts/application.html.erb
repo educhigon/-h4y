@@ -21,9 +21,9 @@
     <%= render "shared/flashes" %></div>
     <%= yield %>
     <% if controller_name == 'messages' || controller_name == 'comments' %>
-    <%= render 'shared/message_footer' %>
+      <%= render 'shared/message_footer' %>
     <% else %>
-    <%= render 'shared/footer' %>
+      <%= render 'shared/footer' %>
     <% end %>
   </body>
 </html>

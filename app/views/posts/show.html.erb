@@ -1,19 +1,11 @@
 <div class="container">
     <%= render "post_card", post: @post, index: 1 %>
 
-  <h5>comments:</h5>
   <% @post.comments.each do |comment| %>
-    <div class="card">
-      <%= link_to friend_posts_path(comment.user), class: "post-content" do %>
-        <h5><%= comment.user.profile.name.capitalize %></h5>
-      <% end %>
-
-      <p><%= comment.content %></p>
-
-    </div>
+    <%= render "comments", comment: comment %>
   <% end %>
 
-  <h4>new comment</h4>
+  <h4>Add your comment</h4>
   <%= simple_form_for([@post, @comment]) do |f| %>
     <%= f.input :content, input_html: { id: 'anchor' } %>
     <%= f.submit class: "btn btn-secondary" %>

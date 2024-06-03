@@ -25,8 +25,14 @@
         <%= link_to "#" do %>
           <%= svg_icon('Share', class: 'custom-class') %>
         <% end %>
-        <%= link_to "#" do %>
-          <%= svg_icon('Saved-post', class: 'custom-class') %>
+        <% if Favorite.where(user_id: current_user.id, post_id: post.id).empty? %>
+          <%= link_to post_favorites_path(post), data: { turbo_method: "post" } do %>
+            <%= svg_icon('Saved-post', class: 'custom-class') %>
+          <% end %>
+        <% else %>
+          <%= link_to favorite_path(post), data: { turbo_method: "delete" } do %>
+            <%= svg_icon('Saved-post-saved', class: 'custom-class') %>
+          <% end %>
         <% end %>
       </div>
 

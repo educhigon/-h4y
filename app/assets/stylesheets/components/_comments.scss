@@ -1,0 +1,25 @@
+.comments {
+  .profile-pic {
+    margin-right: 12px;
+  }
+  margin: 10px 24px 0px 12px;
+}
+
+.ballon {
+  background-color: white;
+  border-radius: 0 12px 12px 12px;
+  padding: 5px;
+  width: 100%;
+  margin-bottom: 10px;
+  h5 {
+    color: #0B3520;
+    font-size: 18px;
+  }
+  p {
+    margin-bottom: 0px;
+    color: $gray-700;
+  }
+  a{
+    text-decoration: none;
+  }
+}
