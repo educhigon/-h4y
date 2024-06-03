@@ -4,6 +4,7 @@ class PostsController < ApplicationController
     @posts = Post.all
   end
 
+
   def my_posts
     @posts = Post.where(user_id: current_user)
   end
