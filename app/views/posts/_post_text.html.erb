@@ -1,29 +1,38 @@
 <% unless request.env['PATH_INFO'].match(%r{^/posts/\d+$}) %>
-  <%= link_to post_path(post), class: "post-content" do %>
-    <strong><%= post.title %></strong>
+  <div class="post-content">
+    <%= link_to post_path(post), class: "title" do %>
+      <%= post.title %>
+    <% end %>
     <div class="tags flex-row">
       <% post.tags.each do |tag| %>
         <%= link_to "!#{tag.name}", tag_path(tag), class: 'tag-link' %>
       <% end %>
     </div>
-    <% if request.env['PATH_INFO'] == "/posts" %>
-      <%= truncate(post.content, length: 100) %>
-    <% else %>
-      <%= post.content %>...
+    <%= link_to post_path(post), class: "description" do %>
+      <% if request.env['PATH_INFO'] == "/posts" %>
+        <%= truncate(post.content, length: 100) %>
+      <% else %>
+        <%= post.content %>...
+      <% end %>
     <% end %>
-  <% end %>
+  </div>
+
 <% else %>
   <div class="post-content">
-    <strong><%= post.title %></strong>
+    <div class="title">
+      <%= post.title %>
+    </div>
     <div class="tags flex-row">
       <% post.tags.each do |tag| %>
         <%= link_to "!#{tag.name}", tag_path(tag), class: 'tag-link' %>
       <% end %>
     </div>
-    <% if request.env['PATH_INFO'] == "/posts" %>
-      <%= truncate(post.content, length: 100) %>
-    <% else %>
-      <%= post.content %>...
-    <% end %>
+    <div class="description">
+      <% if request.env['PATH_INFO'] == "/posts" %>
+        <%= truncate(post.content, length: 100) %>...
+      <% else %>
+        <%= post.content %>
+      <% end %>
+    </div>
   </div>
 <% end %>

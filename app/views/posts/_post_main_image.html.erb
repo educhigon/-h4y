@@ -1,7 +1,6 @@
 <% unless request.env['PATH_INFO'].match(%r{^/posts/\d+$}) %>
   <%= link_to post_path(post), class: "post-gallery" do %>
     <%= render "post_image", post: post %>
-    <p>  <%= post.user.profile.name.capitalize %>  </p>
   <% end %>
 <% else %>
     <div class="post-gallery">
