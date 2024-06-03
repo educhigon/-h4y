@@ -10,6 +10,88 @@ p "Destroy Review"
 Review.destroy_all
 p "Destroy User"
 User.destroy_all
+Tag.destroy_all
+Tagging.destroy_all
+
+client = OpenAI::Client.new
+counter = 0
+
+def api_call(client)
+  tags = ["Anxiety", "Stress", "Depression", "Mindfulness", "Wellness", "Mental Health Therapy", "Resilience", "Self-care", "Psychology", "Happiness", "Diabetes Prevention", "Glucose", "Insulin", "Diet", "Glycemic", "Fitness", "Foot Care", "Type 1 Diabetes", "Type 2 Diabetes", "Cardio", "Heart Diet", "Cholesterol", "Blood Pressure", "Heart Care", "Physical Rehab", "Stress", "Surgery", "Heart Rate", "Heart Health", "Density", "Calcium", "Osteoporosis", "Joints", "Arthritis", "Fracture", "Vitamins", "Physical Therapy", "Aging", "Bone Health", "Nutrition", "Exercise", "Checkups", "Hydration", "Sleep", "Weight", "Seasonal", "Prevention", "Vaccines", "Health"]
+  tags_five = tags.sample(5)
+  num = rand(0..5) + rand(1..10) + rand(1..10) + rand(1..15)
+  style = [
+    "a touch more casual than usual",
+    "however you like",
+    "professional and doctor like",
+    "you're hot shit",
+    "a top tier influencer on this platform",
+    "a mid tier influencer on this platform",
+    "a bottom tier influencer on this platform with no followers whatsoever. Pathetic really. (but its just a persona don't take it to heart!)",
+    "50cent. (but dont call yourself 50cent) Use 'shawty' at least once"
+  ]
+  emojis = rand(1..8) == 1 ? "4. Use emojis" : ""
+
+  begin
+    chaptgpt_response = client.chat(parameters: {
+      model: "gpt-3.5-turbo",
+      messages: [{ role: "user", content:
+        "Write a post for a health/lifestyle social media app.
+        Use these 5 tags: #{tags_five} and have the topic be somewhat related.
+        Choose a topic from broad range of health and lifestyle subjects.
+        Avoid focusing repeatedly on the same topics like mindfulness or diabetes;
+        aim for a diverse set of topics.
+
+        Rules for the post:
+        1. Be very random and specfic in your choice of topic.
+        2. The post should be around #{num} sentences long.
+        3. Your persona for this post is: #{style.sample}.
+        #{emojis}
+
+        Please generate the post with the exact structure specified below.
+        It is crucial that this format with the specified markers is adhered to strictly:
+
+        Title:
+        <title>
+        %%%
+        Content:
+        <content>
+        "
+        }]
+    })
+    return chaptgpt_response["choices"][0]["message"]["content"]
+  rescue => e
+    p "error API: #{e.message}"
+    nil
+  end
+end
+
+def read_response(response)
+  title_marker = "Title: "
+  content_marker = "%%%"
+  skip = "Content: "
+
+  content_start = response.index(content_marker) + content_marker.length
+
+  title = response[title_marker.length..response.index(content_marker) - 1]
+
+  content = response[(content_start + skip.length)..-1]
+  post_proc_content = content.gsub('#', '!').strip
+
+  unless title.empty? && content.empty?
+    begin
+      fresh_post = Post.create!(title: title, content: post_proc_content, user: User.all.sample)
+    rescue => e
+      puts "error saving post: #{e.message}"
+    end
+  end
+end
+
+############################################################################
+############################################################################
+############################################################################
+############################################################################
+############################################################################
 
 # p "Creating users"
 a = User.create!(email: "bobusa@gmail.com", password: "password")
@@ -38,6 +120,10 @@ post = Post.create!(title: "Potato good", content: "Potatos are like apples", us
 # post.images.attach(io: blob, filename: "H4you.png", content_type: "image/png" )
 # post.images.attach(io: blob, filename: "another_image.png", content_type: "image/png" )
 
+2.times do
+  response = api_call(client)
+  read_response(response)
+end
 
 p "Creating Comments"
 Comment.create!(content: "Good stuff :) !", user: a, post: test_post)
@@ -49,6 +135,7 @@ posts.each do |post|
     Comment.create!(content: ('a'..'z').to_a.sample(26).join, user: User.all.sample, post: post)
   end
 end
+
 
 # review and favorite generation will break once validation is in place
 p "Creating Reviews"
@@ -72,8 +159,8 @@ User.all.each do |user|
     gender: "Male",
     country: "Germany",
     sleeping_hours: 1,
-    age: 30,
-    weight: 70,
+    age: rand(10..100),
+    weight: rand(40..140),
     height: 1.9,
     bmi: 24,
     sun_exposure: 1,
@@ -86,13 +173,24 @@ User.all.each do |user|
   )
 end
 
-# p "Database contains:"
-# p "Users: #{User.count}"
-# p "Posts: #{Post.count}"
-# p "Comments: #{Comment.count}"
-# p "Reviews: #{Review.count}"
-# p "Favorites: #{Favorite.count}"
-# p "Profiles: #{Profile.count}"
+p "tags and taggings 😮"
+tags = ["Anxiety", "Stress", "Depression", "Mindfulness", "Wellness", "Mental Health Therapy", "Resilience", "Self-care", "Psychology", "Happiness", "Diabetes Prevention", "Glucose", "Insulin", "Diet", "Glycemic", "Fitness", "Foot Care", "Type 1 Diabetes", "Type 2 Diabetes", "Cardio", "Heart Diet", "Cholesterol", "Blood Pressure", "Heart Care", "Physical Rehab", "Stress", "Surgery", "Heart Rate", "Heart Health", "Density", "Calcium", "Osteoporosis", "Joints", "Arthritis", "Fracture", "Vitamins", "Physical Therapy", "Aging", "Bone Health", "Nutrition", "Exercise", "Checkups", "Hydration", "Sleep", "Weight", "Seasonal", "Prevention", "Vaccines", "Health"]
+tags.each do |tag|
+  Tag.create!(name: tag)
+end
+
+User.all.each do |user|
+  5.times do
+    Tagging.create!(taggable_type: "User", taggable_id: user.id, tag: Tag.all.sample)
+  end
+end
+
+Post.all.each do |post|
+  5.times do
+    Tagging.create!(taggable_type: "Post", taggable_id: post.id, tag: Tag.all.sample)
+  end
+end
+
 p "             "
 p "#############"
 p "             "
@@ -103,3 +201,6 @@ p "Comments: #{'🍌' * Comment.count}"
 p "Reviews: #{'🍌' * Review.count}"
 p "Favorites: #{'🍌' * Favorite.count}"
 p "Profiles: #{'🍌' * Profile.count}"
+p "HealthDatum: #{'🍌' * HealthDatum.count}"
+p "Tags: #{'🍌' * Tag.count}"
+p "Taggings: #{'🍌' * Tagging.count}"
