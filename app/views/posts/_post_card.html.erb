@@ -1,13 +1,17 @@
   <div class="post-card">
-    <div class="card-header flex-row">
-
-      <%= link_to post_path(post), class: "card-profile flex-row" do %>
-        <%= render "post_header", post: post %>
-        <p> <%= post.user.profile.name.capitalize %> </p>
-      <% end %>
-
+    <div class="card-header flex-row align-items-center">
+      <%= render "post_header", post: post %>
       <div class="date">
-        <p>Posted <%= time_ago_in_words(post.created_at) %> ago</p>
+        <%time = (Time.now - post.created_at)  %>
+        <% if time < 60 %>
+          <%= "#{time.floor(0)} seconds ago" %>
+        <% elsif time < 60*60 %>
+          <%= "#{(time/60).floor(0)} minutes ago" %>
+        <% elsif time < 60*60*24 %>
+          <%= "#{(time/60/60).floor(0)} hours ago" %>
+        <% else %>
+          <%= "#{(time/60/60/24).floor(0)} days ago" %>
+        <% end %>
       </div>
     </div>
 
@@ -27,6 +31,7 @@
           <%= svg_icon('Saved-post', class: 'custom-class') %>
         <% end %>
       </div>
+
       <div class="reviews flex-row">
         <%= link_to svg_icon('Like', class: 'custom-class'), click_like_path(post) %>
         <div class="like"> <%= post.reviews.where(rating: 1).count %> </div>
@@ -34,5 +39,6 @@
         <div class="dislike"> <%= post.reviews.where(rating: -1).count %> </div>
       </div>
     </div>
-  <%= render "post_text", post: post %>
-</div>
+
+    <%= render "post_text", post: post %>
+  </div>
