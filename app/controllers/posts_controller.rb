@@ -4,6 +4,11 @@ class PostsController < ApplicationController
     @posts = Post.all
   end
 
+  def index_recommended
+    @posts = Post.all
+    render json: @posts
+  end
+
 
   def my_posts
     @posts = Post.where(user_id: current_user)
