@@ -3,9 +3,8 @@
   flex-direction: column;
   align-items: center;
   padding: 20px;
-  background-color: #f9f5f1;
+  background-color: #F9F5F1;
 }
-
 .header-search {
   display: flex;
   justify-content: center;
@@ -13,42 +12,36 @@
   width: 100%;
   padding: 10px;
 }
-
 .back-button, .menu-button {
   font-size: 1.5em;
-  color: #2f5e47;
+  color: #2F5E47;
   text-decoration: none;
 }
-
 .search-container {
   margin-bottom: 20px;
   width: 100%;
   max-width: 600px;
 }
-
 .search-form .input-container {
   display: flex;
   align-items: center;
   background-color: #fff;
-  border: 1px solid #2f5e47;
+  border: 1px solid #2F5E47;
   border-radius: 40px;
   padding: 5px 10px;
 }
-
 .search-input {
   border: none;
   background: none;
-  color: #6c757d;
+  color: #6C757D;
   padding: 10px;
   border-radius: 20px;
   outline: none;
   width: calc(100% - 40px);
 }
-
 .search-input::placeholder {
-  color: #bdbdbd;
+  color: #BDBDBD;
 }
-
 .search-button {
   background: url('/path/to/search-icon.svg') no-repeat center;
   background-size: 20px;
@@ -57,30 +50,25 @@
   height: 24px;
   cursor: pointer;
 }
-
 .tabs {
   display: flex;
   justify-content: center;
   margin-bottom: 20px;
 }
-
 .tab {
   padding: 10px 20px;
   text-decoration: none;
-  color: #bdbdbd;
+  color: #BDBDBD;
   font-weight: bold;
 }
-
 .tab.active {
-  color: #2f5e47;
-  border-bottom: 2px solid #2f5e47;
+  color: #2F5E47;
+  border-bottom: 2px solid #2F5E47;
 }
-
 .results-container {
   width: 100%;
   max-width: 600px;
 }
-
 .result-item {
   display: flex;
   background-color: #fff;
@@ -91,28 +79,26 @@
   align-items: center;
   box-shadow: 0px 2px 2px 0px rgba(0, 0, 0, 0.25);
 }
+.comment-box {
+  width: 100%;
+}
 
 .result-item-img {
-
   border-radius: 50%;
   margin-right: 10px;
   height: 60px;
   width: 60px;
   object-fit: cover;
-
 }
-
 
 .result-item .profile-info {
   flex: 1;
 }
-
 .result-item h3 {
   margin: 0;
   font-size: 1em;
   margin-bottom: 4px;
 }
-
 .result-item p {
   color: $gray-700;
   margin: 0px;
@@ -128,24 +114,21 @@
   text-decoration: none;
 }
 
-
 .footer {
   position: fixed;
   bottom: 0;
   width: 100%;
-  background-color: #2f5e47;
+  background-color: #2F5E47;
   display: flex;
   justify-content: space-around;
   align-items: center;
   padding: 10px 0;
 }
-
 .footer-icon {
   display: flex;
   justify-content: center;
   align-items: center;
 }
-
 .footer-icon .icon {
   width: 24px;
   height: 24px;

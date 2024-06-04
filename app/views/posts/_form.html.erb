@@ -1,17 +1,29 @@
 <%= simple_form_for(post) do |f| %>
-  <%= f.input :title %>
-  <%= f.input :content %>
-  <%= f.input :photos, as: :file, input_html: { multiple: true } %>
+  <div data-controller="preview">
+    <%= f.input :photos, as: :file, input_html: {
+      data: {
+        preview_target: "photo",
+        action: "change->preview#displayPreview" },
+        multiple: true,
+        class:  'upload-img' } %>
+      <!---------------------------------->
+
+    <div>
+      <div class="preview img-list-sm" data-preview-target="preview">
+      </div>
+    </div>
+  </div>
+      <!---------------------------------->
+  <%= f.input :title, input_html: { class: 'input-card' }  %>
+  <%= f.input :content, input_html: { class: 'input-card' }%>
 
 
 <!--
   <%= f.association :tags, as: :check_boxes, collection: Tag.all %>
 
-
-
-  <div class="form-group">
+  <div class="form-group input-card">
     <%= f.label :new_tags, "New Tags (comma-separated)" %>
-    <%= text_field_tag :new_tags, nil, class: 'form-control' %>
+    <%= text_field_tag :new_tags, nil, class: 'form-control input-card' %>
   </div>
   <%= f.input :tags, collection: Tag.names, input_html: { class: "text-dark input-boxes" }, prompt: "Select Tag" %>
 
@@ -26,5 +38,5 @@
   <%= f.association :tags, collection: Tag.all, as: :select, input_html: { class: "text-dark input-boxes" } %>
   <%= f.association :tags, collection: Tag.all, as: :select, input_html: { class: "text-dark input-boxes" } %>
 
-  <%= f.submit class: "btn survey-btn" %>
+  <%= f.submit class: "btn btn-secondary sec-btn mt-3" %>
 <% end %>
