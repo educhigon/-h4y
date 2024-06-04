@@ -78,10 +78,14 @@
 }
 
 .tags {
-  color:$Sec-800;
-  justify-content:flex-start;
-  p {
+  margin-bottom: 10px;
+  a {
+    color: $Sec-800;
+    margin: 0px 2px 0px 0px;
+    font-weight: 400;
+    font-size: 14px;
     margin-right: 5px;
+
   }
 }
 

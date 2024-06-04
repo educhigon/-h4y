@@ -2,8 +2,16 @@ require 'httparty'
 
 class PostsController < ApplicationController
   def index
-    @posts = Post.all
-    # raise
+    @posts = []
+    unless current_user.tags.empty?
+      @posts = Post
+      .joins(:tags)
+      .select("posts.*, COUNT(tag_id) AS shared_tags")
+      .where(tags: {id: current_user.tags.pluck(:id)})
+      .group("posts.id")
+      .order("shared_tags DESC")
+    end
+    @posts += Post.all
   end
 
   def index_recommended
