@@ -7,6 +7,11 @@ class PostsController < ApplicationController
     raise
   end
 
+  def index_recommended
+    @posts = Post.all
+    render json: @posts
+  end
+
   def my_posts
     @posts = Post.where(user_id: current_user)
   end
@@ -35,8 +40,6 @@ class PostsController < ApplicationController
   def create
     @post = Post.new(post_params)
     @post.user = current_user
-
-
     if @post.save
       create_new_tags(@post)
       redirect_to post_path(@post), notice: 'Post was successfully created.'
@@ -48,7 +51,7 @@ class PostsController < ApplicationController
   private
 
   def post_params
-    params.require(:post).permit(:title, :content, tag_ids: [], :photos => [])
+    params.require(:post).permit(:title, :content, tag_ids: [], photos: [])
   end
 
   def create_new_tags(taggable)

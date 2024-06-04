@@ -5,11 +5,35 @@
 }
 
 .left {
+  .avatar {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    padding: 2px;
+    border: 2px solid $Brand-color;
+    margin-right: 10px;
+  }
 
+
+  p {
+    margin: 0px;
+  }
+
+  a {
+    text-decoration: none;
+    color: #0B3520;
+    font-weight: 600;
+    font-size: 20px;
+  }
 }
 
-.left {
 
+.middle {
+  p {
+    margin-bottom: 0;
+    font-size: 14px;
+    font-weight: 600;
+  }
 }
 
 .right {

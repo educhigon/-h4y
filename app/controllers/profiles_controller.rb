@@ -25,6 +25,7 @@ class ProfilesController < ApplicationController
   end
 
   def update
+
     @profile = Profile.find(params[:id])
     if @profile.update(profile_params)
       redirect_to profile_path(@profile)
@@ -36,7 +37,7 @@ class ProfilesController < ApplicationController
   private
 
   def profile_params
-    params.require(:profile).permit(:name, :bio, :profile_picture, tag_ids: [])
+    params.require(:profile).permit(:id, :name, :bio, :profile_picture, tag_ids: [])
   end
 
   def create_new_tags(taggable)
