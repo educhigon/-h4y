@@ -99,3 +99,41 @@
   font-size: 12px;
   margin-right: 8px;
 }
+
+
+.upload-img{
+  height: 150px;
+  background-color: white;
+  text-align: center;
+  border: 2px solid $Brand-color;
+  display: flex;
+  border-radius: 25px;
+  justify-content: center;
+  align-items: center;
+  color: $gray-500;
+  font-weight: 700;
+}
+
+.img-list-sm {
+  position: relative;
+
+  width: 60px;
+  height: 60px;
+ .img-card{
+  border-radius: 8px;
+ }
+ .delete-card {
+   position: absolute;
+     top: -4px;
+     right: -4px;
+     z-index: 100;
+   background-color: $Error;
+   width: 24px;
+   height: 24px;
+   display: flex;
+   border-radius: 25px;
+   justify-content: center;
+   align-items: center;
+   color: white;
+ }
+}

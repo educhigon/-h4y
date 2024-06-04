@@ -1,12 +1,24 @@
 <%= simple_form_for(post) do |f| %>
-  <%= f.input :title %>
-  <%= f.input :content %>
-  <%= f.input :photos, as: :file, input_html: { multiple: true } %>
+  <%= f.input :photos, as: :file, input_html: { multiple: true,  class:  'upload-img' } %>
+<!---------------------------------->
+<div class="d-flex">
+  <div class="m-3 img-list-sm">
+    <%= svg_icon('img-test', class:"img-card") %>
+    <div class="delete-card">-</div>
+  </div>
+  <div class="m-3 img-list-sm">
+    <%= svg_icon('img-test', class:"img-card") %>
+    <div class="delete-card">-</div>
+  </div>
+</div>
+<!---------------------------------->
+  <%= f.input :title, input_html: { class: 'input-card' }  %>
+  <%= f.input :content, input_html: { class: 'input-card' }%>
 
   <%= f.association :tags, as: :check_boxes, collection: Tag.all %>
-  <div class="form-group">
+  <div class="form-group input-card">
     <%= f.label :new_tags, "New Tags (comma-separated)" %>
-    <%= text_field_tag :new_tags, nil, class: 'form-control' %>
+    <%= text_field_tag :new_tags, nil, class: 'form-control input-card' %>
   </div>
-  <%= f.submit class: "btn btn-secondary" %>
+  <%= f.submit class: "btn btn-secondary sec-btn mt-3" %>
 <% end %>

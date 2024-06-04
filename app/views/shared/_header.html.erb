@@ -3,8 +3,8 @@
     <% if request.env['PATH_INFO'] == "/" %>
 
       <%= link_to profile_path(current_user.profile.id), class: "flex-row justify-content-between align-items-center" do %>
-        <%= render "shared/avatar_header" %>
-        <p> <%= current_user.profile.name.capitalize %> </p>
+        <%= render "shared/avatar_header"%>
+        <p class= "m-1" > <%= current_user.profile.name.capitalize%> </p>
       <% end %>
     <% else %>
       <div class="arrow">
