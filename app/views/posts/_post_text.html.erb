@@ -3,9 +3,9 @@
     <%= link_to post_path(post), class: "title" do %>
       <%= post.title %>
     <% end %>
-    <div class="tags flex-row">
+    <div class="tags flex-wrap align-content-start">
       <% post.tags.each do |tag| %>
-        <%= link_to "!#{tag.name}", tag_path(tag), class: 'tag-link' %>
+        <%= link_to "!#{tag.name}", searches_path(query: tag.name), class: "#{'active' if params[:type] == 'tags'}" %>
       <% end %>
     </div>
     <%= link_to post_path(post), class: "description" do %>
