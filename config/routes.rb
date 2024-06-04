@@ -5,7 +5,7 @@ Rails.application.routes.draw do
   resources :posts, only: [:index, :show, :new, :create] do
     resources :favorites, only: [:create]
     resources :reviews, only: :create
-    resources :comments, only: :create
+    resources :comments, only: [:create, :index]
   end
 
   resources :profiles, only: [:show, :new, :edit]
