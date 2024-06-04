@@ -16,6 +16,7 @@ Rails.application.routes.draw do
   resources :searches, only: [:index]
   resources :tags, only: [:show]
 
+  get "tag_search", to: "searches#tag_search"
   get "my_posts", to: "posts#my_posts"
   get "friend_posts/:id", to: "posts#friend_posts" , as: :friend_posts
   get "my_favorites", to: "posts#my_favorites"

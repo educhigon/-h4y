@@ -22,5 +22,10 @@ class SearchesController < ApplicationController
       @profile_results = []
       @post_results = []
     end
+
+  end
+
+  def tag_search
+    @post_results = Post.joins(:taggings).where(taggings: { tag_id: params[:tag].to_i })
   end
 end

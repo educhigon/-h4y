@@ -1,9 +1,11 @@
-class PostsController < ApplicationController
+require 'httparty'
 
+class PostsController < ApplicationController
   def index
     @posts = Post.all
+    @response = test
+    raise
   end
-
 
   def my_posts
     @posts = Post.where(user_id: current_user)
@@ -56,5 +58,39 @@ class PostsController < ApplicationController
         taggable.tags << tag unless taggable.tags.include?(tag)
       end
     end
+  end
+
+  def tag_search_params
+    params.require(:tag).permit(:id)
+  end
+
+
+  def test
+    hd = User.last.health_datum
+    url = "https://mvp-nguajhe5yq-ew.a.run.app/categorize"
+    body = {
+      "occupation": hd.occupation,
+      "gender": hd.gender,
+      "days_indoors": hd.days_indoors,
+      "self_employed": hd.self_employed,
+      "smoking": hd.smoker,
+      "alcohol_consumption": hd.alcohol_consumer,
+      "sun_exposure": hd.sun_exposure,
+      "activity": hd.active,
+      "dairy_intake": hd.dairy_intake,
+      "sleeping_hrs": hd.sleeping_hours,
+      "age": hd.age,
+      "weight": hd.weight,
+      "height": hd.weight,
+      "country": hd.country
+    }
+    headers = {
+      "accept": "application/json",
+      "Content-Type": "application/json",
+    }
+
+    response = HTTParty.post(url, body: body.to_json, headers: headers)
+
+    return response
   end
 end
