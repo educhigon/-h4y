@@ -163,14 +163,21 @@ User.all.each do |user|
 end
 p "#{Tagging.count} 🤣😂😁😁😁"
 #sample health data
-gender = ["Male", "Female"]
-country = "France"
+country = ['United States', 'Poland', 'Australia', 'Canada', 'United Kingdom',
+  'South Africa', 'Sweden', 'New Zealand', 'Netherlands', 'India',
+  'Belgium', 'Ireland', 'France', 'Portugal', 'Brazil', 'Costa Rica',
+  'Russia', 'Germany', 'Switzerland', 'Finland', 'Israel', 'Italy',
+  'Bosnia and Herzegovina', 'Singapore', 'Nigeria', 'Croatia',
+  'Thailand', 'Denmark', 'Mexico', 'Greece', 'Moldova', 'Colombia',
+  'Georgia', 'Czech Republic', 'Philippines']
+gender = ["Male", "Female", "Others"]
+# country = "France"
 occupation = "Student"
 days_indoors = ["Go out Every day", "1-14 days", "15-30 days", "More than 2 months"]
 self_employed = ["Yes", "No"]
 smoker = ["Yes", "No"]
 alcohol_consumer = ["Moderate", "None"]
-sun_exposure = ["Sufficient"] #, " Insufficient"
+sun_exposure = ["Sufficient", "Insufficient"] #, " Insufficient"
 active = ["Active", "Sedentary"]
 dairy_intake = ["Low", "Adequate"]
 sleeping_hours = rand(0..24)
@@ -196,7 +203,7 @@ User.all.each do |user|
     age: rand(18..100),
     weight: rand(40..140),
     height: rand(14..210),
-    country: country,
+    country: country.sample,
     user: user
   )
 end

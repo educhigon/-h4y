@@ -3,8 +3,13 @@ class HealthDatum < ApplicationRecord
 
   # enum days_indoors: ['Go out Every day', '1-14 days', '15-30 days', '31-60 days', 'More than 2 months']
   validates :gender, inclusion: { in: ["Male", "Female", "Others"]}
-  # validates country where list hello?
-  # validates :occupation string default?
+  validates :country, inclusion: { in: ['United States', 'Poland', 'Australia', 'Canada', 'United Kingdom',
+  'South Africa', 'Sweden', 'New Zealand', 'Netherlands', 'India',
+  'Belgium', 'Ireland', 'France', 'Portugal', 'Brazil', 'Costa Rica',
+  'Russia', 'Germany', 'Switzerland', 'Finland', 'Israel', 'Italy',
+  'Bosnia and Herzegovina', 'Singapore', 'Nigeria', 'Croatia',
+  'Thailand', 'Denmark', 'Mexico', 'Greece', 'Moldova', 'Colombia',
+  'Georgia', 'Czech Republic', 'Philippines'] }
   validates :days_indoors, inclusion: { in: ["Go out Every day", "1-14 days", "15-30 days", "31-60 days", "More than 2 months"] }
   validates :self_employed, inclusion: { in: ["Yes", "No"] }
   validates :smoker, inclusion: { in: ["Yes", "No"] }
