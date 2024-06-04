@@ -2,6 +2,7 @@ class HealthDataController < ApplicationController
 
   def create
     @health = HealthDatum.new(post_params)
+
     if @health.save
       redirect_to health_data_path(@health), notice: 'Heatlh details saved.'
     else
@@ -74,4 +75,6 @@ class HealthDataController < ApplicationController
 
     p response.body, response.code, response.message, response.headers.inspect
   end
+
+  
 end

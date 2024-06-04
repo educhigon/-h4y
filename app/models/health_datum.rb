@@ -2,7 +2,8 @@ class HealthDatum < ApplicationRecord
   belongs_to :user
 
   # enum days_indoors: ['Go out Every day', '1-14 days', '15-30 days', '31-60 days', 'More than 2 months']
-  validates :gender, inclusion: { in: ["Male", "Female", "Others"]}
+  validates :gender, inclusion: { in: ["Male", "Female", "Others"] }
+  validates :days_indoors, inclusion: { in: ["Go out Every day", "1-14 days", "15-30 days", "31-60 days", "More than 2 months"] }
   validates :country, inclusion: { in: ['United States', 'Poland', 'Australia', 'Canada', 'United Kingdom',
   'South Africa', 'Sweden', 'New Zealand', 'Netherlands', 'India',
   'Belgium', 'Ireland', 'France', 'Portugal', 'Brazil', 'Costa Rica',
@@ -10,14 +11,13 @@ class HealthDatum < ApplicationRecord
   'Bosnia and Herzegovina', 'Singapore', 'Nigeria', 'Croatia',
   'Thailand', 'Denmark', 'Mexico', 'Greece', 'Moldova', 'Colombia',
   'Georgia', 'Czech Republic', 'Philippines'] }
-  validates :days_indoors, inclusion: { in: ["Go out Every day", "1-14 days", "15-30 days", "31-60 days", "More than 2 months"] }
-  validates :self_employed, inclusion: { in: ["Yes", "No"] }
-  validates :smoker, inclusion: { in: ["Yes", "No"] }
-  validates :alcohol_consumer, inclusion: { in: ["Moderate", "None"] }
-  validates :sun_exposure, inclusion: { in: ["Sufficient", "Insufficient"] } # ??
-  validates :active, inclusion: { in: ["Active", "Sedentary"] }
-  validates :dairy_intake, inclusion: { in: ["Low", "Adequate"] }
-  # validates :sleeping_hours, inclusion: { in: (0..24) }
+  # validates :self_employed, inclusion: { in: ["Yes", "No"] }
+  # validates :smoker, inclusion: { in: ["Yes", "No"] }
+  # validates :alcohol_consumer, inclusion: { in: ["Moderate", "None"] }
+  # validates :sun_exposure, inclusion: { in: ["Sufficient", "Insufficient"] } # ??
+  # validates :active, inclusion: { in: ["Active", "Sedentary"] }
+  # validates :dairy_intake, inclusion: { in: ["Low", "Adequate"] }
+  # # validates :sleeping_hours, inclusion: { in: (0..24) }
   validates :age, numericality: { only_integer: true }
   validates :weight, numericality: { only_integer: true }
   validates :height, numericality: { only_integer: true }
@@ -39,21 +39,22 @@ class HealthDatum < ApplicationRecord
     # self = User.last.health_datum
     url = "https://mvp-nguajhe5yq-ew.a.run.app/categorize"
     body = {
-      "occupation": self.occupation,
+      # "occupation": self.occupation,
       "gender": self.gender,
       "days_indoors": self.days_indoors,
-      "self_employed": self.self_employed,
-      "smoking": self.smoker,
-      "alcohol_consumption": self.alcohol_consumer,
-      "sun_exposure": self.sun_exposure,
-      "activity": self.active,
-      "dairy_intake": self.dairy_intake,
+      "self_employed": self.self_employed ? "Yes" : "No",
+      "smoking": self.smoker ? "Yes" : "No",
+      "alcohol_consumption": self.alcohol_consumer ? "Moderate" : "None",
+      "sun_exposure": self.sun_exposure ? "Sufficient" : "Insufficient",
+      "activity": self.active ? "Active" : "Sedentary",
+      "dairy_intake": self.dairy_intake ? "Low" : "Adequate",
       "sleeping_hrs": self.sleeping_hours,
       "age": self.age,
       "weight": self.weight,
       "height": self.weight,
       "country": self.country
     }
+
     headers = {
       "accept": "application/json",
       "Content-Type": "application/json",

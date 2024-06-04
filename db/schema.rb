@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.1].define(version: 2024_06_03_155851) do
+ActiveRecord::Schema[7.1].define(version: 2024_06_04_123119) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -62,20 +62,18 @@ ActiveRecord::Schema[7.1].define(version: 2024_06_03_155851) do
   end
 
   create_table "health_data", force: :cascade do |t|
-    t.string "occupation"
     t.string "gender"
     t.string "country"
-    t.string "sleeping_hours"
+    t.decimal "sleeping_hours"
     t.integer "age"
     t.integer "weight"
     t.integer "height"
-    t.integer "bmi"
-    t.string "sun_exposure"
-    t.string "self_employed"
-    t.string "smoker"
-    t.string "alcohol_consumer"
-    t.string "active"
-    t.string "dairy_intake"
+    t.boolean "sun_exposure"
+    t.boolean "self_employed"
+    t.boolean "smoker"
+    t.boolean "alcohol_consumer"
+    t.boolean "active"
+    t.boolean "dairy_intake"
     t.bigint "user_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false

@@ -172,14 +172,14 @@ country = ['United States', 'Poland', 'Australia', 'Canada', 'United Kingdom',
   'Georgia', 'Czech Republic', 'Philippines']
 gender = ["Male", "Female", "Others"]
 # country = "France"
-occupation = "Student"
+# occupation = "Student"
 days_indoors = ["Go out Every day", "1-14 days", "15-30 days", "More than 2 months"]
-self_employed = ["Yes", "No"]
-smoker = ["Yes", "No"]
-alcohol_consumer = ["Moderate", "None"]
-sun_exposure = ["Sufficient", "Insufficient"] #, " Insufficient"
-active = ["Active", "Sedentary"]
-dairy_intake = ["Low", "Adequate"]
+self_employed = [true, false]
+smoker = [true, false]
+alcohol_consumer = [true, false]
+sun_exposure = [true, false]
+active = [true, false]
+dairy_intake = [true, false]
 sleeping_hours = rand(0..24)
 age = rand(18..100)
 weight = rand(40..140)
@@ -190,7 +190,7 @@ User.all.each do |user|
   # Profile.create!(user: user, name: user.email.split('@')[0], bio: ('a'..'z').to_a.sample(50).join).profile_picture.attach(io: blob, filename: "H4you.png", content_type: "image/png" )
   Profile.create!(user: user, name: user.email.split('@')[0], bio: ('a'..'z').to_a.sample(50).join)
   HealthDatum.create!(
-    occupation: occupation,
+    # occupation: occupation,
     gender: gender.sample,
     days_indoors: days_indoors.sample,
     self_employed: self_employed.sample,
