@@ -17,10 +17,26 @@
   <%= f.input :title, input_html: { class: 'input-card' }  %>
   <%= f.input :content, input_html: { class: 'input-card' }%>
 
+
+<!--
   <%= f.association :tags, as: :check_boxes, collection: Tag.all %>
+
   <div class="form-group input-card">
     <%= f.label :new_tags, "New Tags (comma-separated)" %>
     <%= text_field_tag :new_tags, nil, class: 'form-control input-card' %>
   </div>
+  <%= f.input :tags, collection: Tag.names, input_html: { class: "text-dark input-boxes" }, prompt: "Select Tag" %>
+
+
+-->
+
+<%#= f.input :tags, collection: Tag.all %>
+
+  <%= f.association :tags, collection: Tag.all, as: :select, input_html: { class: "text-dark input-boxes" } %>
+  <%= f.association :tags, collection: Tag.all, as: :select, input_html: { class: "text-dark input-boxes" } %>
+  <%= f.association :tags, collection: Tag.all, as: :select, input_html: { class: "text-dark input-boxes" } %>
+  <%= f.association :tags, collection: Tag.all, as: :select, input_html: { class: "text-dark input-boxes" } %>
+  <%= f.association :tags, collection: Tag.all, as: :select, input_html: { class: "text-dark input-boxes" } %>
+
   <%= f.submit class: "btn btn-secondary sec-btn mt-3" %>
 <% end %>
