@@ -1,11 +1,22 @@
-class PostsController < ApplicationController
+require 'httparty'
 
+class PostsController < ApplicationController
   def index
     @posts = Post.all
+    # raise
+  end
+
+  def index_recommended
+    @posts = Post.all
+    render json: @posts
   end
 
   def my_posts
     @posts = Post.where(user_id: current_user)
+  end
+
+  def friend_posts
+    @posts = Post.where(user_id: params[:id])
   end
 
   def my_favorites
@@ -27,6 +38,7 @@ class PostsController < ApplicationController
 
   def create
     @post = Post.new(post_params)
+   
     @post.user = current_user
     if @post.save
       create_new_tags(@post)
@@ -39,7 +51,7 @@ class PostsController < ApplicationController
   private
 
   def post_params
-    params.require(:post).permit(:title, :content, tag_ids: [])
+    params.require(:post).permit(:title, :content, tag_ids: [], photos: [])
   end
 
   def create_new_tags(taggable)
@@ -49,5 +61,9 @@ class PostsController < ApplicationController
         taggable.tags << tag unless taggable.tags.include?(tag)
       end
     end
+  end
+
+  def tag_search_params
+    params.require(:tag).permit(:id)
   end
 end

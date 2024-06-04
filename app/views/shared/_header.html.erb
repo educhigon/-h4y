@@ -2,12 +2,9 @@
   <div class="left">
     <% if request.env['PATH_INFO'] == "/" %>
 
-
-      <%= link_to profile_path(current_user.profile.id), class: "card-profile", style: "display: flex" do %>
-        <div class="profile-pic">
-          <%= image_tag "https://i.pinimg.com/564x/6a/ba/8b/6aba8b5c288c728568945c53625eba87.jpg", class: "avatar" %>
-        </div>
-        <p> <%= current_user.profile.name.capitalize %> </p>
+      <%= link_to profile_path(current_user.profile.id), class: "flex-row justify-content-between align-items-center" do %>
+        <%= render "shared/avatar_header"%>
+        <p class= "m-1" > <%= current_user.profile.name.capitalize%> </p>
       <% end %>
     <% else %>
       <div class="arrow">
@@ -18,11 +15,22 @@
     <% end %>
   </div>
   <!-- careful with how the urls are named -->
-  <% if  ["/my_favorites", "/my_posts", "/posts/search", "/messages"].include?(request.env['PATH_INFO']) %>
-    <div class="middle">
-      <p><%= request.env['PATH_INFO'][1..-1].upcase %></p>
-    </div>
-  <% end %>
+  <div class="middle">
+    <% if  ["/my_favorites", "/my_posts", "/posts/search", "/posts/new", "/profiles", "/health_data/new"].include?(request.env['PATH_INFO']) %>
+      <% case request.env['PATH_INFO'] %>
+      <% when "/my_favorites" then %>
+        <p> Saved </p>
+      <% when "/my_posts" then %>
+        <p> My Posts </p>
+      <% when "/posts/new" then %>
+        <p> Create Post </p>
+      <% when "/profiles" then %>
+        <p> Profile </p>
+      <% when "/health_data/new" then %>
+        <p> Survey </p>
+      <% end %>
+    <% end %>
+  </div>
 
   <div class="right flex-row">
     <% if request.env['PATH_INFO'] == "/messages" %>

@@ -1,0 +1,7 @@
+<div>
+  <% if post.user.profile[:profile_picture].present? %>
+    <%=  cl_image_tag(post.user.profile.profile_picture.key, transformation: { width: 40, crop: :fill, radius: 50} ) %>
+  <% else %>
+    <%= svg_icon('avatar', class: 'avatar') %> <!-- ?? -->
+  <% end %>
+</div>
