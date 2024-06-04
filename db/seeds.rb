@@ -97,6 +97,7 @@ a = User.create!(email: "bobusa@gmail.com", password: "password")
 b = User.create!(email: "lucas@lewagon.com", password: "password")
 c = User.create!(email: "emma@test.com", password: "123456")
 d = User.create!(email: "iratxe@lewagon.com", password: "password")
+
 # p "Users created"
 
 blob = File.open("app/assets/images/H4you.png", 'rb')
@@ -172,7 +173,7 @@ country = ['United States', 'Poland', 'Australia', 'Canada', 'United Kingdom',
   'Georgia', 'Czech Republic', 'Philippines']
 gender = ["Male", "Female", "Others"]
 # country = "France"
-# occupation = "Student"
+occupation = "Student"
 days_indoors = ["Go out Every day", "1-14 days", "15-30 days", "More than 2 months"]
 self_employed = [true, false]
 smoker = [true, false]
@@ -190,7 +191,7 @@ User.all.each do |user|
   # Profile.create!(user: user, name: user.email.split('@')[0], bio: ('a'..'z').to_a.sample(50).join).profile_picture.attach(io: blob, filename: "H4you.png", content_type: "image/png" )
   Profile.create!(user: user, name: user.email.split('@')[0], bio: ('a'..'z').to_a.sample(50).join)
   HealthDatum.create!(
-    # occupation: occupation,
+    occupation: occupation,
     gender: gender.sample,
     days_indoors: days_indoors.sample,
     self_employed: self_employed.sample,
@@ -233,6 +234,10 @@ Post.all.each do |post|
     Tagging.create!(taggable_type: "Post", taggable_id: post.id, tag: Tag.all.sample)
   end
 end
+
+user_without_hd = User.create!(email: "bruno@winning.com", password: "password")
+Profile.create!(user: user_without_hd, name: user_without_hd.email.split('@')[0], bio: ('a'..'z').to_a.sample(50).join)
+
 
 p "             "
 p "#############"
