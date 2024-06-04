@@ -3,11 +3,13 @@
     <%= link_to post_path(post), class: "title" do %>
       <%= post.title %>
     <% end %>
+
     <div class="tags flex-wrap align-content-start">
       <% post.tags.each do |tag| %>
-        <%= link_to "!#{tag.name}", searches_path(query: tag.name), class: "#{'active' if params[:type] == 'tags'}" %>
+        <%= link_to "!#{tag.name}", tag_search_path(tag: tag), class: "#{'active' if params[:type] == 'tags'}" %>
       <% end %>
     </div>
+
     <%= link_to post_path(post), class: "description" do %>
       <% if request.env['PATH_INFO'] == "/posts" %>
         <%= truncate(post.content, length: 100) %>
@@ -22,11 +24,13 @@
     <div class="title">
       <%= post.title %>
     </div>
-    <div class="tags flex-row">
+
+    <div class="tags flex-wrap align-content-start">
       <% post.tags.each do |tag| %>
-        <%= link_to "!#{tag.name}", tag_path(tag), class: 'tag-link' %>
+        <%= link_to "!#{tag.name}", tag_search_path(tag: tag), class: "#{'active' if params[:type] == 'tags'}" %>
       <% end %>
     </div>
+
     <div class="description">
       <% if request.env['PATH_INFO'] == "/posts" %>
         <%= truncate(post.content, length: 100) %>...
