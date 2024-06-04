@@ -1,7 +1,7 @@
 class HealthDatum < ApplicationRecord
   belongs_to :user
 
-  # enum days_indoors: ['Go out Every day', '1-14 days', '15-30 days', '31-60 days', 'More than 2 months']
+  validates :days_indoors, inclusion: { in: ['Go out Every day', '1-14 days', '15-30 days', '31-60 days', 'More than 2 months'] }
   validates :gender, inclusion: { in: ["Male", "Female", "Others"] }
   validates :days_indoors, inclusion: { in: ["Go out Every day", "1-14 days", "15-30 days", "31-60 days", "More than 2 months"] }
   validates :country, inclusion: { in: ['United States', 'Poland', 'Australia', 'Canada', 'United Kingdom',
@@ -17,7 +17,7 @@ class HealthDatum < ApplicationRecord
   # validates :sun_exposure, inclusion: { in: ["Sufficient", "Insufficient"] } # ??
   # validates :active, inclusion: { in: ["Active", "Sedentary"] }
   # validates :dairy_intake, inclusion: { in: ["Low", "Adequate"] }
-  # # validates :sleeping_hours, inclusion: { in: (0..24) }
+  validates :sleeping_hours, inclusion: { in: (0..24) }
   validates :age, numericality: { only_integer: true }
   validates :weight, numericality: { only_integer: true }
   validates :height, numericality: { only_integer: true }
@@ -28,7 +28,22 @@ class HealthDatum < ApplicationRecord
 
   private
 
+  def self.genders
+    validators_on(:gender).first.options[:in]
+  end
+
+  def self.countries
+    validators_on(:country).first.options[:in]
+  end
+
+  def self.indoors
+    validators_on(:days_indoors).first.options[:in]
+  end
+
+
+
   def tags_for_user_smile
+    p "👽👽☠☠👽👻"
     response = api_call_tags
     categories = map_response_to_cats(response)
     tags = map_cats_to_tags(categories)
@@ -39,7 +54,7 @@ class HealthDatum < ApplicationRecord
     # self = User.last.health_datum
     url = "https://mvp-nguajhe5yq-ew.a.run.app/categorize"
     body = {
-      # "occupation": self.occupation,
+      "occupation": self.occupation,
       "gender": self.gender,
       "days_indoors": self.days_indoors,
       "self_employed": self.self_employed ? "Yes" : "No",
@@ -117,7 +132,7 @@ class HealthDatum < ApplicationRecord
     p tags
     user = self.user
     p "🤡🤡🤡"
-    Tagging.where(taggable_type: "User").where(taggable_id: self.user.id).destroy_all
+    Tagging.where(taggable_type: "User")&.where(taggable_id: self.user&.id)&.destroy_all
     p "🤡🤡🤡"
     tags.each do |tag|
       p "🤗🙂🤗"
