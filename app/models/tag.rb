@@ -14,4 +14,10 @@ class Tag < ApplicationRecord
   def taggable_posts
     posts
   end
+
+  private
+
+  def self.names
+    validators_on(:name).first.options[:in]
+  end
 end
