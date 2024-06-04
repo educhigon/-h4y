@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.1].define(version: 2024_05_31_102055) do
+ActiveRecord::Schema[7.1].define(version: 2024_06_03_155851) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -65,20 +65,21 @@ ActiveRecord::Schema[7.1].define(version: 2024_05_31_102055) do
     t.string "occupation"
     t.string "gender"
     t.string "country"
-    t.integer "sleeping_hours"
+    t.string "sleeping_hours"
     t.integer "age"
     t.integer "weight"
     t.integer "height"
     t.integer "bmi"
-    t.integer "sun_exposure"
-    t.boolean "self_employed"
-    t.boolean "smoker"
-    t.boolean "alcohol_consumer"
-    t.boolean "active"
-    t.boolean "dairy_intake"
+    t.string "sun_exposure"
+    t.string "self_employed"
+    t.string "smoker"
+    t.string "alcohol_consumer"
+    t.string "active"
+    t.string "dairy_intake"
     t.bigint "user_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "days_indoors"
     t.index ["user_id"], name: "index_health_data_on_user_id"
   end
 
