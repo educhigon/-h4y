@@ -1,0 +1,7 @@
+<% if params[:type] == 'tags' %>
+  <%= render partial: 'tag_results', locals: { results: @tag_results } %>
+<% elsif params[:type] == 'profiles' %>
+  <%= render partial: 'profile_results', locals: { results: @profile_results } %>
+<% else %>
+  <%= render partial: 'post_results', locals: { results: @post_results } %>
+<% end %>

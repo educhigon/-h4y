@@ -1,9 +1,9 @@
-<% results&.each do |post| %>
-  <div class="result-item">
-    <div class="result-item-img">IMG</div>
-    <div>
-    <h3><%= link_to post.title, post_path(post) %></h3>
-    <p><%= truncate(post.content, length: 40) %></p>
-    </div>
-  </div>
-<% end %>
+  <% results&.each do |post| %>
+    <%= link_to post_path(post), class: "result-item", data: {turbo_frame: "_top"} do %>
+      <div class="result-item-img">IMG</div>
+      <div>
+        <h3><%= post.title %></h3>
+        <p><%= truncate(post.content, length: 40) %></p>
+      </div>
+      <% end %>
+  <% end %>

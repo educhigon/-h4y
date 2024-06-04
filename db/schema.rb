@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.1].define(version: 2024_05_31_102055) do
+ActiveRecord::Schema[7.1].define(version: 2024_06_04_131108) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -62,15 +62,13 @@ ActiveRecord::Schema[7.1].define(version: 2024_05_31_102055) do
   end
 
   create_table "health_data", force: :cascade do |t|
-    t.string "occupation"
     t.string "gender"
     t.string "country"
-    t.integer "sleeping_hours"
+    t.decimal "sleeping_hours"
     t.integer "age"
     t.integer "weight"
     t.integer "height"
-    t.integer "bmi"
-    t.integer "sun_exposure"
+    t.boolean "sun_exposure"
     t.boolean "self_employed"
     t.boolean "smoker"
     t.boolean "alcohol_consumer"
@@ -79,6 +77,8 @@ ActiveRecord::Schema[7.1].define(version: 2024_05_31_102055) do
     t.bigint "user_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "days_indoors"
+    t.string "occupation"
     t.index ["user_id"], name: "index_health_data_on_user_id"
   end
 
