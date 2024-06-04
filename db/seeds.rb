@@ -1,22 +1,21 @@
-p "Destroy Comment"
+p "Destroy All"
 Comment.destroy_all
-p "Destroy Favorite"
 Favorite.destroy_all
-p "Destroy Post"
 Post.destroy_all
-p "Destroy Profile"
 Profile.destroy_all
-p "Destroy Review"
 Review.destroy_all
-p "Destroy User"
 User.destroy_all
 Tag.destroy_all
 Tagging.destroy_all
+HealthDatum.destroy_all
 
-client = OpenAI::Client.new
-counter = 0
+p "Database clean"
 
-def api_call(client)
+def new_client
+  return OpenAI::Client.new
+end
+
+def api_call(new_client)
   tags = ["Anxiety", "Stress", "Depression", "Mindfulness", "Wellness", "Mental Health Therapy", "Resilience", "Self-care", "Psychology", "Happiness", "Diabetes Prevention", "Glucose", "Insulin", "Diet", "Glycemic", "Fitness", "Foot Care", "Type 1 Diabetes", "Type 2 Diabetes", "Cardio", "Heart Diet", "Cholesterol", "Blood Pressure", "Heart Care", "Physical Rehab", "Stress", "Surgery", "Heart Rate", "Heart Health", "Density", "Calcium", "Osteoporosis", "Joints", "Arthritis", "Fracture", "Vitamins", "Physical Therapy", "Aging", "Bone Health", "Nutrition", "Exercise", "Checkups", "Hydration", "Sleep", "Weight", "Seasonal", "Prevention", "Vaccines", "Health"]
   tags_five = tags.sample(5)
   num = rand(0..5) + rand(1..10) + rand(1..10) + rand(1..15)
@@ -93,12 +92,12 @@ end
 ############################################################################
 ############################################################################
 
-# p "Creating users"
+p "Creating users"
 a = User.create!(email: "bobusa@gmail.com", password: "password")
 b = User.create!(email: "lucas@lewagon.com", password: "password")
 c = User.create!(email: "emma@test.com", password: "123456")
 d = User.create!(email: "iratxe@lewagon.com", password: "password")
-p "Users created"
+# p "Users created"
 
 blob = File.open("app/assets/images/H4you.png", 'rb')
 
@@ -120,10 +119,10 @@ post = Post.create!(title: "Potato good", content: "Potatos are like apples", us
 # post.images.attach(io: blob, filename: "H4you.png", content_type: "image/png" )
 # post.images.attach(io: blob, filename: "another_image.png", content_type: "image/png" )
 
-2.times do
-  response = api_call(client)
-  read_response(response)
-end
+# 2.times do
+#   response = api_call(client)
+#   read_response(response)
+# end
 
 p "Creating Comments"
 Comment.create!(content: "Good stuff :) !", user: a, post: test_post)
@@ -150,40 +149,84 @@ xx.times do
   Favorite.create!(post: Post.all.sample, user: User.all.sample)
 end
 
-p "Creating Profiles"
-User.all.each do |user|
-  # Profile.create!(user: user, name: user.email.split('@')[0], bio: ('a'..'z').to_a.sample(50).join).profile_picture.attach(io: blob, filename: "H4you.png", content_type: "image/png" )
-  Profile.create!(user: user, name: user.email.split('@')[0], bio: ('a'..'z').to_a.sample(50).join)
-  HealthDatum.create!(
-    occupation: "Houseman",
-    gender: "Male",
-    country: "Germany",
-    sleeping_hours: 1,
-    age: rand(10..100),
-    weight: rand(40..140),
-    height: 1.9,
-    bmi: 24,
-    sun_exposure: 1,
-    self_employed: false,
-    smoker: true,
-    alcohol_consumer: true,
-    active: true,
-    dairy_intake: 1,
-    user: user
-  )
-end
-
 p "tags and taggings 😮"
 tags = ["Anxiety", "Stress", "Depression", "Mindfulness", "Wellness", "Mental Health Therapy", "Resilience", "Self-care", "Psychology", "Happiness", "Diabetes Prevention", "Glucose", "Insulin", "Diet", "Glycemic", "Fitness", "Foot Care", "Type 1 Diabetes", "Type 2 Diabetes", "Cardio", "Heart Diet", "Cholesterol", "Blood Pressure", "Heart Care", "Physical Rehab", "Stress", "Surgery", "Heart Rate", "Heart Health", "Density", "Calcium", "Osteoporosis", "Joints", "Arthritis", "Fracture", "Vitamins", "Physical Therapy", "Aging", "Bone Health", "Nutrition", "Exercise", "Checkups", "Hydration", "Sleep", "Weight", "Seasonal", "Prevention", "Vaccines", "Health"]
 tags.each do |tag|
   Tag.create!(name: tag)
 end
 
+
 User.all.each do |user|
   5.times do
     Tagging.create!(taggable_type: "User", taggable_id: user.id, tag: Tag.all.sample)
   end
 end
+p "#{Tagging.count} 🤣😂😁😁😁"
+#sample health data
+country = ['United States', 'Poland', 'Australia', 'Canada', 'United Kingdom',
+  'South Africa', 'Sweden', 'New Zealand', 'Netherlands', 'India',
+  'Belgium', 'Ireland', 'France', 'Portugal', 'Brazil', 'Costa Rica',
+  'Russia', 'Germany', 'Switzerland', 'Finland', 'Israel', 'Italy',
+  'Bosnia and Herzegovina', 'Singapore', 'Nigeria', 'Croatia',
+  'Thailand', 'Denmark', 'Mexico', 'Greece', 'Moldova', 'Colombia',
+  'Georgia', 'Czech Republic', 'Philippines']
+gender = ["Male", "Female", "Others"]
+# country = "France"
+# occupation = "Student"
+days_indoors = ["Go out Every day", "1-14 days", "15-30 days", "More than 2 months"]
+self_employed = [true, false]
+smoker = [true, false]
+alcohol_consumer = [true, false]
+sun_exposure = [true, false]
+active = [true, false]
+dairy_intake = [true, false]
+sleeping_hours = rand(0..24)
+age = rand(18..100)
+weight = rand(40..140)
+height = rand(140..210)
+
+p "Creating Profiles"
+User.all.each do |user|
+  # Profile.create!(user: user, name: user.email.split('@')[0], bio: ('a'..'z').to_a.sample(50).join).profile_picture.attach(io: blob, filename: "H4you.png", content_type: "image/png" )
+  Profile.create!(user: user, name: user.email.split('@')[0], bio: ('a'..'z').to_a.sample(50).join)
+  HealthDatum.create!(
+    # occupation: occupation,
+    gender: gender.sample,
+    days_indoors: days_indoors.sample,
+    self_employed: self_employed.sample,
+    smoker: smoker.sample,
+    alcohol_consumer: alcohol_consumer.sample,
+    sun_exposure: sun_exposure.sample,
+    active: active.sample,
+    dairy_intake: dairy_intake.sample,
+    sleeping_hours: "#{rand(0..24)}",
+    age: rand(18..100),
+    weight: rand(40..140),
+    height: rand(14..210),
+    country: country.sample,
+    user: user
+  )
+end
+p "#{Tagging.count} 🤣😂😁😁😁"
+
+def example
+  {"occupation": "Student",
+    "gender": "Male",
+    "days_indoors": "1-14 days",
+    "self_employed": "Yes",
+    "smoking": "No",
+    "alcohol_consumption": "Moderate",
+    "sun_exposure": "Sufficient",
+    "activity": "Active",
+    "dairy_intake":"Low",
+    "sleeping_hrs":"8",
+    "age":32,
+    "weight":67,
+    "height":163,
+    "country":"United States"
+  }
+end
+
 
 Post.all.each do |post|
   5.times do

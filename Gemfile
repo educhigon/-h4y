@@ -54,6 +54,8 @@ gem "cloudinary", "2.0.2"
 gem "pg_search"
 gem 'inline_svg'
 gem "ruby-openai"
+gem 'httparty'
+
 
 
 group :development, :test do
