@@ -39,11 +39,12 @@ class PostsController < ApplicationController
   def create
     @post = Post.new(post_params)
     @post.user = current_user
+    # raise
     if @post.save
       create_new_tags(@post)
       redirect_to post_path(@post), notice: 'Post was successfully created.'
     else
-      render :new, notice: "no bueno"
+      render :new, status: 422
     end
   end
 
