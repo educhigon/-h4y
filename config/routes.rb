@@ -22,6 +22,7 @@ Rails.application.routes.draw do
   get "my_favorites", to: "posts#my_favorites"
   get "click_like/:id", to: "reviews#click_like", as: :click_like
   get "click_dislike/:id", to: "reviews#click_dislike", as: :click_dislike
+  get "posts_recommended", to: "posts#index_recommended", as: :posts_recommended
 
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 
