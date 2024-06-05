@@ -1,0 +1,41 @@
+.tag-item {
+  display: inline-block;
+}
+
+.tag-selector {
+  position: absolute;
+  transform: scale(0);
+}
+
+.tag-selector + label {
+  cursor: pointer;
+  display: inline-block;
+  font-size: 0.7rem;
+  border-radius: 50rem;
+  padding: 0.1rem 0.5rem;
+  background-color: $gray-200;
+  color: $gray-800;
+  border: 1px solid $gray-700;
+  margin-right: 0.6rem;
+  margin-bottom: 0.4rem;
+}
+
+.tag-selector:checked + label {
+  background-color: $Sec-800;
+  color: white;
+}
+
+.imitation {
+  cursor: pointer;
+  display: inline-block;
+  font-size: 0.7rem;
+  border-radius: 50rem;
+  padding: 0.3rem 0.8rem;
+  // background-color: #$$gray-500;
+  // color: $Sec-800;
+  border: 1px solid $Sec-800;
+  margin-right: 0.6rem;
+  margin-bottom: 0.4rem;
+  background-color: $Sec-800;
+  color: white;
+}
