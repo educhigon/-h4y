@@ -1,6 +1,8 @@
 require 'httparty'
 
 class PostsController < ApplicationController
+  before_action :set_current_path
+
   def index
     @posts = []
     unless current_user.tags.empty?
@@ -46,9 +48,7 @@ class PostsController < ApplicationController
 
   def create
     @post = Post.new(post_params)
-   
     @post.user = current_user
-    # raise
     if @post.save
       create_new_tags(@post)
       redirect_to post_path(@post), notice: 'Post was successfully created.'
@@ -74,5 +74,9 @@ class PostsController < ApplicationController
 
   def tag_search_params
     params.require(:tag).permit(:id)
+  end
+
+  def set_current_path
+    session[:current_path] = request.path
   end
 end

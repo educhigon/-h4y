@@ -27,6 +27,19 @@
   display: flex;
   justify-content: center;
   align-items: center;
+
+}
+
+#home.current-icon-home .icon {
+  path {
+    fill: white !important;
+  }
+}
+
+.current-icon-save .icon {
+  path {
+    stroke: white !important;
+  }
 }
 
 .icon {
@@ -93,7 +106,6 @@
   width: 24px;
   height: 24px;
 }
-
 
 .comment-box button {
   padding: 5px 15px;

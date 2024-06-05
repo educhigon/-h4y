@@ -1,73 +1,75 @@
 <div class="container">
   <%= simple_form_for(health) do |f| %>
-    <%= f.input :age, input_html: {class: "text-dark input-boxes"} %>
-    <%= f.input :weight, input_html: {class: "text-dark input-boxes"} %>
-    <%= f.input :height, input_html: {class: "text-dark input-boxes"} %>
+    <%= f.input :age, input_html: {class: "text-dark input-boxes input-card"} %>
+    <%= f.input :weight, input_html: {class: "text-dark input-boxes input-card"} %>
+    <%= f.input :height, input_html: {class: "text-dark input-boxes input-card"} %>
     <%= f.input :occupation, input_html: {class: "text-dark input-boxes"} %>
-    <%= f.input :sleeping_hours, input_html: { value: health.sleeping_hours.to_i, class: "text-dark input-boxes" } %>
-    <%= f.input :gender, collection: HealthDatum.genders, input_html: { class: "text-dark input-boxes" }, prompt: "Select Gender" %>
-    <%= f.input :country, collection: HealthDatum.countries.sort, input_html: { class: "text-dark input-boxes" }, prompt: "Select Gender" %>
-    <%= f.input :days_indoors, collection: HealthDatum.indoors, input_html: { class: "text-dark input-boxes" }, prompt: "Select Gender" %>
+    <%= f.input :sleeping_hours, input_html: { value: health.sleeping_hours.to_i, class: "text-dark input-boxes input-card" } %>
+    <%= f.input :gender, collection: HealthDatum.genders, input_html: { class: "text-dark input-boxes input-card" }, prompt: "Select Gender" %>
+    <%= f.input :country, collection: HealthDatum.countries.sort, input_html: { class: "text-dark input-boxes input-card" }, prompt: "Select Gender" %>
+    <%= f.input :days_indoors, collection: HealthDatum.indoors, input_html: { class: "text-dark input-boxes input-card" }, prompt: "Select Gender" %>
 
     <%# days_indoors %>
-
+      <div class="divider"></div>
 
       <div class="form-switch">
         <div class=" d-flex justify-content-end">
-          <%= f.label :self_employed, class: "label-survey mb-3"  %>
-          <%= f.input :self_employed, as: :boolean, label: false, input_html: {class: "form-switch", role: "switch"} %>
+          <%= f.label :self_employed, class: "label-survey"  %>
+          <%= f.input :self_employed, as: :boolean, label: false, input_html: {class: "form-switch ", role: "switch"} %>
         </div>
       </div>
 
+      <div class="divider"></div>
 
       <div class="form-switch">
-        <div class=" d-flex justify-content-end">
-          <%= f.label :smoker, class: "label-survey mb-3"  %>
+        <div class="d-flex justify-content-end">
+          <%= f.label :smoker, class: "label-survey"  %>
           <%= f.input :smoker, as: :boolean, label: false, input_html: {class: "form-switch", role: "switch"} %>
         </div>
       </div>
 
+      <div class="divider"></div>
 
       <div class="form-switch">
         <div class=" d-flex justify-content-end">
-          <%= f.label :alcohol_consumer, class: "label-survey mb-3"  %>
+          <%= f.label :alcohol_consumer, class: "label-survey"%>
           <%= f.input :alcohol_consumer, as: :boolean, label: false, input_html: {class: "form-switch", role: "switch"} %>
         </div>
       </div>
 
+      <div class="divider"></div>
 
       <div class="form-switch">
         <div class=" d-flex justify-content-end">
-          <%= f.label :active, class: "label-survey mb-3"  %>
+          <%= f.label :active, class: "label-survey"%>
           <%= f.input :active, as: :boolean, label: false, input_html: {class: "form-switch", role: "switch"} %>
         </div>
       </div>
 
+      <div class="divider"></div>
 
       <div class="form-switch">
         <div class=" d-flex justify-content-end">
-          <%= f.label :dairy_intake, class: "label-survey mb-3"  %>
+          <%= f.label :dairy_intake, class: "label-survey"%>
           <%= f.input :dairy_intake, as: :boolean, label: false, input_html: {class: "form-switch", role: "switch"} %>
         </div>
       </div>
 
-
-
-
+     <div class="divider"></div>
 
       <div class="form-switch">
         <div class=" d-flex justify-content-end">
-          <%= f.label :sun_exposure, class: "label-survey mb-3"  %>
+          <%= f.label :sun_exposure, class: "label-survey"  %>
           <%= f.input :sun_exposure, as: :boolean, label: false, input_html: {class: "form-switch", role: "switch"} %>
         </div>
       </div>
 
 
-
+     <div class="divider"></div>
 
 
       <div class="button">
-        <%= f.submit class: "btn survey-btn" %>
+        <%= f.submit class: "btn sec-btn" %>
       </div>
   <% end %>
 </div>

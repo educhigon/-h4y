@@ -34,7 +34,11 @@ background-color: #00653B;
 
 .form-switch {
   margin-right: 12px;
-  padding-left: 0px!important;
+  padding-left: 0px !important;
+
+  fieldset {
+    margin-bottom: 0px !important;
+  }
 }
 
 .label-survey {
@@ -104,7 +108,6 @@ background-color: #00653B;
   font-size: 14px;
   color: #0a0a0a;
 }
-
 
 .activity-container {
   width: 100%; // Adjust width as needed
