@@ -11,11 +11,11 @@
     </div>
 
     <%= link_to post_path(post), class: "description" do %>
-      <% if request.env['PATH_INFO'] == "/posts" %>
-        <%= truncate(post.content, length: 100) %>
-      <% else %>
-        <%= post.content %>...
-      <% end %>
+        <% if post.content.length > 80 %>
+          <%= post.content[0..80] %>...
+        <% else %>
+          <%= post.content[0..80] %>
+        <% end  %>
     <% end %>
   </div>
 
@@ -32,11 +32,7 @@
     </div>
 
     <div class="description">
-      <% if request.env['PATH_INFO'] == "/posts" %>
-        <%= truncate(post.content, length: 100) %>...
-      <% else %>
-        <%= post.content %>
-      <% end %>
+      <%= post.content %>
     </div>
   </div>
 <% end %>

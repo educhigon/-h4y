@@ -1,14 +1,5 @@
-    <div class="header-search">
-        <h1 class="comment">Comment</h1>
-    </div>
-
-        <%=@comments.count%>
-<div class="d-flex">
-        <img src="https://avatars.githubusercontent.com/u/90188399?v=4" class="result-item-img">
-        <% @comments.each do |comment| %>
-                <div class="result-item comment-box">
-                    <h2 class="emma">Name <%=comment.user.profile.name%></h2>
-                    <p class="card-text"><%=comment.content%></p>
-                </div>
-   </div>
-        <% end %>
+<div class="container">
+  <% @comments.each do |comment| %>
+    <%= render "comments", comment: comment %>
+  <% end %>
+</div>

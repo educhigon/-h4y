@@ -22,8 +22,14 @@ border: 5px 5px 0px 0px;
 background-color: #00653B;
 }
 
+.form-check-input.is-valid:checked {
+  background-color: #CB8853 !important;
+  border: none;
+}
+
 .form-switch .form-check-input {
   margin-left: -1.5em!important;
+  border: none;
 }
 
 .form-switch {

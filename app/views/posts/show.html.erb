@@ -1,14 +1,4 @@
 <div class="container">
     <%= render "post_card", post: @post, index: 1 %>
 
-  <% @post.comments.each do |comment| %>
-    <%= render "comments", comment: comment %>
-  <% end %>
-
-  <h4>Add your comment</h4>
-  <%= simple_form_for([@post, @comment]) do |f| %>
-    <%= f.input :content, input_html: { id: 'anchor' } %>
-    <%= f.submit class: "btn btn-secondary" %>
-  <% end %>
-
 </div>

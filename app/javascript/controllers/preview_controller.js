@@ -12,6 +12,7 @@ export default class extends Controller {
     console.log(this.imageFiles);
     console.log(this.imageFiles.files);
     this.photoTarget.files = this.imageFiles.files
+    console.log(this.photoTarget.files);
   }
 
   displayPreview(event) {
@@ -57,9 +58,14 @@ export default class extends Controller {
   removeItem(event) {
     const itemToRemove = event.target.parentElement;
     const childrenArray = this.previewTarget.children;
-    console.log(childrenArray[0] === itemToRemove)
-    console.log(childrenArray[1] === itemToRemove)
-
-
+    let removeIndex = -1
+    for (let i = 0; i < childrenArray.length; i++) {
+      if (childrenArray[i] === itemToRemove) {
+        removeIndex = i
+      };
+    };
+    this.imageFiles.items.remove(removeIndex)
+    this.photoTarget.files = this.imageFiles.files
+    this.previewTarget.removeChild(this.previewTarget.children[removeIndex]);
   }
 }

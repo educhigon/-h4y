@@ -1,9 +1,14 @@
 
 <% results&.each do |profile| %>
   <%= link_to profile_path(profile), class: "result-item", data: {turbo_frame: "_top"} do %>
-    <div class="profile-info">
+    <% if profile.profile_picture.present? %>
+      <%=  cl_image_tag(profile.profile_picture.key, transformation: {crop: :fill}, :class => "avatar-profile" ) %>
+    <% else %>
+      <%= svg_icon('avatar', class: 'avatar-profile') %>
+    <% end %>
+    <div>
       <h3><%= profile.name %></h3>
-      <p><%= truncate(profile.bio, length: 100) %></p>
+      <p><%= truncate(profile.bio, length: 60) %></p>
     </div>
   <% end %>
 <% end %>
