@@ -1,9 +1,15 @@
   <% results&.each do |post| %>
     <%= link_to post_path(post), class: "result-item", data: {turbo_frame: "_top"} do %>
-      <div class="result-item-img">IMG</div>
+      <div class="result-item-img">
+        <% if post.photos.count > 0 %>
+          <%= cl_image_tag(post.photos.first.key, crop: :fill) %>
+        <% else %>
+          <%= image_tag "H4you.png"%>
+        <% end %>
+      </div>
       <div>
         <h3><%= post.title %></h3>
-        <p><%= truncate(post.content, length: 40) %></p>
+        <p><%= truncate(post.content, length: 60) %></p>
       </div>
       <% end %>
   <% end %>

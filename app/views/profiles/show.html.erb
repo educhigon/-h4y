@@ -1,6 +1,12 @@
 <div class="container">
   <div class="text-center">
-    <%= render "shared/avatar_header" %>
+    <div>
+      <% if @profile.profile_picture.present? %>
+        <%=  cl_image_tag(@profile.profile_picture.key, transformation: {crop: :fill}, :class => "avatar-profile" ) %>
+      <% else %>
+        <%= svg_icon('avatar', class: 'avatar-profile') %> <!-- ?? -->
+      <% end %>
+    </div>
     <h3 class="mt-3"><%= @profile.name %></h3>
     <p><%= @profile.bio %></p>
   </div>
@@ -16,5 +22,7 @@
     <% else %>
       <%= button_to "Fill Survey Form", new_health_datum_path, method: :get , class:"sec-btn"%>
     <% end %>
+  <% else %>
+    <%= button_to "Check my posts", friend_posts_path(@profile.user.id), method: :get , class:"sec-btn"%>
   <% end %>
 </div>
