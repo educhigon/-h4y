@@ -1,17 +1,101 @@
-<div class="container">
-  <p><%= @health.occupation %></p>
-  <p><%= @health.gender %></p>
-  <p><%= @health.country %></p>
-  <p><%= @health.sleeping_hours %></p>
-  <p><%= @health.age %></p>
-  <p><%= @health.weight %></p>
-  <p><%= @health.height %></p>
-  <p><%= @health.sun_exposure %></p>
-  <p><%= @health.self_employed %></p>
-  <p><%= @health.smoker %></p>
-  <p><%= @health.alcohol_consumer %></p>
-  <p><%= @health.active %></p>
-  <p><%= @health.dairy_intake %></p>
+<div class="container p-4">
+
+  <div class="flex-row">
+    <h6 class="left text-color">Gender</h6>
+    <p class="right gray-800 mb-0"><%= @health.gender %></p>
+  </div>
+
+
+  <div class="divider"></div>
+
+  <div class="flex-row">
+    <h6 class="left text-color">Occupatione</h6>
+    <p class="right gray-800 mb-0"><%= @health.occupation %></p>
+  </div>
+
+
+  <div class="divider"></div>
+
+  <div class="flex-row">
+    <h6 class="left text-color">Country</h6>
+    <p class="right gray-800 mb-0"><%= @health.country %></p>
+  </div>
+
+
+  <div class="divider"></div>
+
+   <div class="flex-row">
+    <h6 class="left text-color">Sleeping hours</h6>
+    <p class="right gray-800 mb-0"><%= @health.sleeping_hours %></p>
+  </div>
+
+  <div class="divider"></div>
+
+   <div class="flex-row">
+    <h6 class="left text-color">Age</h6>
+    <p class="right gray-800 mb-0"><%= @health.age %></p>
+  </div>
+
+  <div class="divider"></div>
+
+   <div class="flex-row">
+    <h6 class="left text-color">Weight</h6>
+    <p class="right gray-800 mb-0"><%= @health.weight %></p>
+  </div>
+
+  <div class="divider"></div>
+
+   <div class="flex-row">
+    <h6 class="left text-color">Height</h6>
+    <p class="right gray-800 mb-0"><%= @health.height %></p>
+  </div>
+
+ <div class="divider"></div>
+
+   <div class="flex-row">
+    <h6 class="left text-color">Sun exposure</h6>
+    <p class="right gray-800 mb-0"><%= @health.sun_exposure %></p>
+  </div>
+
+
+ <div class="divider"></div>
+
+   <div class="flex-row">
+    <h6 class="left text-color">Self employed</h6>
+    <p class="right gray-800 mb-0"><%= @health.self_employed %></p>
+  </div>
+
+   <div class="divider"></div>
+
+   <div class="flex-row">
+    <h6 class="left text-color">Smoker</h6>
+    <p class="right gray-800 mb-0"><%= @health.smoker %></p>
+  </div>
+
+
+   <div class="divider"></div>
+
+   <div class="flex-row">
+    <h6 class="left text-color">Alcohol consumer</h6>
+    <p class="right gray-800 mb-0"><%= @health.alcohol_consumer  %></p>
+  </div>
+
+  <div class="divider"></div>
+
+   <div class="flex-row">
+    <h6 class="left text-color">Active</h6>
+    <p class="right gray-800 mb-0"><%= @health.active  %></p>
+  </div>
+
+  <div class="divider"></div>
+
+   <div class="flex-row">
+    <h6 class="left text-color">Dairy intake</h6>
+    <p class="right gray-800 mb-0"><%= @health.dairy_intake  %></p>
+  </div>
+
+
+  <div class="divider"></div>
 
   <%= button_to "Edit your data", edit_health_datum_path, method: :get , class:"sec-btn"%>
 </div>
