@@ -20,7 +20,7 @@
     <%= render "shared/header", route_prefix: @route_prefix %>
     <%= render "shared/flashes" %></div>
     <%= yield %>
-    <% if controller_name == 'messages' || controller_name == 'comments' %>
+    <% if controller_name == 'comments' %>
       <%= render 'shared/message_footer' %>
     <% else %>
       <%= render 'shared/footer' %>

@@ -30,6 +30,7 @@
   border-radius: 40px;
   padding: 5px 10px;
 }
+
 .search-input {
   border: none;
   background: none;
@@ -50,6 +51,7 @@
   height: 24px;
   cursor: pointer;
 }
+
 .tabs {
   display: flex;
   justify-content: center;
@@ -88,11 +90,18 @@
     object-fit: cover;
   }
 }
+
 .comment-box {
   width: 100%;
 }
 
-
+.result-item-img {
+  border-radius: 50%;
+  margin-right: 10px;
+  height: 60px;
+  width: 60px;
+  object-fit: cover;
+}
 
 .result-item .profile-info {
   flex: 1;
