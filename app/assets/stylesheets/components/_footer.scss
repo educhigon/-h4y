@@ -27,6 +27,19 @@
   display: flex;
   justify-content: center;
   align-items: center;
+
+}
+
+#home.current-icon-home .icon {
+  path {
+    fill: white !important;
+  }
+}
+
+.current-icon-save .icon {
+  path {
+    stroke: white !important;
+  }
 }
 
 .icon {
@@ -80,4 +93,15 @@
   fill: #f7c89e;
   width: 24px;
   height: 24px;
+}
+
+
+.icon-color-selected{
+  path{
+    fill: white;
+  }
+}
+
+#my-svg circle {
+  fill: red; /* Default fill color */ /* Default stroke color */
 }

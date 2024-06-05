@@ -1,15 +1,15 @@
 
 <footer class="footer-main">
-  <div class="footer-icon">
+  <div id="home" class="footer-icon <%= current_page_class(root_path) %>">
     <%= link_to svg_icon('Home', class: 'icon'), root_path %>
   </div>
-  <div class="footer-icon">
+  <div class="footer-icon <%= current_page_class(new_post_path) %>">
     <%= link_to svg_icon('Note-add', class: 'icon'), new_post_path %>
   </div>
-  <div class="footer-icon">
+  <div class="footer-icon <%= current_page_class(my_favorites_path) %>">
     <%= link_to svg_icon('Saved', class: 'icon'), my_favorites_path %>
   </div>
-  <div class="footer-icon">
+  <div class="footer-icon <%= current_page_class(my_posts_path) %>">
     <%= link_to svg_icon('User-scan', class: 'icon'), my_posts_path %>
   </div>
 </footer>
