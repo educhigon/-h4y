@@ -1,13 +1,13 @@
 <div class="container">
   <%= simple_form_for(health) do |f| %>
+    <%= f.input :country, collection: HealthDatum.countries.sort, input_html: { class: "text-dark input-boxes input-card" }, prompt: "Select Country" %>
+    <%= f.input :occupation, input_html: {class: "text-dark input-boxes"} %>
+    <%= f.input :gender, collection: HealthDatum.genders, input_html: { class: "text-dark input-boxes input-card" }, prompt: "Select Gender" %>
     <%= f.input :age, input_html: {class: "text-dark input-boxes input-card"} %>
     <%= f.input :weight, input_html: {class: "text-dark input-boxes input-card"} %>
     <%= f.input :height, input_html: {class: "text-dark input-boxes input-card"} %>
-    <%= f.input :occupation, input_html: {class: "text-dark input-boxes"} %>
     <%= f.input :sleeping_hours, input_html: { value: health.sleeping_hours.to_i, class: "text-dark input-boxes input-card" } %>
-    <%= f.input :gender, collection: HealthDatum.genders, input_html: { class: "text-dark input-boxes input-card" }, prompt: "Select Gender" %>
-    <%= f.input :country, collection: HealthDatum.countries.sort, input_html: { class: "text-dark input-boxes input-card" }, prompt: "Select Gender" %>
-    <%= f.input :days_indoors, collection: HealthDatum.indoors, input_html: { class: "text-dark input-boxes input-card" }, prompt: "Select Gender" %>
+    <%= f.input :days_indoors, collection: HealthDatum.indoors, input_html: { class: "text-dark input-boxes input-card" }, prompt: "Days indoors" %>
 
     <%# days_indoors %>
       <div class="divider"></div>

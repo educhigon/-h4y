@@ -8,28 +8,38 @@
       <% end %>
     <% else %>
       <div class="arrow">
-        <%= link_to request.referrer do %>
-          <%= svg_icon('Arrow - Left', class: 'custom-class') %>
+        <% if controller_name == "comments" && action_name == "index" %>
+          <%= link_to post_path(@post) do %>
+            <%= svg_icon('Arrow - Left', class: 'custom-class') %>
+          <% end %>
+        <% elsif controller_name == "health_data" && action_name == "show" %>
+          <%= link_to profile_path(current_user.profile) do %>
+            <%= svg_icon('Arrow - Left', class: 'custom-class') %>
+          <% end %>
+        <% elsif controller_name == "profiles" && action_name == "show" %>
+          <%= link_to posts_path do %>
+            <%= svg_icon('Arrow - Left', class: 'custom-class') %>
+          <% end %>
+        <% elsif controller_name == "searches" %>
+          <%= link_to posts_path do %>
+            <%= svg_icon('Arrow - Left', class: 'custom-class') %>
+          <% end %>
+        <% else %>
+          <%= link_to request.referrer do %>
+            <%= svg_icon('Arrow - Left', class: 'custom-class') %>
+          <% end %>
         <% end %>
+
       </div>
     <% end %>
   </div>
   <!-- careful with how the urls are named -->
   <div class="middle">
-    <% if  ["/my_favorites", "/my_posts", "/posts/search", "/posts/new", "/profiles", "/health_data/new"].include?(request.env['PATH_INFO']) %>
-      <% case request.env['PATH_INFO'] %>
-      <% when "/my_favorites" then %>
-        <p> Saved </p>
-      <% when "/my_posts" then %>
-        <p> My Posts </p>
-      <% when "/posts/new" then %>
-        <p> Create Post </p>
-      <% when "/profiles" then %>
-        <p> Profile </p>
-      <% when "/health_data/new" then %>
-        <p> Survey </p>
-      <% end %>
-    <% end %>
+    <%= "Saved" if controller_name == "posts" && action_name == "my_favorites" %>
+    <%= "My Posts" if controller_name == "posts" && action_name == "my_posts" %>
+    <%= "Create Post" if controller_name == "posts" && action_name == "new" %>
+    <%= "Your profile" if controller_name == "profiles" && action_name == "show" %>
+    <%= "Survey" if controller_name == "health_data" && action_name == "new" %>
   </div>
 
   <div class="right flex-row">

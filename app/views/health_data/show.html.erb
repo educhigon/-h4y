@@ -1,99 +1,100 @@
 <div class="container p-4">
 
   <div class="flex-row">
-    <h6 class="left text-color">Gender</h6>
-    <p class="right gray-800 mb-0"><%= @health.gender %></p>
-  </div>
-
-
-  <div class="divider"></div>
-
-  <div class="flex-row">
-    <h6 class="left text-color">Occupatione</h6>
-    <p class="right gray-800 mb-0"><%= @health.occupation %></p>
-  </div>
-
-
-  <div class="divider"></div>
-
-  <div class="flex-row">
     <h6 class="left text-color">Country</h6>
     <p class="right gray-800 mb-0"><%= @health.country %></p>
   </div>
 
-
   <div class="divider"></div>
 
-   <div class="flex-row">
-    <h6 class="left text-color">Sleeping hours</h6>
-    <p class="right gray-800 mb-0"><%= @health.sleeping_hours %></p>
+  <div class="flex-row">
+    <h6 class="left text-color">Occupation</h6>
+    <p class="right gray-800 mb-0"><%= @health.occupation %></p>
   </div>
 
   <div class="divider"></div>
 
-   <div class="flex-row">
+  <div class="flex-row">
+    <h6 class="left text-color">Gender</h6>
+    <p class="right gray-800 mb-0"><%= @health.gender %></p>
+  </div>
+
+  <div class="divider"></div>
+
+  <div class="flex-row">
     <h6 class="left text-color">Age</h6>
-    <p class="right gray-800 mb-0"><%= @health.age %></p>
+    <p class="right gray-800 mb-0"><%= @health.age %> years old</p>
   </div>
 
   <div class="divider"></div>
 
-   <div class="flex-row">
+  <div class="flex-row">
     <h6 class="left text-color">Weight</h6>
-    <p class="right gray-800 mb-0"><%= @health.weight %></p>
+    <p class="right gray-800 mb-0"><%= @health.weight %> kg</p>
   </div>
 
   <div class="divider"></div>
 
-   <div class="flex-row">
+  <div class="flex-row">
     <h6 class="left text-color">Height</h6>
-    <p class="right gray-800 mb-0"><%= @health.height %></p>
+    <p class="right gray-800 mb-0"><%= @health.height %> m</p>
   </div>
 
- <div class="divider"></div>
+  <div class="divider"></div>
 
-   <div class="flex-row">
+  <div class="flex-row">
+    <h6 class="left text-color">Sleeping hours</h6>
+    <p class="right gray-800 mb-0"><%= @health.sleeping_hours.to_i %> Hours</p>
+  </div>
+
+  <div class="divider"></div>
+
+  <div class="flex-row">
     <h6 class="left text-color">Sun exposure</h6>
-    <p class="right gray-800 mb-0"><%= @health.sun_exposure %></p>
+    <p class="right gray-800 mb-0"><%= @health.days_indoors %></p>
   </div>
 
+  <div class="divider"></div>
 
- <div class="divider"></div>
-
-   <div class="flex-row">
+  <div class="flex-row">
     <h6 class="left text-color">Self employed</h6>
-    <p class="right gray-800 mb-0"><%= @health.self_employed %></p>
+    <p class="right gray-800 mb-0"><%= @health.self_employed? ? "Yes" : "No" %></p>
   </div>
 
-   <div class="divider"></div>
+  <div class="divider"></div>
 
-   <div class="flex-row">
+  <div class="flex-row">
     <h6 class="left text-color">Smoker</h6>
-    <p class="right gray-800 mb-0"><%= @health.smoker %></p>
+    <p class="right gray-800 mb-0"><%= @health.smoker? ? "Yes" : "No" %></p>
   </div>
 
+  <div class="divider"></div>
 
-   <div class="divider"></div>
-
-   <div class="flex-row">
+  <div class="flex-row">
     <h6 class="left text-color">Alcohol consumer</h6>
-    <p class="right gray-800 mb-0"><%= @health.alcohol_consumer  %></p>
+    <p class="right gray-800 mb-0"><%= @health.alcohol_consumer? ? "Moderate" : "None"  %></p>
   </div>
 
   <div class="divider"></div>
 
-   <div class="flex-row">
+  <div class="flex-row">
     <h6 class="left text-color">Active</h6>
-    <p class="right gray-800 mb-0"><%= @health.active  %></p>
+    <p class="right gray-800 mb-0"><%= @health.active? ? "Active" : "Sedentary"  %></p>
   </div>
 
   <div class="divider"></div>
 
-   <div class="flex-row">
+  <div class="flex-row">
     <h6 class="left text-color">Dairy intake</h6>
-    <p class="right gray-800 mb-0"><%= @health.dairy_intake  %></p>
+    <p class="right gray-800 mb-0"><%= @health.dairy_intake? ? "Adequate" : "Low"  %></p>
   </div>
 
+  <div class="divider"></div>
+
+  <div class="flex-row">
+    <h6 class="left text-color">Sun exposure</h6>
+    <p class="right gray-800 mb-0"><%= @health.sun_exposure? ? "Sufficient" : "Insufficient" %></p>
+  </div>
 
   <div class="divider"></div>
 
