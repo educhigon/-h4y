@@ -32,11 +32,43 @@
 
 <%#= f.input :tags, collection: Tag.all %>
 
-  <%= f.association :tags, collection: Tag.all, as: :select, input_html: { class: "text-dark input-boxes" } %>
-  <%= f.association :tags, collection: Tag.all, as: :select, input_html: { class: "text-dark input-boxes" } %>
-  <%= f.association :tags, collection: Tag.all, as: :select, input_html: { class: "text-dark input-boxes" } %>
-  <%= f.association :tags, collection: Tag.all, as: :select, input_html: { class: "text-dark input-boxes" } %>
-  <%= f.association :tags, collection: Tag.all, as: :select, input_html: { class: "text-dark input-boxes" } %>
 
-  <%= f.submit class: "btn btn-secondary sec-btn mt-3" %>
+<!-- Button trigger modal -->
+<div data-controller="print-tags">
+<div class="buttondiv " style="display:flex">
+  <button type="button" class="sec-btn me-3">
+    Recommend Tags
+  </button>
+  <button type="button" class="sec-btn ms-3" data-bs-toggle="modal" data-bs-target="#exampleModal">
+    Select Tags
+  </button>
+</div>
+
+  <!-- Modal -->
+  <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <%# <h1 class="modal-title fs-5" id="exampleModalLabel">Modal title</h1> %>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          <%= f.association :tags,
+            as: :check_boxes,
+            input_html: { class: "tag-selector" ,data: { "print-tags-target": 'tagCheckbox' }},
+            item_wrapper_class: "tag-item",
+            wrapper_html: { class: "tag-group" } %>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="pri-btn" data-bs-dismiss="modal" data-action="click->print-tags#select">Submit</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div data-print-tags-target="printHere" class="mt-3">
+  </div>
+  <div class="divider"></div>
+</div>
+  <%= f.submit class: "btn pri-btn mt-3" %>
 <% end %>
