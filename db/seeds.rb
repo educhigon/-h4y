@@ -444,7 +444,30 @@ end
 
 
 
-#### post 2 yoga  kat
+### post 2 yoga kat ***
+post = Post.new(
+  title: "Backpain? You've got to try Yoga! 🤸‍♀️",
+  content: "Hey wellness warriors! 🌿 Struggling with nagging back pain? I've been there, and I know how tough it can be. 🤕 That's why I want to share something that has completely transformed my approach to managing back discomfort—Yoga! 🌈
+
+  I started incorporating simple yoga stretches into my daily routine, and the difference has been night and day. 🌞 Poses like Cat-Cow, Child's Pose, and Downward Facing Dog are not only soothing but help strengthen the muscles that support our spine. 🙌
+
+  If you’re on the fence about it, I highly encourage you to give it a try—even just a few minutes a day can make a big impact! 🕊️ Remember, it's all about taking small steps towards a healthier, pain-free you. 💪 Let’s bend so we don't break!",
+  user: a)
+img = URI.open('https://res.cloudinary.com/ddzfjc1xy/image/upload/v1717700274/jyclmexisl0ptpkof4ey.jpg')
+post.photos.attach(io: img, filename: "", content_type: "image/png")
+img = URI.open('https://res.cloudinary.com/ddzfjc1xy/image/upload/v1717700275/ylni5kcbxnpzlavywjjy.jpg')
+post.photos.attach(io: img, filename: "", content_type: "image/png")
+img = URI.open('https://res.cloudinary.com/ddzfjc1xy/image/upload/v1717700276/hmfgfgbhzvnjfq1zufbi.jpg')
+post.photos.attach(io: img, filename: "", content_type: "image/png")
+post.save
+
+5.times do
+  Tagging.create!(taggable_type: "Post", taggable_id: post.id, tag: Tag.all[0...49].sample)
+end
+
+
+#### post 3 yoga  kat
+
 post = Post.new(
   title: "Unlock Your Inner Zen: 5 Yoga Poses for Ultimate Relaxation",
   content: "🌟 Unlock Your Inner Zen: 5 Yoga Poses for Ultimate Relaxation 🧘‍♂️✨
@@ -473,27 +496,6 @@ post.save
   Tagging.create!(taggable_type: "Post", taggable_id: post.id, tag: Tag.all[0...49].sample)
 end
 
-### post 3 yoga kat ***
-post = Post.new(
-  title: "Backpain? You've got to try Yoga! 🤸‍♀️",
-  content: "Hey wellness warriors! 🌿 Struggling with nagging back pain? I've been there, and I know how tough it can be. 🤕 That's why I want to share something that has completely transformed my approach to managing back discomfort—Yoga! 🌈
-
-  I started incorporating simple yoga stretches into my daily routine, and the difference has been night and day. 🌞 Poses like Cat-Cow, Child's Pose, and Downward Facing Dog are not only soothing but help strengthen the muscles that support our spine. 🙌
-
-  If you’re on the fence about it, I highly encourage you to give it a try—even just a few minutes a day can make a big impact! 🕊️ Remember, it's all about taking small steps towards a healthier, pain-free you. 💪 Let’s bend so we don't break!",
-  user: a)
-img = URI.open('https://res.cloudinary.com/ddzfjc1xy/image/upload/v1717700274/jyclmexisl0ptpkof4ey.jpg')
-post.photos.attach(io: img, filename: "", content_type: "image/png")
-img = URI.open('https://res.cloudinary.com/ddzfjc1xy/image/upload/v1717700275/ylni5kcbxnpzlavywjjy.jpg')
-post.photos.attach(io: img, filename: "", content_type: "image/png")
-img = URI.open('https://res.cloudinary.com/ddzfjc1xy/image/upload/v1717700276/hmfgfgbhzvnjfq1zufbi.jpg')
-post.photos.attach(io: img, filename: "", content_type: "image/png")
-post.save
-
-5.times do
-  Tagging.create!(taggable_type: "Post", taggable_id: post.id, tag: Tag.all[0...49].sample)
-end
-
 
 #### posts post DS
 post = Post.new(
@@ -513,7 +515,7 @@ post = Post.new(
   Give Back - Sometimes, the most fulfilling goals involve giving back to the community. Find a cause you care about and see how you can contribute. 🌍
 
   Remember, life is a continuous journey of learning and growth. Each achievement is just a stepping stone to the next adventure. Here’s to your next chapter! 🥂",
-  user: g)
+  user: m)
 
 img = URI.open('https://res.cloudinary.com/ddzfjc1xy/image/upload/v1717700273/fjzzl8pjtbioyddpnngn.jpg')
 post.photos.attach(io: img, filename: "", content_type: "image/png")

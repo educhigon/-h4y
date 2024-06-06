@@ -23,16 +23,16 @@ class PostsController < ApplicationController
   end
 
   def my_posts
-    @posts = Post.where(user_id: current_user)
+    @posts = Post.where(user_id: current_user).order(created_at: :desc)
   end
 
   def friend_posts
-    @posts = Post.where(user_id: params[:id])
+    @posts = Post.where(user_id: params[:id]).order(created_at: :desc)
   end
 
   def my_favorites
     @posts = []
-    favorite = Favorite.where(user_id: current_user)
+    favorite = Favorite.where(user_id: current_user).order(created_at: :desc)
     favorite.each do |fav|
       @posts << fav.post
     end
