@@ -11,6 +11,24 @@ Tag.destroy_all
 Tagging.destroy_all
 p "Database clean"
 
+# Cloudinary::Uploader.upload("/home/gonzalo/code/educhigon/ h4y/app/assets/images/DS_explained.png")
+# Cloudinary::Uploader.upload("/home/gonzalo/code/educhigon/ h4y/app/assets/images/escobar1.png")
+# Cloudinary::Uploader.upload("/home/gonzalo/code/educhigon/ h4y/app/assets/images/escobar2.png")
+# Cloudinary::Uploader.upload("/home/gonzalo/code/educhigon/ h4y/app/assets/images/escobar3.png")
+# Cloudinary::Uploader.upload("/home/gonzalo/code/educhigon/ h4y/app/assets/images/escobar3.png")
+# Cloudinary::Uploader.upload("/home/gonzalo/code/educhigon/ h4y/app/assets/images/reinvigorate.png")
+# Cloudinary::Uploader.upload("/home/gonzalo/code/educhigon/ h4y/app/assets/images/streching1.png")
+# Cloudinary::Uploader.upload("/home/gonzalo/code/educhigon/ h4y/app/assets/images/streching2.png")
+# Cloudinary::Uploader.upload("/home/gonzalo/code/educhigon/ h4y/app/assets/images/stressed.png")
+# Cloudinary::Uploader.upload("/home/gonzalo/code/educhigon/ h4y/app/assets/images/yoga1.png")
+# Cloudinary::Uploader.upload("/home/gonzalo/code/educhigon/ h4y/app/assets/images/yoga2.png")
+# Cloudinary::Uploader.upload("/home/gonzalo/code/educhigon/ h4y/app/assets/images/yoga3.png")
+# Cloudinary::Uploader.upload("/home/gonzalo/code/educhigon/ h4y/app/assets/images/yoga4.png")
+
+
+
+
+
 topics = [
   "Herbal Remedies: Natural Healing",
   "Boost Immunity Naturally",
@@ -229,7 +247,7 @@ p "Creating posts"
 
 
 # winning
-#API call generating post content fitted to mahdis images
+# API call generating post content fitted to mahdis images
 topics.each_with_index do |topic, index|
   p topics.length
   p images.length
@@ -257,10 +275,10 @@ end
 #review and favorite generation will break once validation is in place
 
 
-p "Creating Favorites"
-10.times do
-  Favorite.create!(post: Post.all.sample, user: User.all.sample)
-end
+# p "Creating Favorites"
+# 10.times do
+#   Favorite.create!(post: Post.all.sample, user: User.all.sample)
+# end
 
 p "Tags and Taggings 😮"
 tags = ["Anxiety", "Stress", "Depression", "Mindfulness", "Wellness", "Mental Health Therapy", "Resilience", "Self-care", "Psychology", "Happiness", "Diabetes Prevention", "Glucose", "Insulin", "Diet", "Glycemic", "Fitness", "Foot Care", "Type 1 Diabetes", "Type 2 Diabetes", "Cardio", "Heart Diet", "Cholesterol", "Blood Pressure", "Heart Care", "Physical Rehab", "Stress", "Surgery", "Heart Rate", "Heart Health", "Density", "Calcium", "Osteoporosis", "Joints", "Arthritis", "Fracture", "Vitamins", "Physical Therapy", "Aging", "Bone Health", "Nutrition", "Exercise", "Checkups", "Hydration", "Sleep", "Weight", "Seasonal", "Prevention", "Vaccines", "Health"]
@@ -360,12 +378,10 @@ post = Post.new(
   title: "You'll never believe how good this streching really is",
   content: "If you suffer from backpain, or want a quick pain release you definitelly need to check out this streching. ",
   user: e)
-# img = File.open('/home/gonzalo/code/educhigon/ h4y/app/assets/images/streching1.png', "rb")
-img = URI.open('https://res.cloudinary.com/wagon/image/upload/c_fill,g_face,h_200,w_200/v1696334260/xeoh9bn2dq3runng1m4v.jpg')
 
+img = URI.open('https://res.cloudinary.com/ddzfjc1xy/image/upload/v1717700270/n29ibz7hjs87vhbh4ofb.jpg')
 post.photos.attach(io: img, filename: "", content_type: "image/png")
-# img = File.open('/home/gonzalo/code/educhigon/ h4y/app/assets/images/streching2.png', "rb")
-img = URI.open('https://res.cloudinary.com/wagon/image/upload/c_fill,g_face,h_200,w_200/v1696334260/xeoh9bn2dq3runng1m4v.jpg')
+img = URI.open('https://res.cloudinary.com/ddzfjc1xy/image/upload/v1717700271/jlga5mgcgvjiv6kmnahk.jpg')
 post.photos.attach(io: img, filename: "", content_type: "image/png")
 post.save
 
@@ -383,7 +399,7 @@ post = Post.new(
   content: "",
   user: a)
 # img = File.open('/home/gonzalo/code/educhigon/ h4y/app/assets/images/yoga4.png', "rb")
-img = URI.open('https://asset.cloudinary.com/ddzfjc1xy/02e0c91763845a512e6f4d1e0635c919')
+img = URI.open('https://res.cloudinary.com/ddzfjc1xy/image/upload/v1717700277/hzoffat4iu1kvlhskixe.jpg')
 post.photos.attach(io: img, filename: "", content_type: "image/png")
 post.save
 
@@ -396,11 +412,11 @@ post = Post.new(
   title: "Backpain? You've got to try yoga!",
   content: "",
   user: a)
-img = URI.open('https://asset.cloudinary.com/ddzfjc1xy/aeb8f7b0ca26d1057048bb5a95c5fc13')
+img = URI.open('https://res.cloudinary.com/ddzfjc1xy/image/upload/v1717700274/jyclmexisl0ptpkof4ey.jpg')
 post.photos.attach(io: img, filename: "", content_type: "image/png")
-img = URI.open('https://asset.cloudinary.com/ddzfjc1xy/592f3c77cea4f185001b421e10f5b4b3')
+img = URI.open('https://res.cloudinary.com/ddzfjc1xy/image/upload/v1717700275/ylni5kcbxnpzlavywjjy.jpg')
 post.photos.attach(io: img, filename: "", content_type: "image/png")
-img = URI.open('https://asset.cloudinary.com/ddzfjc1xy/b2c470b5f204245a6a7bab7f1e0c1652')
+img = URI.open('https://res.cloudinary.com/ddzfjc1xy/image/upload/v1717700276/hmfgfgbhzvnjfq1zufbi.jpg')
 post.photos.attach(io: img, filename: "", content_type: "image/png")
 post.save
 
@@ -413,7 +429,7 @@ post = Post.new(
   title: "Are you stressed? We have just the thing to help you",
   content: "",
   user: b)
-img = URI.open('https://asset.cloudinary.com/ddzfjc1xy/11cd6e8e3c3021d11298fe10665e3004')
+img = URI.open('https://res.cloudinary.com/ddzfjc1xy/image/upload/v1717700273/fjzzl8pjtbioyddpnngn.jpg')
 post.photos.attach(io: img, filename: "", content_type: "image/png")
 post.save
 
@@ -426,7 +442,7 @@ post = Post.new(
   title: "5 ways to reinvigorate after an exhaustive project",
   content: "",
   user: c)
-img = URI.open('https://asset.cloudinary.com/ddzfjc1xy/6528656fc9e0a9aab26f13067b3e1165')
+img = URI.open('https://res.cloudinary.com/ddzfjc1xy/image/upload/v1717700269/w3ayg8vkudgvzk3ad5os.jpg')
 post.photos.attach(io: img, filename: "", content_type: "image/png")
 post.save
 
@@ -438,11 +454,11 @@ post = Post.new(
   title: "How to overcome post Bootcamp depression ",
   content: "",
   user: d)
-img = URI.open('https://asset.cloudinary.com/ddzfjc1xy/b8da31b08f23350e7336491d52325899')
+img = URI.open('https://res.cloudinary.com/ddzfjc1xy/image/upload/v1717700265/qozfkznuaxwayqgfabqf.jpg')
 post.photos.attach(io: img, filename: "", content_type: "image/png")
-img = URI.open('https://asset.cloudinary.com/ddzfjc1xy/1e95828b8a7669fdac6480dba5d1ff2d')
+img = URI.open('https://res.cloudinary.com/ddzfjc1xy/image/upload/v1717700264/wduezmckiefiv9jwdvrq.jpg')
 post.photos.attach(io: img, filename: "", content_type: "image/png")
-img = URI.open('https://asset.cloudinary.com/ddzfjc1xy/3742fa0dd6c9c951d74938480b87ab49')
+img = URI.open('https://res.cloudinary.com/ddzfjc1xy/image/upload/v1717700266/zizdqprlcnu0tlkugybg.jpg')
 post.photos.attach(io: img, filename: "", content_type: "image/png")
 post.save
 

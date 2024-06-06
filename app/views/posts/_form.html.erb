@@ -18,14 +18,14 @@
 
 
       <!---------------------------------->
-    
+
       <div class="preview img-list-sm" data-preview-target="preview">
       </div>
 
   </div>
       <!---------------------------------->
   <%= f.input :title, input_html: { class: 'input-card' }  %>
-  <%= f.input :content, input_html: { class: 'input-card' }%>
+  <%= f.input :content, as: :text, input_html: { rows: 3 , class: 'input-card' }%>
 
 
 <!--
@@ -47,7 +47,7 @@
 <div data-controller="print-tags">
 <div class="buttondiv " style="display:flex">
   <button type="button" class="sec-btn">
-    Recommend Tags
+    Proposed Tags
   </button>
   <button type="button" class="sec-btn ms-3" data-bs-toggle="modal" data-bs-target="#exampleModal">
     Select Tags
