@@ -63,7 +63,7 @@ class HealthDatum < ApplicationRecord
       "sun_exposure": self.sun_exposure ? "Sufficient" : "Insufficient",
       "activity": self.active ? "Active" : "Sedentary",
       "dairy_intake": self.dairy_intake ? "Low" : "Adequate",
-      "sleeping_hrs": self.sleeping_hours,
+      "sleeping_hrs": self.sleeping_hours.floor.to_s,
       "age": self.age,
       "weight": self.weight,
       "height": self.weight,

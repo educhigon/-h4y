@@ -12,23 +12,37 @@ Tagging.destroy_all
 p "Database clean"
 
 topics = [
-  "Herbal Remedies: Natural Healing :herb:",
-  "Boost Immunity Naturally :muscle:",
-  "Benefits of Acupuncture :mag:",
-  "Nature's Best Nutrition :green_apple:",
-  "Mindful Meditation :man_in_lotus_position:",
-  "Traditional Medicine Wisdom :old_key:",
-  "Organic Foods & Health :ear_of_rice:",
-  "Balancing Body & Mind :scales:",
-  "Soothing Aromatherapy :cherry_blossom:",
-  "Herbal Tea Blends :coffee:",
-  "Superfoods for Health :broccoli:",
-  "Holistic Skincare :star2:",
-  "Healing Homeopathy :pill:",
-  "Stress Reduction Techniques :brain:",
-  "Yoga for Balance :man_in_lotus_position:"
+  "Herbal Remedies: Natural Healing",
+  "Boost Immunity Naturally",
+  "Benefits of Acupuncture",
+  "Nature's Best Nutrition",
+  "Mindful Meditation",
+  "Traditional Medicine Wisdom",
+  "Organic Foods & Health",
+  "Balancing Body & Mind",
+  "Soothing Aromatherapy",
+  "Herbal Tea Blends",
+  "Superfoods for Health",
+  "Holistic Skincare",
+  "Healing Homeopathy",
+  "Stress Reduction Techniques",
+  "Yoga for Balance:"
 ]
-images = ["https://res.cloudinary.com/dllwjjfax/image/upload/v1717578474/h4you/y1jbpypl0xj3p4wuuhxt.png", "https://res.cloudinary.com/dllwjjfax/image/upload/v1717578474/h4you/ibfb77vv1fdqemqklr7b.png", "https://res.cloudinary.com/dllwjjfax/image/upload/v1717578474/h4you/n12jtzmxyll2j0ho489d.png","https://res.cloudinary.com/dllwjjfax/image/upload/v1717578475/h4you/l7sycltfyft2aeptzjw9.png","https://res.cloudinary.com/dllwjjfax/image/upload/v1717578474/h4you/otozqnazn4mqcwqjeyx9.png","https://res.cloudinary.com/dllwjjfax/image/upload/v1717578474/h4you/ucdddviwywvuaamrstdf.png","https://res.cloudinary.com/dllwjjfax/image/upload/v1717578475/h4you/uiadacncmonwm2dymk8i.png","https://res.cloudinary.com/dllwjjfax/image/upload/v1717578474/h4you/c8rtvqfx8btyrwqd264b.png","https://res.cloudinary.com/dllwjjfax/image/upload/v1717578474/h4you/tzvjyhrhojzyce6kbodm.png","https://res.cloudinary.com/dllwjjfax/image/upload/v1717578475/h4you/yjdalyik4nij7lqyvtxu.png","https://res.cloudinary.com/dllwjjfax/image/upload/v1717578475/h4you/tyx9v2glxjobqnasyvqy.png", "https://res.cloudinary.com/dllwjjfax/image/upload/v1717578475/h4you/az9ywsx55dadwvlrerm2.png", "https://res.cloudinary.com/dllwjjfax/image/upload/v1717578475/h4you/s6xoyb6voc2e4uwojeca.png", "https://res.cloudinary.com/dllwjjfax/image/upload/v1717578476/h4you/pnye6gn0ovmvkfpglzva.png", "https://res.cloudinary.com/dllwjjfax/image/upload/v1717578476/h4you/ocx2dkenrjekubsegoo8.png"]
+images = ["https://res.cloudinary.com/dllwjjfax/image/upload/v1717578474/h4you/y1jbpypl0xj3p4wuuhxt.png",
+ "https://res.cloudinary.com/dllwjjfax/image/upload/v1717578474/h4you/ibfb77vv1fdqemqklr7b.png",
+ "https://res.cloudinary.com/dllwjjfax/image/upload/v1717578474/h4you/n12jtzmxyll2j0ho489d.png",
+"https://res.cloudinary.com/dllwjjfax/image/upload/v1717578475/h4you/l7sycltfyft2aeptzjw9.png",
+"https://res.cloudinary.com/dllwjjfax/image/upload/v1717578474/h4you/otozqnazn4mqcwqjeyx9.png",
+"https://res.cloudinary.com/dllwjjfax/image/upload/v1717578474/h4you/ucdddviwywvuaamrstdf.png",
+"https://res.cloudinary.com/dllwjjfax/image/upload/v1717578475/h4you/uiadacncmonwm2dymk8i.png",
+"https://res.cloudinary.com/dllwjjfax/image/upload/v1717578474/h4you/c8rtvqfx8btyrwqd264b.png",
+"https://res.cloudinary.com/dllwjjfax/image/upload/v1717578474/h4you/tzvjyhrhojzyce6kbodm.png",
+"https://res.cloudinary.com/dllwjjfax/image/upload/v1717578475/h4you/yjdalyik4nij7lqyvtxu.png",
+"https://res.cloudinary.com/dllwjjfax/image/upload/v1717578475/h4you/tyx9v2glxjobqnasyvqy.png",
+ "https://res.cloudinary.com/dllwjjfax/image/upload/v1717578475/h4you/az9ywsx55dadwvlrerm2.png",
+ "https://res.cloudinary.com/dllwjjfax/image/upload/v1717578475/h4you/s6xoyb6voc2e4uwojeca.png",
+ "https://res.cloudinary.com/dllwjjfax/image/upload/v1717578476/h4you/pnye6gn0ovmvkfpglzva.png",
+ "https://res.cloudinary.com/dllwjjfax/image/upload/v1717578476/h4you/ocx2dkenrjekubsegoo8.png"]
 
 client = OpenAI::Client.new
 
@@ -162,22 +176,49 @@ end
 ############################################################################
 
 p "Creating users"
-a = User.create!(email: "bobusa@gmail.com", password: "password")
+a = User.create!(email: "kat@gmail.com", password: "password")
+a1 = Profile.where(user_id: a.id).first
+img = File.open('/home/gonzalo/code/educhigon/ h4y/app/assets/images/Kat.png', "rb")
+a1.profile_picture.attach(io: img, filename: "", content_type: "image/png")
+a1.update!(name:'Kat', bio: "Yoga is LIFE!")
+
 b = User.create!(email: "lucas@lewagon.com", password: "password")
+b1 = Profile.where(user_id: b.id).first
+img = File.open('/home/gonzalo/code/educhigon/ h4y/app/assets/images/lucas.png', "rb")
+b1.profile_picture.attach(io: img, filename: "", content_type: "image/png")
+b1.update!(name:'Lucas', bio: "Dogs have the best life - we should be like them")
+
 c = User.create!(email: "emma@test.com", password: "123456")
-d = User.create!(email: "iratxe@lewagon.com", password: "password")
+c1 = Profile.where(user_id: c.id).first
+img = File.open('/home/gonzalo/code/educhigon/ h4y/app/assets/images/emma.png', "rb")
+c1.profile_picture.attach(io: img, filename: "", content_type: "image/png")
+c1.update!(name:'emma', bio: "Some say the answer for the meaning of life is 42.. For me is 👻")
+
+d = User.create!(email: "emre@lewagon.com", password: "password")
+d1 = Profile.where(user_id: d.id).first
+img = File.open('/home/gonzalo/code/educhigon/ h4y/app/assets/images/emre.png', "rb")
+d1.profile_picture.attach(io: img, filename: "", content_type: "image/png")
+d1.update!(name:'Emre', bio: "I wonder if the cactus have feelings")
+
+e = User.create!(email: "josh@lewagon.com", password: "password")
+e1 = Profile.where(user_id: e.id).first
+img = File.open('/home/gonzalo/code/educhigon/ h4y/app/assets/images/josh.png', "rb")
+e1.profile_picture.attach(io: img, filename: "", content_type: "image/png")
+e1.update!(name:'Josh', bio: "Baking and cooking are the best medicine")
 
 p "Creating posts"
-test_post = Post.create!( title: "Apples good", content: "An apple a day keeps the doctor away", user: b)
-Post.create!(title: "Just move LOL", content: "🚶‍♀️🚶‍♀️🚶‍♀️🚶‍♀️🚶‍♀️🚶‍♀️🚶‍♀️🚶‍♀️🚶‍♀️🚶‍♀️🚶‍♀️🚶‍♀️🚶‍♀️🚶‍♀️🚶‍♀️🚶‍♀️🚶‍♀️🚶‍♀️🚶‍♀️🚶‍♀️🚶‍♀️🚶‍♀️🚶‍♀️🚶‍♀️🚶‍♀️🚶‍♀️🚶‍♀️🚶‍♀️🚶‍♀️🚶‍♀️", user: c)
-Post.create!(title: "Coffee bad :(", content: "Long text etc Long text etc Long text etc Long text etc Long text etc Long text etc Long text etc Long text etc Long text etc Long text etc Long text etc Long text etc Long text etc Long text etc Long text etc Long text etc Long text etc Long text etc Long text etc Long text etc Long text etc Long text etc Long text etc Long text etc Long text etc Long text etc Long text etc Long text etc Long text etc ", user: a)
-Post.create!(title: "Potato good", content: "Potatos are like apples", user: b)
+# test_post = Post.create!( title: "Apples good", content: "An apple a day keeps the doctor away", user: b)
+# Post.create!(title: "Just move LOL", content: "🚶‍♀️🚶‍♀️🚶‍♀️🚶‍♀️🚶‍♀️🚶‍♀️🚶‍♀️🚶‍♀️🚶‍♀️🚶‍♀️🚶‍♀️🚶‍♀️🚶‍♀️🚶‍♀️🚶‍♀️🚶‍♀️🚶‍♀️🚶‍♀️🚶‍♀️🚶‍♀️🚶‍♀️🚶‍♀️🚶‍♀️🚶‍♀️🚶‍♀️🚶‍♀️🚶‍♀️🚶‍♀️🚶‍♀️🚶‍♀️", user: c)
+# Post.create!(title: "Coffee bad :(", content: "Long text etc Long text etc Long text etc Long text etc Long text etc Long text etc Long text etc Long text etc Long text etc Long text etc Long text etc Long text etc Long text etc Long text etc Long text etc Long text etc Long text etc Long text etc Long text etc Long text etc Long text etc Long text etc Long text etc Long text etc Long text etc Long text etc Long text etc Long text etc Long text etc ", user: a)
+# Post.create!(title: "Potato good", content: "Potatos are like apples", user: b)
 
 #API call to make post with just title and content
 # 2.times do
 #   response = api_call(client)
 #   read_response(response)
 # end
+
+
 
 # winning
 #API call generating post content fitted to mahdis images
@@ -193,27 +234,23 @@ topics.each_with_index do |topic, index|
   p "this worked #{index} 😅" if post_without_image.save
 end
 
-p "Creating Comments"
-Comment.create!(content: "Good stuff :) !", user: a, post: test_post)
-Comment.create!(content: "WEAK POST! I could do better", user: d, post: test_post)
-Comment.create!(content: "I just throw apples at homeless children 😎", user: c, post: test_post)
-posts = Post.all.to_a - [test_post]
-posts.each do |post|
-  5.times do
-    Comment.create!(content: ('a'..'z').to_a.sample(26).join, user: User.all.sample, post: post)
-  end
-end
+# p "Creating Comments"
+# Comment.create!(content: "Good stuff :) !", user: a, post: test_post)
+# Comment.create!(content: "WEAK POST! I could do better", user: d, post: test_post)
+# Comment.create!(content: "Hey! very interesting, how do I know more? 😎", user: c, post: test_post)
+
+  # posts = Post.all.to_a - [test_post]
+# posts.each do |post|
+#   5.times do
+#     Comment.create!(content: ('a'..'z').to_a.sample(26).join, user: User.all.sample, post: post)
+#   end
+# end
 
 #review and favorite generation will break once validation is in place
-p "Creating Reviews"
-xx = User.all.count * Post.all.count
-rating = [-1, 1]
-xx.times do
-  Review.create!(rating: rating.sample, post: Post.all.sample, user: User.all.sample)
-end
+
 
 p "Creating Favorites"
-xx.times do
+10.times do
   Favorite.create!(post: Post.all.sample, user: User.all.sample)
 end
 
@@ -237,7 +274,7 @@ country = ['United States', 'Poland', 'Australia', 'Canada', 'United Kingdom',
   'Bosnia and Herzegovina', 'Singapore', 'Nigeria', 'Croatia',
   'Thailand', 'Denmark', 'Mexico', 'Greece', 'Moldova', 'Colombia',
   'Georgia', 'Czech Republic', 'Philippines']
-gender = ["Male", "Female", "Others"]
+gender = ["Male", "Female"]
 occupation = "Student"
 days_indoors = ["Go out Every day", "1-14 days", "15-30 days", "More than 2 months"]
 self_employed = [true, false]
@@ -254,7 +291,7 @@ height = rand(140..210)
 p "Creating Profiles and HDs"
 User.all.each do |user|
   # Profile.create!(user: user, name: user.email.split('@')[0], bio: ('a'..'z').to_a.sample(50).join).profile_picture.attach(io: blob, filename: "H4you.png", content_type: "image/png" )
-  Profile.create!(user: user, name: user.email.split('@')[0], bio: ('a'..'z').to_a.sample(50).join)
+  # Profile.create!(user: user, name: user.email.split('@')[0], bio: ('a'..'z').to_a.sample(50).join)
   HealthDatum.create!(
     occupation: occupation,
     gender: gender.sample,
@@ -304,7 +341,109 @@ Post.all.each do |post|
 end
 
 user_without_hd = User.create!(email: "bruno@bruno.com", password: "password")
-Profile.create!(user: user_without_hd, name: user_without_hd.email.split('@')[0], bio: ('a'..'z').to_a.sample(50).join)
+Profile.create!(user: user_without_hd, name: user_without_hd.email.split('@')[0], bio: "I'm curious.. how does this app work?!")
+
+
+####################
+#################### SPECIAL POSTS
+####################
+
+post = Post.new(
+  title: "You'll never believe how good this streching really is",
+  content: "If you suffer from backpain, or want a quick pain release you definitelly need to check out this streching. ",
+  user: e)
+img = File.open('/home/gonzalo/code/educhigon/ h4y/app/assets/images/streching1.png', "rb")
+post.photos.attach(io: img, filename: "", content_type: "image/png")
+img = File.open('/home/gonzalo/code/educhigon/ h4y/app/assets/images/streching2.png', "rb")
+post.photos.attach(io: img, filename: "", content_type: "image/png")
+post.save
+
+Comment.create!(content: "Wow! That is relaxing!", user: d, post: post)
+Comment.create!(content: "Good stuff :) !", user: b, post: post)
+Comment.create!(content: "Great exercise! I would also recommend to always do some prevention exercises 😊", user: a, post: post)
+
+5.times do
+  Tagging.create!(taggable_type: "Post", taggable_id: post.id, tag: Tag.all[0...50].sample)
+end
+
+
+post = Post.new(
+  title: "Yoga can healp you enhance your life motivation!",
+  content: "",
+  user: a)
+img = File.open('/home/gonzalo/code/educhigon/ h4y/app/assets/images/yoga4.png', "rb")
+post.photos.attach(io: img, filename: "", content_type: "image/png")
+post.save
+
+5.times do
+  Tagging.create!(taggable_type: "Post", taggable_id: post.id, tag: Tag.all[0...50].sample)
+end
+
+
+post = Post.new(
+  title: "Backpain? You've got to try yoga!",
+  content: "",
+  user: a)
+img = File.open('/home/gonzalo/code/educhigon/ h4y/app/assets/images/yoga1.png', "rb")
+post.photos.attach(io: img, filename: "", content_type: "image/png")
+img = File.open('/home/gonzalo/code/educhigon/ h4y/app/assets/images/yoga2.png', "rb")
+post.photos.attach(io: img, filename: "", content_type: "image/png")
+img = File.open('/home/gonzalo/code/educhigon/ h4y/app/assets/images/yoga3.png', "rb")
+post.photos.attach(io: img, filename: "", content_type: "image/png")
+post.save
+
+
+5.times do
+  Tagging.create!(taggable_type: "Post", taggable_id: post.id, tag: Tag.all[0...50].sample)
+end
+
+post = Post.new(
+  title: "Are you stressed? We have just the thing to help you",
+  content: "",
+  user: b)
+img = File.open('/home/gonzalo/code/educhigon/ h4y/app/assets/images/stressed.png', "rb")
+post.photos.attach(io: img, filename: "", content_type: "image/png")
+post.save
+
+
+5.times do
+  Tagging.create!(taggable_type: "Post", taggable_id: post.id, tag: Tag.all[0...10].sample)
+end
+
+post = Post.new(
+  title: "5 ways to reinvigorate after an exhaustive project",
+  content: "",
+  user: c)
+img = File.open('/home/gonzalo/code/educhigon/ h4y/app/assets/images/reinvigorate.png', "rb")
+post.photos.attach(io: img, filename: "", content_type: "image/png")
+post.save
+
+5.times do
+  Tagging.create!(taggable_type: "Post", taggable_id: post.id, tag: Tag.all[0...10].sample)
+end
+
+post = Post.new(
+  title: "How to overcome post Bootcamp depression ",
+  content: "",
+  user: d)
+img = File.open('/home/gonzalo/code/educhigon/ h4y/app/assets/images/escobar2.png', "rb")
+post.photos.attach(io: img, filename: "", content_type: "image/png")
+img = File.open('/home/gonzalo/code/educhigon/ h4y/app/assets/images/escobar1.png', "rb")
+post.photos.attach(io: img, filename: "", content_type: "image/png")
+img = File.open('/home/gonzalo/code/educhigon/ h4y/app/assets/images/escobar3.png', "rb")
+post.photos.attach(io: img, filename: "", content_type: "image/png")
+post.save
+
+5.times do
+  Tagging.create!(taggable_type: "Post", taggable_id: post.id, tag: Tag.all[0...10].sample)
+end
+
+p "Creating Reviews"
+rating = [-1, 1, 1, 1]
+500.times do
+  Review.create!(rating: rating.sample, post: Post.all.sample, user: User.all.sample)
+end
+
 
 p "##########################################################################################"
 p "Database contains:"

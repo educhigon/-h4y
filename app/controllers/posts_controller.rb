@@ -5,6 +5,7 @@ class PostsController < ApplicationController
 
   def index
     @posts = []
+    # unless false
     unless current_user.tags.empty?
       @posts = Post
       .joins(:tags)
@@ -13,7 +14,7 @@ class PostsController < ApplicationController
       .group("posts.id")
       .order("shared_tags DESC")
     end
-    @posts += Post.all.order(created_at: :desc)
+    @posts += Post.all.order(created_at: :asc)
   end
 
   def index_recommended

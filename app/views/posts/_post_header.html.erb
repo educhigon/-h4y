@@ -2,5 +2,5 @@
   <div class="profile-pic">
     <%= render "avatar", post: post %>
   </div>
-  <p>  <%= post.user.profile.name.capitalize %>  </p>
+    <p> <%= post.user.profile.name.nil? ? "" : post.user.profile.name.capitalize%> </p>
 <% end %>
