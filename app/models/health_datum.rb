@@ -96,7 +96,7 @@ class HealthDatum < ApplicationRecord
         "Anxiety", "Stress", "Depression", "Mindfulness", "Wellness",
         "Mental Health Therapy", "Resilience", "Self-care", "Psychology", "Happiness"
       ],
-      diabetes: [
+      diabetic: [
         "Diabetes Prevention", "Glucose", "Insulin", "Diet", "Glycemic",
         "Fitness", "Foot Care", "Type 1 Diabetes", "Type 2 Diabetes", "Cardio"
       ],

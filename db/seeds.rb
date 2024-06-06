@@ -28,21 +28,24 @@ topics = [
   "Stress Reduction Techniques",
   "Yoga for Balance:"
 ]
-images = ["https://res.cloudinary.com/dllwjjfax/image/upload/v1717578474/h4you/y1jbpypl0xj3p4wuuhxt.png",
- "https://res.cloudinary.com/dllwjjfax/image/upload/v1717578474/h4you/ibfb77vv1fdqemqklr7b.png",
- "https://res.cloudinary.com/dllwjjfax/image/upload/v1717578474/h4you/n12jtzmxyll2j0ho489d.png",
-"https://res.cloudinary.com/dllwjjfax/image/upload/v1717578475/h4you/l7sycltfyft2aeptzjw9.png",
-"https://res.cloudinary.com/dllwjjfax/image/upload/v1717578474/h4you/otozqnazn4mqcwqjeyx9.png",
-"https://res.cloudinary.com/dllwjjfax/image/upload/v1717578474/h4you/ucdddviwywvuaamrstdf.png",
-"https://res.cloudinary.com/dllwjjfax/image/upload/v1717578475/h4you/uiadacncmonwm2dymk8i.png",
-"https://res.cloudinary.com/dllwjjfax/image/upload/v1717578474/h4you/c8rtvqfx8btyrwqd264b.png",
-"https://res.cloudinary.com/dllwjjfax/image/upload/v1717578474/h4you/tzvjyhrhojzyce6kbodm.png",
-"https://res.cloudinary.com/dllwjjfax/image/upload/v1717578475/h4you/yjdalyik4nij7lqyvtxu.png",
-"https://res.cloudinary.com/dllwjjfax/image/upload/v1717578475/h4you/tyx9v2glxjobqnasyvqy.png",
- "https://res.cloudinary.com/dllwjjfax/image/upload/v1717578475/h4you/az9ywsx55dadwvlrerm2.png",
- "https://res.cloudinary.com/dllwjjfax/image/upload/v1717578475/h4you/s6xoyb6voc2e4uwojeca.png",
- "https://res.cloudinary.com/dllwjjfax/image/upload/v1717578476/h4you/pnye6gn0ovmvkfpglzva.png",
- "https://res.cloudinary.com/dllwjjfax/image/upload/v1717578476/h4you/ocx2dkenrjekubsegoo8.png"]
+
+images = [
+  "https://res.cloudinary.com/dllwjjfax/image/upload/v1717578474/h4you/y1jbpypl0xj3p4wuuhxt.png",
+  "https://res.cloudinary.com/dllwjjfax/image/upload/v1717578474/h4you/ibfb77vv1fdqemqklr7b.png",
+  "https://res.cloudinary.com/dllwjjfax/image/upload/v1717578474/h4you/n12jtzmxyll2j0ho489d.png",
+  "https://res.cloudinary.com/dllwjjfax/image/upload/v1717578475/h4you/l7sycltfyft2aeptzjw9.png",
+  "https://res.cloudinary.com/dllwjjfax/image/upload/v1717578474/h4you/otozqnazn4mqcwqjeyx9.png",
+  "https://res.cloudinary.com/dllwjjfax/image/upload/v1717578474/h4you/ucdddviwywvuaamrstdf.png",
+  "https://res.cloudinary.com/dllwjjfax/image/upload/v1717578475/h4you/uiadacncmonwm2dymk8i.png",
+  "https://res.cloudinary.com/dllwjjfax/image/upload/v1717578474/h4you/c8rtvqfx8btyrwqd264b.png",
+  "https://res.cloudinary.com/dllwjjfax/image/upload/v1717578474/h4you/tzvjyhrhojzyce6kbodm.png",
+  "https://res.cloudinary.com/dllwjjfax/image/upload/v1717578475/h4you/yjdalyik4nij7lqyvtxu.png",
+  "https://res.cloudinary.com/dllwjjfax/image/upload/v1717578475/h4you/tyx9v2glxjobqnasyvqy.png",
+  "https://res.cloudinary.com/dllwjjfax/image/upload/v1717578475/h4you/az9ywsx55dadwvlrerm2.png",
+  "https://res.cloudinary.com/dllwjjfax/image/upload/v1717578475/h4you/s6xoyb6voc2e4uwojeca.png",
+  "https://res.cloudinary.com/dllwjjfax/image/upload/v1717578476/h4you/pnye6gn0ovmvkfpglzva.png",
+  "https://res.cloudinary.com/dllwjjfax/image/upload/v1717578476/h4you/ocx2dkenrjekubsegoo8.png"
+]
 
 client = OpenAI::Client.new
 
@@ -182,59 +185,98 @@ img = URI.open('https://res.cloudinary.com/wagon/image/upload/c_fill,g_face,h_20
 a1.profile_picture.attach(io: img, filename: "", content_type: "image/png")
 a1.update!(name:'Kat', bio: "Yoga is LIFE!")
 
+
 b = User.create!(email: "lucas@lewagon.com", password: "password")
 b1 = Profile.where(user_id: b.id).first
+b2 = "https://res.cloudinary.com/wagon/image/upload/c_fill,g_face,h_200,w_200/v1680462063/p0d3z0nrbeuv8l7zs83h.jpg"
 # img = File.open('/home/gonzalo/code/educhigon/ h4y/app/assets/images/lucas.png', "rb")
-img = URI.open('https://res.cloudinary.com/wagon/image/upload/c_fill,g_face,h_200,w_200/v1696334260/xeoh9bn2dq3runng1m4v.jpg')
-
+img = URI.open(b2)
 b1.profile_picture.attach(io: img, filename: "", content_type: "image/png")
 b1.update!(name:'Lucas', bio: "Dogs have the best life - we should be like them")
+
 
 c = User.create!(email: "emma@test.com", password: "123456")
 c1 = Profile.where(user_id: c.id).first
 # img = File.open('/home/gonzalo/code/educhigon/ h4y/app/assets/images/emma.png', "rb")
-img = URI.open('https://res.cloudinary.com/wagon/image/upload/c_fill,g_face,h_200,w_200/v1696334260/xeoh9bn2dq3runng1m4v.jpg')
-
+c2 = "https://avatars.githubusercontent.com/u/90188399?v=4"
+img = URI.open(c2)
 c1.profile_picture.attach(io: img, filename: "", content_type: "image/png")
-c1.update!(name:'emma', bio: "Some say the answer for the meaning of life is 42.. For me is 👻")
+c1.update!(name:'Emma', bio: "Buh 👻")
+
 
 d = User.create!(email: "emre@lewagon.com", password: "password")
 d1 = Profile.where(user_id: d.id).first
+d2 = "https://res.cloudinary.com/wagon/image/upload/c_fill,g_face,h_200,w_200/v1691082719/avdhlgdrcsjmlzmrrmqd.jpg"
 # img = File.open('/home/gonzalo/code/educhigon/ h4y/app/assets/images/emre.png', "rb")
-img = URI.open('https://res.cloudinary.com/wagon/image/upload/c_fill,g_face,h_200,w_200/v1696334260/xeoh9bn2dq3runng1m4v.jpg')
-
+img = URI.open(d2)
 d1.profile_picture.attach(io: img, filename: "", content_type: "image/png")
-d1.update!(name:'Emre', bio: "I wonder if the cactus have feelings")
+d1.update!(name: 'Emre', bio: "I wonder if the cactus have feelings")
+
 
 e = User.create!(email: "josh@lewagon.com", password: "password")
 e1 = Profile.where(user_id: e.id).first
 # img = File.open('/home/gonzalo/code/educhigon/ h4y/app/assets/images/josh.png', "rb")
-img = URI.open('https://res.cloudinary.com/wagon/image/upload/c_fill,g_face,h_200,w_200/v1696334260/xeoh9bn2dq3runng1m4v.jpg')
-
+e2 = "https://avatars.githubusercontent.com/u/111142848?v=4"
+img = URI.open(e2)
 e1.profile_picture.attach(io: img, filename: "", content_type: "image/png")
-e1.update!(name:'Josh', bio: "Baking and cooking are the best medicine")
-
-p "Creating posts"
-# test_post = Post.create!( title: "Apples good", content: "An apple a day keeps the doctor away", user: b)
-# Post.create!(title: "Just move LOL", content: "🚶‍♀️🚶‍♀️🚶‍♀️🚶‍♀️🚶‍♀️🚶‍♀️🚶‍♀️🚶‍♀️🚶‍♀️🚶‍♀️🚶‍♀️🚶‍♀️🚶‍♀️🚶‍♀️🚶‍♀️🚶‍♀️🚶‍♀️🚶‍♀️🚶‍♀️🚶‍♀️🚶‍♀️🚶‍♀️🚶‍♀️🚶‍♀️🚶‍♀️🚶‍♀️🚶‍♀️🚶‍♀️🚶‍♀️🚶‍♀️", user: c)
-# Post.create!(title: "Coffee bad :(", content: "Long text etc Long text etc Long text etc Long text etc Long text etc Long text etc Long text etc Long text etc Long text etc Long text etc Long text etc Long text etc Long text etc Long text etc Long text etc Long text etc Long text etc Long text etc Long text etc Long text etc Long text etc Long text etc Long text etc Long text etc Long text etc Long text etc Long text etc Long text etc Long text etc ", user: a)
-# Post.create!(title: "Potato good", content: "Potatos are like apples", user: b)
-
-#API call to make post with just title and content
-# 2.times do
-#   response = api_call(client)
-#   read_response(response)
-# end
+e1.update!(name: 'Josh', bio: "Baking and cooking are the best medicine")
 
 
+f = User.create!(email: "iraxte@lewagon.com", password: "password")
+f1 = Profile.where(user_id: f.id).first
+f2 = "https://avatars.githubusercontent.com/u/65398654?v=4"
+img = URI.open(f2)
+f1.profile_picture.attach(io: img, filename: "", content_type: "image/png")
+f1.update!(name: 'Iraxte', bio: "")
 
-# winning
-#API call generating post content fitted to mahdis images
+
+g = User.create!(email: "napoleon@lewagon.com", password: "password")
+g1 = Profile.where(user_id: g.id).first
+g2 = "https://upload.wikimedia.org/wikipedia/commons/thumb/4/4d/Napoleon_at_the_Great_St._Bernard_-_Jacques-Louis_David_-_Google_Cultural_Institute.jpg/800px-Napoleon_at_the_Great_St._Bernard_-_Jacques-Louis_David_-_Google_Cultural_Institute.jpg"
+img = URI.open(g2)
+g1.profile_picture.attach(io: img, filename: "", content_type: "image/png")
+g1.update!(name: 'Napoleon', bio: "Bonjour")
+
+h = User.create!(email: "eli@lewagon.com", password: "password")
+h1 = Profile.where(user_id: h.id).first
+h2 = "https://res.cloudinary.com/wagon/image/upload/c_fill,g_face,h_200,w_200/v1680533149/hfvshun4b9oolopypbtm.jpg"
+img = URI.open(h2)
+h1.profile_picture.attach(io: img, filename: "", content_type: "image/png")
+h1.update!(name: 'Eli', bio: "Bonjour")
+
+j = User.create!(email: "olivier@lewagon.com", password: "password")
+j1 = Profile.where(user_id: j.id).first
+j2 = "https://avatars.githubusercontent.com/u/32952612?v=4"
+img = URI.open(j2)
+j1.profile_picture.attach(io: img, filename: "", content_type: "image/png")
+j1.update!(name: 'Olivier', bio: "Bonjour")
+
+k = User.create!(email: "soojin@lewagon.com", password: "password")
+k1 = Profile.where(user_id: k.id).first
+k2 = "https://res.cloudinary.com/wagon/image/upload/c_fill,g_face,h_200,w_200/v1688753896/ll1zsvlp4fnzkvfwo6av.jpg"
+img = URI.open(k2)
+k1.profile_picture.attach(io: img, filename: "", content_type: "image/png")
+k1.update!(name: 'Soojin', bio: "Bonjour")
+
+l = User.create!(email: "santi@lewagon.com", password: "password")
+l1 = Profile.where(user_id: l.id).first
+l2 = "https://res.cloudinary.com/wagon/image/upload/c_fill,g_face,h_200,w_200/v1601461074/xrbi2mzjyawsdisknhdd.jpg"
+img = URI.open(l2)
+l1.profile_picture.attach(io: img, filename: "", content_type: "image/png")
+l1.update!(name: 'Santi', bio: "Bonjour")
+
+m = User.create!(email: "michelle@lewagon.com", password: "password")
+m1 = Profile.where(user_id: m.id).first
+m2 = "https://res.cloudinary.com/wagon/image/upload/c_fill,g_face,h_200,w_200/v1695388870/crobwmslxyfatclt8bqw.jpg"
+img = URI.open(m2)
+m1.profile_picture.attach(io: img, filename: "", content_type: "image/png")
+m1.update!(name: 'Michelle', bio: "Bonjour")
+
+# qwe
+# FILLER POSTS
 topics.each_with_index do |topic, index|
-  p topics.length
-  p images.length
   p "starting topics loops num:"
-  p index
+  p "#{index + 1}/15"
   response = api_call_with_topic(client, topic)
   post_without_image = read_response(response)
   img = URI.open(images[index])
@@ -255,18 +297,30 @@ end
 # end
 
 #review and favorite generation will break once validation is in place
-
-
-p "Creating Favorites"
-10.times do
-  Favorite.create!(post: Post.all.sample, user: User.all.sample)
-end
-
-p "Tags and Taggings 😮"
+# p "Creating Favorites"
+# 10.times do
+#   Favorite.create!(post: Post.all.sample, user: User.all.sample)
+#
+p "Creating Tags and Taggings 😮 "
 tags = ["Anxiety", "Stress", "Depression", "Mindfulness", "Wellness", "Mental Health Therapy", "Resilience", "Self-care", "Psychology", "Happiness", "Diabetes Prevention", "Glucose", "Insulin", "Diet", "Glycemic", "Fitness", "Foot Care", "Type 1 Diabetes", "Type 2 Diabetes", "Cardio", "Heart Diet", "Cholesterol", "Blood Pressure", "Heart Care", "Physical Rehab", "Stress", "Surgery", "Heart Rate", "Heart Health", "Density", "Calcium", "Osteoporosis", "Joints", "Arthritis", "Fracture", "Vitamins", "Physical Therapy", "Aging", "Bone Health", "Nutrition", "Exercise", "Checkups", "Hydration", "Sleep", "Weight", "Seasonal", "Prevention", "Vaccines", "Health"]
 tags.each do |tag|
   Tag.create!(name: tag)
 end
+
+Post.all.each do |post|
+  # tags = Tag.all
+  5.times do
+    p post
+    p "test"
+    # tag_applied = tags.sample
+    x = Tagging.create!(taggable_type: "Post", taggable_id: post.id, tag: Tag.all.sample)
+    # tags - tag_applied.to_a
+    p "😶 tags - tag test"
+    # p tags
+    p x
+  end
+end
+
 
 User.all.each do |user|
   5.times do
@@ -319,46 +373,23 @@ User.all.each do |user|
   )
 end
 
-# def example
-#   {"occupation": "Student",
-#     "gender": "Male",
-#     "days_indoors": "1-14 days",
-#     "self_employed": "Yes",
-#     "smoking": "No",
-#     "alcohol_consumption": "Moderate",
-#     "sun_exposure": "Sufficient",
-#     "activity": "Active",
-#     "dairy_intake":"Low",
-#     "sleeping_hrs":"8",
-#     "age":32,
-#     "weight":67,
-#     "height":163,
-#     "country":"United States"
-#   }
-# end
 
 
-
-Post.all.each do |post|
-  5.times do
-    p post
-    p "test"
-    x = Tagging.create!(taggable_type: "Post", taggable_id: post.id, tag: Tag.all.sample)
-    p x
-  end
-end
-
-user_without_hd = User.create!(email: "bruno@bruno.com", password: "password")
-Profile.create!(user: user_without_hd, name: user_without_hd.email.split('@')[0], bio: "I'm curious.. how does this app work?!")
-
+# user_without_hd = User.create!(email: "bruno@bruno.com", password: "password")
+# Profile.create!(user: user_without_hd, name: user_without_hd.email.split('@')[0], bio: "I'm curious.. how does this app work?!")
 
 ####################
 #################### SPECIAL POSTS
 ####################
 
+#### post 1 stretch from someone *** =we click on this
 post = Post.new(
-  title: "You'll never believe how good this streching really is",
-  content: "If you suffer from backpain, or want a quick pain release you definitelly need to check out this streching. ",
+  title: "This One Stretch WILL BLOW YOUR MIND! 🤯",
+  content: "Hey everyone! 🌟 Have you ever tried a stretch so good it almost instantly made you say 'ahh'? I'm talking about a game-changer for anyone battling back pain—the Cobra Pose! 🐍
+
+  This incredible backbend not only alleviates tension in your lower back but also helps to improve your posture and flexibility. 🧘‍♂️ I've been adding this stretch to my morning routine, and the relief I feel each day is just mind-blowing! 🌅
+
+  If you’re ready to transform your day with just one simple move, give the Cobra Pose a shot. Trust me, your back will thank you! 🙏 Don’t forget to breathe deeply and enjoy the stretch. Let's get our flex on and kiss that back pain goodbye! 🚀",
   user: e)
 # img = File.open('/home/gonzalo/code/educhigon/ h4y/app/assets/images/streching1.png', "rb")
 img = URI.open('https://res.cloudinary.com/wagon/image/upload/c_fill,g_face,h_200,w_200/v1696334260/xeoh9bn2dq3runng1m4v.jpg')
@@ -369,32 +400,37 @@ img = URI.open('https://res.cloudinary.com/wagon/image/upload/c_fill,g_face,h_20
 post.photos.attach(io: img, filename: "", content_type: "image/png")
 post.save
 
-Comment.create!(content: "Wow! That is relaxing!", user: d, post: post)
-Comment.create!(content: "Good stuff :) !", user: b, post: post)
+Comment.create!(content: "Wow! This is relaxing!", user: User.all.sample, post: post)
+Comment.create!(content: "Good stuff :) !", user: User.all.sample, post: post)
 Comment.create!(content: "Great exercise! I would also recommend to always do some prevention exercises 😊", user: a, post: post)
 
 5.times do
-  Tagging.create!(taggable_type: "Post", taggable_id: post.id, tag: Tag.all[0...50].sample)
+  Tagging.create!(taggable_type: "Post", taggable_id: post.id, tag: Tag.all[0...49].sample)
 end
 
 
+
+#### post 2 yoga  kat
 post = Post.new(
-  title: "Yoga can healp you enhance your life motivation!",
+  title: "Unlock Your Inner Zen: 5 Yoga Poses for Ultimate Relaxation",
   content: "",
   user: a)
-# img = File.open('/home/gonzalo/code/educhigon/ h4y/app/assets/images/yoga4.png', "rb")
 img = URI.open('https://res.cloudinary.com/wagon/image/upload/c_fill,g_face,h_200,w_200/v1696334260/xeoh9bn2dq3runng1m4v.jpg')
 post.photos.attach(io: img, filename: "", content_type: "image/png")
 post.save
 
 5.times do
-  Tagging.create!(taggable_type: "Post", taggable_id: post.id, tag: Tag.all[0...50].sample)
+  Tagging.create!(taggable_type: "Post", taggable_id: post.id, tag: Tag.all[0...49].sample)
 end
 
-
+### post 3 yoga kat ***
 post = Post.new(
-  title: "Backpain? You've got to try yoga!",
-  content: "",
+  title: "Backpain? You've got to try Yoga! 🤸‍♀️",
+  content: "Hey wellness warriors! 🌿 Struggling with nagging back pain? I've been there, and I know how tough it can be. 🤕 That's why I want to share something that has completely transformed my approach to managing back discomfort—Yoga! 🌈
+
+  I started incorporating simple yoga stretches into my daily routine, and the difference has been night and day. 🌞 Poses like Cat-Cow, Child's Pose, and Downward Facing Dog are not only soothing but help strengthen the muscles that support our spine. 🙌
+
+  If you’re on the fence about it, I highly encourage you to give it a try—even just a few minutes a day can make a big impact! 🕊️ Remember, it's all about taking small steps towards a healthier, pain-free you. 💪 Let’s bend so we don't break!",
   user: a)
 # img = File.open('/home/gonzalo/code/educhigon/ h4y/app/assets/images/yoga1.png', "rb")
 img = URI.open('https://res.cloudinary.com/wagon/image/upload/c_fill,g_face,h_200,w_200/v1696334260/xeoh9bn2dq3runng1m4v.jpg')
@@ -407,20 +443,19 @@ img = URI.open('https://res.cloudinary.com/wagon/image/upload/c_fill,g_face,h_20
 post.photos.attach(io: img, filename: "", content_type: "image/png")
 post.save
 
-
 5.times do
-  Tagging.create!(taggable_type: "Post", taggable_id: post.id, tag: Tag.all[0...50].sample)
+  Tagging.create!(taggable_type: "Post", taggable_id: post.id, tag: Tag.all[0...49].sample)
 end
 
+
+#### posts post DS
 post = Post.new(
-  title: "Are you stressed? We have just the thing to help you",
+  title: "Life After Achievement: Setting New Goals When the High Wears Off",
   content: "",
-  user: b)
-# img = File.open('/home/gonzalo/code/educhigon/ h4y/app/assets/images/stressed.png', "rb")
+  user: g)
 img = URI.open('https://res.cloudinary.com/wagon/image/upload/c_fill,g_face,h_200,w_200/v1696334260/xeoh9bn2dq3runng1m4v.jpg')
 post.photos.attach(io: img, filename: "", content_type: "image/png")
 post.save
-
 
 5.times do
   Tagging.create!(taggable_type: "Post", taggable_id: post.id, tag: Tag.all[0...10].sample)
@@ -430,7 +465,6 @@ post = Post.new(
   title: "5 ways to reinvigorate after an exhaustive project",
   content: "",
   user: c)
-# img = File.open('/home/gonzalo/code/educhigon/ h4y/app/assets/images/reinvigorate.png', "rb")
 img = URI.open('https://res.cloudinary.com/wagon/image/upload/c_fill,g_face,h_200,w_200/v1696334260/xeoh9bn2dq3runng1m4v.jpg')
 post.photos.attach(io: img, filename: "", content_type: "image/png")
 post.save
@@ -440,8 +474,11 @@ post.save
 end
 
 post = Post.new(
-  title: "How to overcome post Bootcamp depression ",
-  content: "",
+  title: "How to overcome post Bootcamp depression",
+  content:
+  "Step 1: Just move 🚶‍♂️
+  Step 2: get some sun ☀
+  Step 3: sleep well 👏👏",
   user: d)
 # img = File.open('/home/gonzalo/code/educhigon/ h4y/app/assets/images/escobar2.png', "rb")
 img = URI.open('https://res.cloudinary.com/wagon/image/upload/c_fill,g_face,h_200,w_200/v1696334260/xeoh9bn2dq3runng1m4v.jpg')
@@ -460,9 +497,12 @@ end
 
 p "Creating Reviews"
 rating = [-1, 1, 1, 1]
-500.times do
+((User.all.count * Post.all.count * 0.8).floor).times do
   Review.create!(rating: rating.sample, post: Post.all.sample, user: User.all.sample)
 end
+
+
+
 
 
 p "##########################################################################################"
@@ -475,6 +515,6 @@ p "Favorites: #{'🍌' * Favorite.count}"
 p "Profiles: #{'🍌' * Profile.count}"
 p "HealthDatum: #{'🍌' * HealthDatum.count}"
 p "Tags: #{'🍌' * Tag.count}"
-p "Tags: #{ Tag.count}"
+p "Tags: #{Tag.count}"
 p "Taggings: #{'🍌' * Tagging.count}"
 p "Taggings: #{Tagging.count}"
