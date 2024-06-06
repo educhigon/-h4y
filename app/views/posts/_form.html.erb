@@ -1,17 +1,27 @@
 <%= simple_form_for(post) do |f| %>
   <div data-controller="preview">
-    <%= f.input :photos, as: :file, input_html: {
-      data: {
-        preview_target: "photo",
-        action: "change->preview#displayPreview" },
-        multiple: true,
-        class:  'upload-img' } %>
-      <!---------------------------------->
+    <%= f.input :photos, as: :file,
 
-    <div>
+      input_html: {
+
+        data: {
+          preview_target: "photo",
+          action: "change->preview#displayPreview"
+        },
+          multiple: true,
+          class:  'upload-img d-none'
+        },
+        label_html: {
+          class: 'upload-img'
+        },
+        label: 'Upload a photo' %>
+
+
+      <!---------------------------------->
+    
       <div class="preview img-list-sm" data-preview-target="preview">
       </div>
-    </div>
+
   </div>
       <!---------------------------------->
   <%= f.input :title, input_html: { class: 'input-card' }  %>
@@ -36,7 +46,7 @@
 <!-- Button trigger modal -->
 <div data-controller="print-tags">
 <div class="buttondiv " style="display:flex">
-  <button type="button" class="sec-btn me-3">
+  <button type="button" class="sec-btn">
     Recommend Tags
   </button>
   <button type="button" class="sec-btn ms-3" data-bs-toggle="modal" data-bs-target="#exampleModal">
