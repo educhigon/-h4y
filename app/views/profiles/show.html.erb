@@ -1,4 +1,4 @@
-<div class="container">
+<div class="container position-relative">
   <div class="text-center">
     <div>
       <% if @profile.profile_picture.present? %>
@@ -27,6 +27,9 @@
   <% else %>
     <%= button_to "Check my posts", friend_posts_path(@profile.user.id), method: :get , class:"sec-btn"%>
   <% end %>
-
-
+  <div class="position-absolute">
+    <div class="d-flex justify-content-center">
+      <%= link_to "Learn how we recommend content", ds_explained_path, method: :get , class:"text-link"%>
+    </div>
+  </div>
 </div>

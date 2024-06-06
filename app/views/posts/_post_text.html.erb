@@ -12,9 +12,9 @@
 
     <%= link_to post_path(post), class: "description" do %>
         <% if post.content.length > 80 %>
-          <%= post.content[0..80] %>...
+          <p style="white-space: pre-wrap;"><%= post.content[0..80] %>...</p>
         <% else %>
-          <%= post.content[0..80] %>
+          <p style="white-space: pre-wrap;"><%= post.content[0..80] %></p>
         <% end  %>
     <% end %>
   </div>
@@ -32,7 +32,7 @@
     </div>
 
     <div class="description">
-      <%= post.content %>
+      <p style="white-space: pre-wrap;"><%= post.content %></p>
     </div>
   </div>
 <% end %>

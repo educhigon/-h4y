@@ -1,34 +1,39 @@
-<div class="container_signup">
+<div class="container container-login">
 <div class="text-center pt-3 text-light">
-<h2>Sign up</h2>
+<h1 class="font-tiny mb-1 display-1" >Sign Up</h1>
+<%= svg_icon('Lamp') %>
 </div>
 <%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
   <%= f.error_notification %>
 
-  <div class="form-inputs">
+  <div class="form-inputs form-label-login mt-2">
     <%= f.input :email,
                 required: true,
                 autofocus: true,
-                input_html: { autocomplete: "email" }%>
+                input_html: { autocomplete: "email",  class:"input-card" }%>
     <%= f.input :password,
                 required: true,
-                hint: ("#{@minimum_password_length} characters minimum" if @minimum_password_length),
-                input_html: { autocomplete: "new-password" } %>
+                hint: ("#{@minimum_password_length} characters minimum" unless @minimum_password_length),
+                input_html: { autocomplete: "new-password", class:"input-card"  } %>
     <%= f.input :password_confirmation,
                 required: true,
-                input_html: { autocomplete: "new-password" } %>
+                input_html: { autocomplete: "new-password", class:"input-card"  } %>
   </div>
 
-  <div class="form-actions signup-button">
-    <%= f.button :submit, "Sign up" %>
+  <div class="form-actions">
+    <%= f.button :submit, "Sign up", class: "submit-button"  %>
     <% end %>
   </div>
 
   <%- if devise_mapping.confirmable? && controller_name != 'confirmations' %>
-    <%= link_to "Didn't receive confirmation instructions?", new_confirmation_path(resource_name) %><br />
+    <%= link_to "Didn't receive confirmation instructions?", new_confirmation_path(resource_name) %>
   <% end %>
 
-  <%- if controller_name != 'sessions' %>
-    <%= link_to "Log in", new_session_path(resource_name) %><br />
-  <% end %>
+   <div class="login-link mt-3 flex-center-items ">
+         <p>Already have an Account !</p>
+          <%- if controller_name != 'sessions' %>
+            <%= link_to "Log in", new_session_path(resource_name) %>
+          <% end %>
+  </div>
+
 </div>
