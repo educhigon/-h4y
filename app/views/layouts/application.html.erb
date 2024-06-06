@@ -17,13 +17,17 @@
   </head>
 
   <body>
-    <%= render "shared/header", route_prefix: @route_prefix %>
-    <%= render "shared/flashes" %></div>
+      <% unless controller_name == "sessions" || controller_name == "registrations" %>
+        <%= render "shared/header", route_prefix: @route_prefix %>
+      <% end %>
+   <%#= render "shared/flashes" %>
     <%= yield %>
     <% if controller_name == 'comments' %>
       <%= render 'shared/message_footer' %>
     <% else %>
-      <%= render 'shared/footer' %>
+      <% unless controller_name == "sessions" || controller_name == "registrations" %>
+        <%= render 'shared/footer' %>
+      <% end %>
     <% end %>
   </body>
 </html>
