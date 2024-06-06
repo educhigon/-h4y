@@ -11,9 +11,20 @@
 @import "components/index";
 @import "pages/index";
 
-body {
+.body {
   color: $Text!important;
   // padding-bottom: 80px;
   background-color: #FFF5ED;
   margin-bottom: 80px;
+}
+
+.position-relative{
+  position: relative;
+  height: 650px;
+}
+
+.position-absolute{
+  width: 90%;
+  bottom: 0px;
+  margin: auto;
 }

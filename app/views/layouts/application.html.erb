@@ -16,7 +16,11 @@
     <%= javascript_importmap_tags %>
   </head>
 
-  <body>
+  <% unless controller_name == "sessions" || controller_name == "registrations" %>
+    <body class="body">
+  <% else %>
+    <body>
+  <% end %>
       <% unless controller_name == "sessions" || controller_name == "registrations" %>
         <%= render "shared/header", route_prefix: @route_prefix %>
       <% end %>

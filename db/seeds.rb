@@ -383,7 +383,7 @@ post = Post.new(
   content: "",
   user: a)
 # img = File.open('/home/gonzalo/code/educhigon/ h4y/app/assets/images/yoga4.png', "rb")
-img = URI.open('https://res.cloudinary.com/wagon/image/upload/c_fill,g_face,h_200,w_200/v1696334260/xeoh9bn2dq3runng1m4v.jpg')
+img = URI.open('https://asset.cloudinary.com/ddzfjc1xy/02e0c91763845a512e6f4d1e0635c919')
 post.photos.attach(io: img, filename: "", content_type: "image/png")
 post.save
 
@@ -396,14 +396,11 @@ post = Post.new(
   title: "Backpain? You've got to try yoga!",
   content: "",
   user: a)
-# img = File.open('/home/gonzalo/code/educhigon/ h4y/app/assets/images/yoga1.png', "rb")
-img = URI.open('https://res.cloudinary.com/wagon/image/upload/c_fill,g_face,h_200,w_200/v1696334260/xeoh9bn2dq3runng1m4v.jpg')
+img = URI.open('https://asset.cloudinary.com/ddzfjc1xy/aeb8f7b0ca26d1057048bb5a95c5fc13')
 post.photos.attach(io: img, filename: "", content_type: "image/png")
-# img = File.open('/home/gonzalo/code/educhigon/ h4y/app/assets/images/yoga2.png', "rb")
-img = URI.open('https://res.cloudinary.com/wagon/image/upload/c_fill,g_face,h_200,w_200/v1696334260/xeoh9bn2dq3runng1m4v.jpg')
+img = URI.open('https://asset.cloudinary.com/ddzfjc1xy/592f3c77cea4f185001b421e10f5b4b3')
 post.photos.attach(io: img, filename: "", content_type: "image/png")
-# img = File.open('/home/gonzalo/code/educhigon/ h4y/app/assets/images/yoga3.png', "rb")
-img = URI.open('https://res.cloudinary.com/wagon/image/upload/c_fill,g_face,h_200,w_200/v1696334260/xeoh9bn2dq3runng1m4v.jpg')
+img = URI.open('https://asset.cloudinary.com/ddzfjc1xy/b2c470b5f204245a6a7bab7f1e0c1652')
 post.photos.attach(io: img, filename: "", content_type: "image/png")
 post.save
 
@@ -416,8 +413,7 @@ post = Post.new(
   title: "Are you stressed? We have just the thing to help you",
   content: "",
   user: b)
-# img = File.open('/home/gonzalo/code/educhigon/ h4y/app/assets/images/stressed.png', "rb")
-img = URI.open('https://res.cloudinary.com/wagon/image/upload/c_fill,g_face,h_200,w_200/v1696334260/xeoh9bn2dq3runng1m4v.jpg')
+img = URI.open('https://asset.cloudinary.com/ddzfjc1xy/11cd6e8e3c3021d11298fe10665e3004')
 post.photos.attach(io: img, filename: "", content_type: "image/png")
 post.save
 
@@ -430,8 +426,7 @@ post = Post.new(
   title: "5 ways to reinvigorate after an exhaustive project",
   content: "",
   user: c)
-# img = File.open('/home/gonzalo/code/educhigon/ h4y/app/assets/images/reinvigorate.png', "rb")
-img = URI.open('https://res.cloudinary.com/wagon/image/upload/c_fill,g_face,h_200,w_200/v1696334260/xeoh9bn2dq3runng1m4v.jpg')
+img = URI.open('https://asset.cloudinary.com/ddzfjc1xy/6528656fc9e0a9aab26f13067b3e1165')
 post.photos.attach(io: img, filename: "", content_type: "image/png")
 post.save
 
@@ -443,14 +438,11 @@ post = Post.new(
   title: "How to overcome post Bootcamp depression ",
   content: "",
   user: d)
-# img = File.open('/home/gonzalo/code/educhigon/ h4y/app/assets/images/escobar2.png', "rb")
-img = URI.open('https://res.cloudinary.com/wagon/image/upload/c_fill,g_face,h_200,w_200/v1696334260/xeoh9bn2dq3runng1m4v.jpg')
+img = URI.open('https://asset.cloudinary.com/ddzfjc1xy/b8da31b08f23350e7336491d52325899')
 post.photos.attach(io: img, filename: "", content_type: "image/png")
-# img = File.open('/home/gonzalo/code/educhigon/ h4y/app/assets/images/escobar1.png', "rb")
-img = URI.open('https://res.cloudinary.com/wagon/image/upload/c_fill,g_face,h_200,w_200/v1696334260/xeoh9bn2dq3runng1m4v.jpg')
+img = URI.open('https://asset.cloudinary.com/ddzfjc1xy/1e95828b8a7669fdac6480dba5d1ff2d')
 post.photos.attach(io: img, filename: "", content_type: "image/png")
-# img = File.open('/home/gonzalo/code/educhigon/ h4y/app/assets/images/escobar3.png', "rb")
-img = URI.open('https://res.cloudinary.com/wagon/image/upload/c_fill,g_face,h_200,w_200/v1696334260/xeoh9bn2dq3runng1m4v.jpg')
+img = URI.open('https://asset.cloudinary.com/ddzfjc1xy/3742fa0dd6c9c951d74938480b87ab49')
 post.photos.attach(io: img, filename: "", content_type: "image/png")
 post.save
 
