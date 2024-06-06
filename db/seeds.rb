@@ -26,7 +26,7 @@ topics = [
   "Holistic Skincare",
   "Healing Homeopathy",
   "Stress Reduction Techniques",
-  "Yoga for Balance:"
+  "Yoga for Balance"
 ]
 
 images = [
@@ -230,12 +230,12 @@ f1.profile_picture.attach(io: img, filename: "", content_type: "image/png")
 f1.update!(name: 'Iraxte', bio: "")
 
 
-g = User.create!(email: "napoleon@lewagon.com", password: "password")
-g1 = Profile.where(user_id: g.id).first
-g2 = "https://upload.wikimedia.org/wikipedia/commons/thumb/4/4d/Napoleon_at_the_Great_St._Bernard_-_Jacques-Louis_David_-_Google_Cultural_Institute.jpg/800px-Napoleon_at_the_Great_St._Bernard_-_Jacques-Louis_David_-_Google_Cultural_Institute.jpg"
-img = URI.open(g2)
-g1.profile_picture.attach(io: img, filename: "", content_type: "image/png")
-g1.update!(name: 'Napoleon', bio: "Bonjour")
+# g = User.create!(email: "napoleon@lewagon.com", password: "password")
+# g1 = Profile.where(user_id: g.id).first
+# g2 = "https://upload.wikimedia.org/wikipedia/commons/thumb/4/4d/Napoleon_at_the_Great_St._Bernard_-_Jacques-Louis_David_-_Google_Cultural_Institute.jpg/800px-Napoleon_at_the_Great_St._Bernard_-_Jacques-Louis_David_-_Google_Cultural_Institute.jpg"
+# img = URI.open(g2)
+# g1.profile_picture.attach(io: img, filename: "", content_type: "image/png")
+# g1.update!(name: 'Napoleon', bio: "Bonjour")
 
 h = User.create!(email: "eli@lewagon.com", password: "password")
 h1 = Profile.where(user_id: h.id).first
@@ -413,7 +413,21 @@ end
 #### post 2 yoga  kat
 post = Post.new(
   title: "Unlock Your Inner Zen: 5 Yoga Poses for Ultimate Relaxation",
-  content: "",
+  content: "🌟 Unlock Your Inner Zen: 5 Yoga Poses for Ultimate Relaxation 🧘‍♂️✨
+
+  Hey wellness community! Today, I’m excited to dive into the transformative power of yoga with you all. If you're looking to melt away stress and embrace deep relaxation, these five poses are your new best friends. 🕊️
+
+  Child’s Pose (Balasana) - This gentle stretch calms the brain and helps relieve stress and fatigue. Perfect for a soothing start or finish to your practice. 🌼
+
+  Cat-Cow (Marjaryasana-Bitilasana) - A wonderful pose to warm up the spine and relax the body. Flow between these poses to relieve tension in your back and neck. 🐈🐄
+
+  Legs-Up-The-Wall Pose (Viparita Karani) - Ideal for easing anxiety and stress. This pose also helps with sleep issues by calming the nervous system. 🌙
+
+  Seated Forward Bend (Paschimottanasana) - Deeply calming for the mind, this pose also stretches the spine and helps relieve the symptoms of menopause and menstrual discomfort. 🌾
+
+  Corpse Pose (Savasana) - The ultimate relaxation pose. Spend a few minutes in Savasana at the end of your session to feel a profound sense of peace and rejuvenation. 💫
+
+  Take a little time each day to practice these poses, and watch your stress levels drop while your inner peace blooms. Remember, a relaxed mind is a happy mind! 🌿",
   user: a)
 img = URI.open('https://res.cloudinary.com/wagon/image/upload/c_fill,g_face,h_200,w_200/v1696334260/xeoh9bn2dq3runng1m4v.jpg')
 post.photos.attach(io: img, filename: "", content_type: "image/png")
@@ -451,7 +465,21 @@ end
 #### posts post DS
 post = Post.new(
   title: "Life After Achievement: Setting New Goals When the High Wears Off",
-  content: "",
+  content: "Hey everyone! Achieving big goals can give us an incredible high, leaving us feeling on top of the world... until the excitement fades. Ever find yourself asking, 'What's next?' Here's how to navigate that post-achievement phase and set new, meaningful goals. 🚀
+
+  Reflect on Your Journey - Take some time to reflect on what you’ve accomplished. Understanding what you enjoyed (or didn’t) can guide your next steps. 🤔
+
+  Seek New Inspirations - Look for new sources of inspiration. Whether it’s books, podcasts, or conversations with mentors, fresh ideas can spark new passions. 📚
+
+  Set SMART Goals - Ensure your new goals are Specific, Measurable, Achievable, Relevant, and Time-bound. SMART goals can help you move forward with purpose. 🎯
+
+  Embrace Learning - Consider picking up a new skill or deepening your knowledge in a different area. Learning keeps your brain engaged and opens up new possibilities. 🧠
+
+  Focus on Personal Growth - Beyond career or external achievements, consider setting goals related to personal development like improving your health, learning a new hobby, or building stronger relationships. 💪
+
+  Give Back - Sometimes, the most fulfilling goals involve giving back to the community. Find a cause you care about and see how you can contribute. 🌍
+
+  Remember, life is a continuous journey of learning and growth. Each achievement is just a stepping stone to the next adventure. Here’s to your next chapter! 🥂",
   user: g)
 img = URI.open('https://res.cloudinary.com/wagon/image/upload/c_fill,g_face,h_200,w_200/v1696334260/xeoh9bn2dq3runng1m4v.jpg')
 post.photos.attach(io: img, filename: "", content_type: "image/png")
