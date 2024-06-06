@@ -1,12 +1,50 @@
-.container_login{
-  background-color: #00653B;
-  height: 100vh;
-  width: 393px;
-  height: 852px;
-  gap: 0px;
-  border-radius: 24px 24px 24px 24px;
+.container-login{
+  background-color: $Brand-color;
+  padding: 48px 24px 200px 24px;
 }
 
-.class_form-inputs {
+.class-form-inputs {
   color: #fff;
+}
+
+.form-label-login {
+  font-size: 16px !important;
+  label{
+    font-weight: 300 !important;
+    color: #fff;
+  }
+}
+
+.login-link{
+  a{
+    text-decoration: none;
+    color: $Sec-color;
+    font-size: 14px;
+   }
+   p{
+    color: white;
+    font-size: 14px;
+    font-weight: 200;
+    padding-right: 8px;
+   }
+}
+
+.flex-center-items{
+  display: flex !important;
+  flex-wrap: nowrap;
+  align-content: space-between;
+  justify-content: center;
+}
+
+.pri-btn-login {
+  text-align: center;
+  font-weight: 400;
+  font-style: normal;
+  height: 48px;
+  width: fill;
+  border-radius: 50px;
+  color: white;
+  background-color: $Sec-color;
+  text-decoration: none;
+  justify-content: center;
 }
