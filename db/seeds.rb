@@ -164,7 +164,8 @@ def read_response(response)
 
   unless title.empty? && content.empty?
     begin
-      fresh_post = Post.create!(title: title, content: post_proc_content, user: User.all.sample)
+      random_user = User.where.not(id: User.first.id).order("RANDOM()").first
+      fresh_post = Post.create!(title: title, content: post_proc_content, user: random_user)
     rescue => e
       puts "error saving post: #{e.message}"
     end
@@ -301,7 +302,7 @@ end
 # 10.times do
 #   Favorite.create!(post: Post.all.sample, user: User.all.sample)
 #
-p "Creating Tags and Taggings 😮 "
+p "Creating Tags and Taggings 😮"
 tags = ["Anxiety", "Stress", "Depression", "Mindfulness", "Wellness", "Mental Health Therapy", "Resilience", "Self-care", "Psychology", "Happiness", "Diabetes Prevention", "Glucose", "Insulin", "Diet", "Glycemic", "Fitness", "Foot Care", "Type 1 Diabetes", "Type 2 Diabetes", "Cardio", "Heart Diet", "Cholesterol", "Blood Pressure", "Heart Care", "Physical Rehab", "Stress", "Surgery", "Heart Rate", "Heart Health", "Density", "Calcium", "Osteoporosis", "Joints", "Arthritis", "Fracture", "Vitamins", "Physical Therapy", "Aging", "Bone Health", "Nutrition", "Exercise", "Checkups", "Hydration", "Sleep", "Weight", "Seasonal", "Prevention", "Vaccines", "Health"]
 tags.each do |tag|
   Tag.create!(name: tag)
@@ -389,7 +390,7 @@ post = Post.new(
 
   This incredible backbend not only alleviates tension in your lower back but also helps to improve your posture and flexibility. 🧘‍♂️ I've been adding this stretch to my morning routine, and the relief I feel each day is just mind-blowing! 🌅
 
-  If you’re ready to transform your day with just one simple move, give the Cobra Pose a shot. Trust me, your back will thank you! 🙏 Don’t forget to breathe deeply and enjoy the stretch. Let's get our flex on and kiss that back pain goodbye! 🚀",
+  If you’re ready to transform your day and your backpain with just one simple move, give the Cobra Pose a shot. Trust me, your back will thank you! 🙏 Don’t forget to breathe deeply and enjoy the stretch. Let's get our flex on and kiss that back pain goodbye! 🚀",
   user: e)
 # img = File.open('/home/gonzalo/code/educhigon/ h4y/app/assets/images/streching1.png', "rb")
 img = URI.open('https://res.cloudinary.com/wagon/image/upload/c_fill,g_face,h_200,w_200/v1696334260/xeoh9bn2dq3runng1m4v.jpg')
@@ -400,8 +401,10 @@ img = URI.open('https://res.cloudinary.com/wagon/image/upload/c_fill,g_face,h_20
 post.photos.attach(io: img, filename: "", content_type: "image/png")
 post.save
 
-Comment.create!(content: "Wow! This is relaxing!", user: User.all.sample, post: post)
-Comment.create!(content: "Good stuff :) !", user: User.all.sample, post: post)
+random_user = User.where.not(id: User.first.id).order("RANDOM()").first
+
+Comment.create!(content: "Wow! This is relaxing!", user: random_user, post: post)
+Comment.create!(content: "Good stuff :) !", user: random_user, post: post)
 Comment.create!(content: "Great exercise! I would also recommend to always do some prevention exercises 😊", user: a, post: post)
 
 5.times do
