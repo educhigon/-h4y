@@ -22,7 +22,11 @@
     <% else %>
       <%= button_to "Fill Survey Form", new_health_datum_path, method: :get , class:"sec-btn"%>
     <% end %>
+    <div class="divider"></div>
+    <%= button_to "Log out", destroy_user_session_path, method: :delete, class:"sec-btn"%>
   <% else %>
     <%= button_to "Check my posts", friend_posts_path(@profile.user.id), method: :get , class:"sec-btn"%>
   <% end %>
+
+
 </div>

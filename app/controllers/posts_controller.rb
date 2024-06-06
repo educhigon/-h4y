@@ -13,7 +13,7 @@ class PostsController < ApplicationController
       .group("posts.id")
       .order("shared_tags DESC")
     end
-    @posts += Post.all
+    @posts += Post.all.order(created_at: :desc)
   end
 
   def index_recommended

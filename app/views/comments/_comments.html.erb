@@ -4,8 +4,8 @@
       </div>
 
       <div class="ballon">
-        <%= link_to friend_posts_path(comment.user), class: "post-content" do %>
-          <h5><%= comment.user.profile.name.capitalize %></h5>
+        <%= link_to profile_path(comment.user.profile.id), class: "post-content" do %>
+          <h5><%= comment.user.profile.name.nil? ? "" : comment.user.profile.name.capitalize %></h5>
         <% end %>
         <p><%= comment.content %></p>
       </div>

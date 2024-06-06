@@ -4,8 +4,8 @@
     <%= f.input :occupation, input_html: {class: "text-dark input-boxes"} %>
     <%= f.input :gender, collection: HealthDatum.genders, input_html: { class: "text-dark input-boxes input-card" }, prompt: "Select Gender" %>
     <%= f.input :age, input_html: {class: "text-dark input-boxes input-card"} %>
-    <%= f.input :weight, input_html: {class: "text-dark input-boxes input-card"} %>
-    <%= f.input :height, input_html: {class: "text-dark input-boxes input-card"} %>
+    <%= f.input :weight, label: "Weight (kg)", input_html: {class: "text-dark input-boxes input-card"} %>
+    <%= f.input :height, label: "Height (cm)", input_html: {class: "text-dark input-boxes input-card"} %>
     <%= f.input :sleeping_hours, input_html: { value: health.sleeping_hours.to_i, class: "text-dark input-boxes input-card" } %>
     <%= f.input :days_indoors, collection: HealthDatum.indoors, input_html: { class: "text-dark input-boxes input-card" }, prompt: "Days indoors" %>
 

@@ -17,4 +17,11 @@ class User < ApplicationRecord
   has_many :taggings, as: :taggable
   has_many :tags, through: :taggings
 
+  after_save :assign_profile
+
+  def assign_profile
+    Profile.create!(user_id: self.id)
+  end
+
+
 end
