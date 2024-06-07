@@ -437,8 +437,8 @@ post.save
 
 random_user = User.where.not(id: User.first.id).order("RANDOM()").first
 
-Comment.create!(content: "Wow! This is relaxing!", user: random_user, post: post)
-Comment.create!(content: "Good stuff :) !", user: random_user, post: post)
+Comment.create!(content: "Wow! This is relaxing!", user: b, post: post)
+Comment.create!(content: "Good stuff :) !", user: d, post: post)
 Comment.create!(content: "Great exercise! I would also recommend to always do some prevention exercises 😊", user: a, post: post)
 
 5.times do
